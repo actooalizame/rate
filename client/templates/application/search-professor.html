@@ -1,0 +1,26 @@
+<template name="searchProfessors">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <h3>Busca Profesores</h3>
+      <div class="search-input">
+        {{> esInput index="professors" placeholder="Nombre o Apellido" }}
+      </div>
+      {{#esEach index="professors"}}
+      <div class="panel panel-default">
+        <div class="panel-body results">
+          <h4>{{name}}</h4>
+          <h5>{{schoolName}} | <small>{{department}}</small></h5>
+
+        </div>
+      </div>
+      {{/esEach}}      
+      {{> esLoadMoreButton index="professors"}}
+      {{#ifEsHasNoResults index="professors"}}
+      <div class="no-results"><h4>No hay resultados!</h4></div>
+      {{/ifEsHasNoResults}}
+      {{#ifEsIsSearching index="professors"}}
+      <div>Buscando...</div>
+      {{/ifEsIsSearching}}
+    </div>
+  </div>
+</template>

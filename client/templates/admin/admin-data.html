@@ -1,0 +1,39 @@
+<template name="adminData">
+	
+	<div class="col-sm-6">
+		<h3>Profesores</h3>
+		{{#each professors}}
+		<ul>
+			<li>Nombre: {{name}}</li>
+			<li>Universidad: {{schoolName}}</li>
+			<li>Departamento: {{department}}</li>
+
+		</ul>
+		<hr>
+		{{/each}}
+	</div>
+
+	<div class="col-sm-6">
+		<h3>Universidades</h3>
+		{{#each schools}}
+		<ul>
+			<li>Nombre: <strong>{{name}}</strong></li>
+			<li>Provincia: {{state}}</li>
+			<li><h4>Departamentos</h4></li>
+			{{#each departments}}
+			<ul>
+				<li>{{department}}</li>
+			</ul>
+			{{/each}}
+			<h4>Profesores</h4>
+			{{#each schoolProfessors}}
+			<ul>
+				<li>{{name}}</li>
+			</ul>
+			{{/each}}
+			
+		</ul>
+		<br>
+		{{/each}}
+	</div>
+</template>

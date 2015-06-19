@@ -1,0 +1,28 @@
+<template name="addSchool">
+
+		<h3>Agrega una universidad</h3>
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<form class="add-school">
+				  <div class="form-group">
+				  	<div class="col-sm-6">
+				  		<label for="nombre">Nombre</label>
+				    	<input type="text" class="form-control" name="schoolName" id="nombre" placeholder="Nombre">
+				  	</div>
+				  	<div class="col-sm-6">
+				  		<label for="state">State</label>
+				    	<input type="text" class="form-control" name="schoolState" id="state" placeholder="State">
+				  	</div>
+				  </div>
+			  	
+			  	<div class="col-md-12">		  
+			  		<button type="submit" class="btn btn-info">Agregar</button>
+			  	</div>	
+				</form>
+			</div>
+		</div>
+		<div class="row">
+			{{> addDepartment}}
+		</div>
+	
+</template>

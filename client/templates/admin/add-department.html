@@ -1,0 +1,24 @@
+<template name="addDepartment">
+	{{#each schools}}
+	<ul>
+		<li>{{name}} | {{state}}</li>
+		<form class="add-department">
+		  <div class="form-group">
+		  	<div class="col-sm-6">
+		  		<label for="nombre">Departamento</label>
+		  		{{#each departments}}
+						{{department}}
+		  		{{/each}}
+		    	<input type="text" class="form-control" name="department" id="nombre" placeholder="Agrega un departamento">
+		  	</div>
+		  	
+		  </div>
+	  	<div class="col-md-12">		  
+	  		<button class="btn btn-info">Agregar</button>
+	  	</div>	
+		</form>
+		<button class="btn btn-info set-done">Terminar</button>
+	</ul>
+	{{/each}}
+
+</template>

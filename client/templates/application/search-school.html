@@ -1,0 +1,25 @@
+<template name="searchSchools">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <h3>Busca Universidades</h3>
+      <div class="search-input">
+      {{> esInput index="schools" placeholder="Nombre o Region" }}
+      </div>
+        {{#esEach index="schools"}}
+        <div class="panel panel-default">
+          <div class="panel-body results">
+            <h4>{{name}}</h4>
+            <h5>{{state}}</h5>
+          </div>
+        </div>
+        {{/esEach}}
+      {{> esLoadMoreButton index="schools"}}
+      {{#ifEsHasNoResults index="schools"}}
+      <div class="no-results"><h4>No hay resultados!</h4></div>
+      {{/ifEsHasNoResults}}
+      {{#ifEsIsSearching index="schools"}}
+      <div>Buscando...</div>
+      {{/ifEsIsSearching}}
+    </div>
+  </div>
+</template>
