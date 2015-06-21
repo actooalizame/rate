@@ -1,24 +1,24 @@
-<template name="searchProfessors">
+<template name="rateProfessors">
   <div class="panel panel-default">
     <div class="panel-body">
-      <h3>Busca Profesores</h3>
+      <h3>Califica Profesores</h3>
       <div class="search-input">
-        {{> esInput index="professors" placeholder="Nombre o Apellido" reactive="false" id="searchProfessors"}}
+        {{> esInput index="professors" placeholder="Busca por Nombre o Apellido" reactive="false" }}
       </div>
-      {{#esEach index="professors" id="searchProfessors"}}
+      {{#esEach index="professors"}}
       <div class="panel panel-default">
         <div class="panel-body results">
-          <h4>{{name}}</h4>
+          <a href="/rate-professor/{{_id}}"><h4>{{name}}</h4></a>
           <h5>{{schoolName}} | <small>{{department}}</small></h5>
 
         </div>
       </div>
       {{/esEach}}      
       {{> esLoadMoreButton index="professors"}}
-      {{#ifEsHasNoResults index="professors" id="searchProfessors"}}
+      {{#ifEsHasNoResults index="professors"}}
       <div class="no-results"><h4>No hay resultados!</h4></div>
       {{/ifEsHasNoResults}}
-      {{#ifEsIsSearching index="professors" id="searchProfessors"}}
+      {{#ifEsIsSearching index="professors"}}
       <div>Buscando...</div>
       {{/ifEsIsSearching}}
     </div>

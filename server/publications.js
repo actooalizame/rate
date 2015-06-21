@@ -9,3 +9,9 @@ Meteor.publish('allProfessors', function(){
 Meteor.publish('allDepartments', function(){
 	return Departments.find({});
 });
+
+Meteor.publish('hook', function() {
+  return Meteor.users.find(this.userId, {fields: {
+    hook: 1
+  }});
+});

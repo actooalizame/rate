@@ -2,13 +2,16 @@ ul li {
 	list-style: none;
 }
 
+#login-buttons {
+  margin-top: .85em;
+}
+
 .home-items {
   text-align: center;
 }
 
 .results:hover {
 	background-color: #e7e7e7;
-	cursor: pointer;
 }
 
 .modal-home {

@@ -3,16 +3,16 @@
     <div class="panel-body modal-rate">
 	
 			<h4>Evalúa Profesores o Universidades</h4>
-		  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target=".bs-example-modal">Ver</button>
-
-		  <div class="modal fade bs-example-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-		    <div class="modal-dialog modal-sm">
-		      <div class="modal-content modal-home">
-		        {{> searchProfessors }}<br>
-		        {{> searchSchools }}
-		      </div>
-		    </div>
-		  </div>
+			<button class="btn btn-primary btn-lg" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+			  Buscar
+			</button>
+			<div class="collapse" id="collapseExample">
+			  <div class="well">
+			    {{> rateProfessors }}<br>
+			    {{> rateSchools }}
+			  </div>
+			</div>
+		  
 		</div>
   </div>
 </template>

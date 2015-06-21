@@ -9,3 +9,5 @@ insecure
 iron:router
 twbs:bootstrap
 matteodem:easy-search
+accounts-facebook
+accounts-ui
