@@ -27,6 +27,12 @@ Template.viewProfessor.helpers({
 		var professorId = this._id;
 		return Profreviews.find({professorId:professorId});
 	},
+	'ownRating': function(){
+		var user = Meteor.user(),
+				userId = user.hook,
+				professorId = this._id;
+		return Profreviews.findOne({professorId: professorId, userId: userId});
+	},
 	'ratingsCount': function(){
 		var professorId = this._id;
 		return Profreviews.find({professorId:professorId}).fetch().length;

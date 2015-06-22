@@ -66,6 +66,7 @@ Template.rateProfessor.events({
 		Meteor.call('pushHelp', professorId,help);
 		Meteor.call('pushClarity', professorId,clarity);
 		Meteor.call('pushEasy', professorId,easy);
+		Router.go('/professor/'+professorId);
 
 	}
 });

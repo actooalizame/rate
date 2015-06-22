@@ -10,6 +10,29 @@
 
 			<h3>Easiness: {{averageEasy}}</h3>
 		</div>
+		<!--<div class="col-sm-9">
+			{{#with ownRating}}
+			<div class="panel panel-default">
+		    <div class="panel-body">
+					<div class="col-sm-3">
+						<h4>Helpfulness: {{help}}</h4>
+						<h4>Clarity: {{clarity}}</h4>
+						<h4>Easiness: {{easy}}</h4>
+					</div>
+					<div class="col-sm-4">
+						<h4>Curso: {{courseCode}}</h4>
+						<p>Taken for credit: {{credit}}</p>
+						<p>Textbook Use: {{txtuse}}</p>
+						<p>Interest: {{interest}}</p>
+						<p>Grade: {{grade}}</p>
+					</div>
+					<div class="col-sm-5">
+						<h4>{{comment}}</h4>
+					</div>
+				</div>
+			</div>
+			{{/with}}
+		</div>-->
 	</div>
 	<h4>{{ratingsCount}} Student Ratings</h4>
 	{{#each ratings}}
@@ -21,6 +44,7 @@
 				<h4>Easiness: {{easy}}</h4>
 			</div>
 			<div class="col-sm-4">
+				<h4>Curso: {{courseCode}}</h4>
 				<p>Taken for credit: {{credit}}</p>
 				<p>Textbook Use: {{txtuse}}</p>
 				<p>Interest: {{interest}}</p>
