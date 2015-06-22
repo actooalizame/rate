@@ -37,19 +37,6 @@ Template.rateProfessor.rendered = function(){
 };
 
 
-Template.rateProfessor.helpers({
-	'averageHelp': function(){
-		var professorId = this._id,
-				professor = Professors.findOne({_id: professorId}),
-				averageHelp = professor.help,
-				averageHelpSum = eval(averageHelp.join('+')),
-				helpLength = averageHelp.length;
-		return averageHelpSum / helpLength;
-	}
-
-});
-
-
 Template.rateProfessor.events({
 
 	'change .yes': function(){

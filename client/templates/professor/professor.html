@@ -1,0 +1,36 @@
+<template name="viewProfessor">
+	<h1>{{name}}</h1>
+	<h4>Profesor en el departamento de {{department}}<br>{{schoolName}}</h4>
+	<div class="row">
+		<div class="well col-sm-3 professor-averages">
+			<h3><strong>Average</strong></h3>
+			<h3>Helpfulness: {{averageHelp}}</h3>
+
+			<h3>Clarity: {{averageClarity}}</h3>
+
+			<h3>Easiness: {{averageEasy}}</h3>
+		</div>
+	</div>
+	<h4>{{ratingsCount}} Student Ratings</h4>
+	{{#each ratings}}
+	<div class="panel panel-default">
+    <div class="panel-body">
+			<div class="col-sm-3">
+				<h4>Helpfulness: {{help}}</h4>
+				<h4>Clarity: {{clarity}}</h4>
+				<h4>Easiness: {{easy}}</h4>
+			</div>
+			<div class="col-sm-4">
+				<p>Taken for credit: {{credit}}</p>
+				<p>Textbook Use: {{txtuse}}</p>
+				<p>Interest: {{interest}}</p>
+				<p>Grade: {{grade}}</p>
+			</div>
+			<div class="col-sm-5">
+				<h4>{{comment}}</h4>
+			</div>
+		</div>
+	</div>
+	<hr>
+{{/each}}
+</template>

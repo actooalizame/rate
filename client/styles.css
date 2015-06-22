@@ -65,3 +65,7 @@ input, button, select, textarea {
   font-size: inherit;
   line-height: inherit;
 }
+
+.professor-averages {
+  text-align: center;
+}
