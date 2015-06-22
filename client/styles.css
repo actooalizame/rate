@@ -22,6 +22,26 @@ ul li {
   margin-bottom: .9em;
 }
 
+.rate-professor {
+  margin-top: 4em;
+}
+
+.rate-prof-form {
+  margin-bottom: 4em;
+}
+
+.rate-display {
+  margin-top: 1em;
+}
+
+.form-section {
+  margin: 2.5em 0 5em;
+}
+
+.form-section h3{
+  margin-bottom: 2.5em
+}
+
 .search-input input {
   display: block;
   width: 100%;

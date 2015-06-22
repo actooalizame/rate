@@ -11,3 +11,5 @@ twbs:bootstrap
 matteodem:easy-search
 accounts-facebook
 accounts-ui
+linto:jquery-ui
+maxharris9:meteor-bootstrap-slider

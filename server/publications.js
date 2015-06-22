@@ -15,3 +15,7 @@ Meteor.publish('hook', function() {
     hook: 1
   }});
 });
+
+Meteor.publish('Profreviews', function(){
+	return Profreviews.find({});
+});
