@@ -1,4 +1,10 @@
 Meteor.methods({
+	'updateUserSchool': function(userId, singleSchool){
+		Meteor.users.update(
+			{ _id: userId },
+			{$set: {university:singleSchool}}
+		);
+	},
 	'insertProfessor': function(name, schoolName, schoolId, department){
 		Professors.insert({
 			name: name,
@@ -7,7 +13,8 @@ Meteor.methods({
 			department: department,
 			help: [],
 			clarity: [],
-			easy: []
+			easy: [],
+			createdAt: new Date()
 		});
 	},
 	'insertSchool': function(name,state){

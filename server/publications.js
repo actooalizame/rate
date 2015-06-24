@@ -10,9 +10,16 @@ Meteor.publish('allDepartments', function(){
 	return Departments.find({});
 });
 
+
 Meteor.publish('hook', function() {
   return Meteor.users.find(this.userId, {fields: {
     hook: 1
+  }});
+});
+
+Meteor.publish('university', function() {
+  return Meteor.users.find(this.userId, {fields: {
+    university: 1
   }});
 });
 

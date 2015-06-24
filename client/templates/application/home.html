@@ -7,7 +7,11 @@
       {{> searchSchools }}
     </div>
     <div class="col-sm-4">
+      {{#if hasUniversity}}
       {{> modalHome }}
+      {{else}}
+      {{> selectUniversity}}
+      {{/if}}
     </div>
 
   </div>

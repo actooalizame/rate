@@ -66,6 +66,10 @@ input, button, select, textarea {
   line-height: inherit;
 }
 
+.select-university p {
+  margin: 13px 0 3px;
+}
+
 .professor-averages {
   text-align: center;
 }
