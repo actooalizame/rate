@@ -52,10 +52,10 @@ Template.rateProfessor.helpers({
 Template.rateProfessor.events({
 
 	'change .yes': function(){
-		Session.set('credit', 'yes');
+		Session.set('credit', 'Yes');
 	},
 	'change .no': function(){
-		Session.set('credit', 'no');
+		Session.set('credit', 'No');
 	},
 	'submit .rate-professor': function(event,template){
 		event.preventDefault();
@@ -74,11 +74,17 @@ Template.rateProfessor.events({
 				professorName = professor.name,
 				user = Meteor.user(),
 				userId = user.hook;
-		Meteor.call('insertProfReview', userId,professorId,professorName,courseCode,help,clarity,easy,credit,comment,interest,txtuse,grade,mayor);
-		Meteor.call('pushHelp', professorId,help);
-		Meteor.call('pushClarity', professorId,clarity);
-		Meteor.call('pushEasy', professorId,easy);
-		Router.go('/professor/'+professorId);
+		Meteor.call('insertProfReview', userId,professorId,professorName,courseCode,help,clarity,easy,credit,comment,interest,txtuse,grade,mayor, function(error){
+			if (error) {
+        return alert(error.reason);
+      } else {
+        Meteor.call('pushHelp', professorId,help);
+				Meteor.call('pushClarity', professorId,clarity);
+				Meteor.call('pushEasy', professorId,easy);
+				Router.go('/professor/'+professorId);
+      }
+		});
+		
 
 	}
 });

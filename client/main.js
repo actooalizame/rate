@@ -3,7 +3,7 @@ Meteor.startup(function() {
     Meteor.subscribe('hook');
     Meteor.subscribe('university');
     });
-  Session.setDefault('credit', 'yes');
+  Session.setDefault('credit', 'Yes');
 });
 
 ShareIt.configure({
