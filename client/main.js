@@ -16,6 +16,7 @@ ShareIt.configure({
   sites: {
     'facebook': {
         'appId': ''
+        //'version': 'v2.1'
     }
     }
 });
