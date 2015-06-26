@@ -22,6 +22,10 @@ ul li {
   margin-bottom: .9em;
 }
 
+.modal-share {
+  text-align: center;
+}
+
 .rate-professor {
   margin-top: 4em;
 }
