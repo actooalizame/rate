@@ -1,0 +1,133 @@
+<template name="rateProfForm">	
+	<form class="rate-professor">
+		<section class="form-section">
+		  <div class="form-group row">
+		  	<div class="col-sm-4">
+		  		<label for="ccode"><h4>Course Code</h4></label>
+		  	</div>
+		  	<div class="col-sm-2 col-sm-offset-4">
+		    	<input type="text" class="form-control" name="courseCode" id="ccode" placeholder="ex: CA-102">
+		  	</div>
+		  </div>
+		  <div class="form-group row">
+		  	<div class="col-md-4 col-sm-3">
+		  		<label for="helpful"><h4>Helpfulness</h4></label>
+		  	</div>
+		  	<div class="col-md-4 col-sm-5 col-xs-6">
+		    	<h5 id="helpfulVal">Rate from 1 to 5</h5>
+		    </div>
+		    <div class="col-md-4 col-sm-3 col-xs-6">
+					<input class="helpful" id="helpful" type="text" data-slider-min="0" data-slider-max="5" data-slider-step="1" data-slider-value="0"/>
+		  	</div>
+		  </div>
+		  <div class="form-group row">
+		  	<div class="col-md-4 col-sm-3">
+		  		<label for="clarity"><h4>Clarity</h4></label>
+		  	</div>
+		  	<div class="col-md-4 col-sm-5 col-xs-6">
+		  		<h5><span id="clarityVal">Rate from 1 to 5</span></h5>
+		    </div>
+		    <div class="col-md-4 col-sm-3 col-xs-6">
+					<input class="clarity" id="clarity" type="text" data-slider-min="0" data-slider-max="5" data-slider-step="1" data-slider-value="0"/>
+		  	</div>
+		  </div>
+		  <div class="form-group row">
+		  	<div class="col-md-4 col-sm-3">
+		  		<label for="easy"><h4>Easiness</h4></label>
+		  	</div>
+		  	<div class="col-md-4 col-sm-5 col-xs-6">
+		  		<h5><span id="easyVal">Rate from 1 to 5</span></h5>
+		    </div>
+		    <div class="col-md-4 col-sm-3 col-xs-6">
+					<input class="easy" id="easy" type="text" data-slider-min="0" data-slider-max="5" data-slider-step="1" data-slider-value="0"/>
+		  	</div>
+		  </div>
+		  <div class="form-group row">
+		  	<div class="col-sm-4">
+		  		<label for="credit"><h4>Tomaste esta clase por credito?</h4></label>
+		  	</div>
+		  	<div class="col-sm-offset-4 col-sm-3">
+		        <div class="radio">
+						  <label>
+						    <input type="radio" name="credit" class="yes" value="yes" checked>
+						    SI
+						  </label>
+						</div>
+						<div class="radio">
+						  <label>
+						    <input type="radio" name="credit" class="no" value="no">
+						    No
+						  </label>
+						</div>
+			  </div>
+		  </div>
+		  <div class="form-group row">
+		  	<div class="col-sm-4">
+		  		<label for="credit"><h4>Chance to be more specific</h4></label>
+		  	</div>
+		  	<div class="col-sm-offset-3 col-sm-5">
+		        <textarea name="comment" class="form-control custom-control"></textarea>   
+			  </div>
+		  </div>
+	  </section>
+
+	  <hr>
+	  <section class="form-section">
+			<h3>How was the class?</h3>
+			<div class="form-group row">
+		  	<div class="col-md-4 col-sm-3">
+		  		<label for="interest"><h4>Your interest</h4></label>
+		  	</div>
+		  	<div class="col-md-4 col-sm-5 col-xs-6">
+		  		<h5><span id="interestVal">Rate from 1 to 5</span></h5>
+		    </div>
+		    <div class="col-md-4 col-sm-3 col-xs-6">
+					<input class="interest" id="interest" type="text" data-slider-min="0" data-slider-max="5" data-slider-step="1" data-slider-value="0"/>
+		  	</div>
+		  </div>
+		  <div class="form-group row">
+		  	<div class="col-md-4 col-sm-3">
+		  		<label for="txtuse"><h4>Textbook Use</h4></label>
+		  	</div>
+		  	<div class="col-md-4 col-sm-5 col-xs-6">
+		  		<h5><span id="txtuseVal">Rate from 1 to 5</span></h5>
+		    </div>
+		    <div class="col-md-4 col-sm-3 col-xs-6">
+					<input class="txtuse" id="txtuse" type="text" data-slider-min="0" data-slider-max="5" data-slider-step="1" data-slider-value="0"/>
+		  	</div>
+		  </div>
+		  <div class="form-group row">
+		  	<div class="col-sm-4">
+		  		<label for="credit"><h4>Grade Received</h4></label>
+		  	</div>
+		  	<div class="col-sm-offset-4 col-sm-4">
+		        <select class="form-control" name="grade">
+		        		<option class="disabled" value="">Select</option>
+		           	<option>A</option>
+		           	<option>B</option>
+		           	<option>C</option>
+		           	<option>D</option>
+		           	<option>E</option>
+		           </select>   
+			  </div>
+		  </div>
+			<div class="form-group row">
+		  	<div class="col-sm-4">
+		  		<label for="credit"><h4>What's your mayor?</h4></label>
+		  	</div>
+		  	<div class="col-sm-offset-4 col-sm-4">
+		        <select class="form-control" name="mayor">
+		        		<option class="disabled" value="">Select</option>
+		           	<option>Arts</option>
+		           	<option>Business</option>
+		           	<option>Science</option>
+		           	<option>Other</option>
+		           </select>   
+			  </div>
+		  </div>
+	  </section>
+		<div class="col-sm-offset-10 col-sm-2">		  
+			<button type="submit" class="btn btn-success btn-lg">Agregar</button>
+		</div>
+	</form>
+</template>

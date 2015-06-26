@@ -5,8 +5,5 @@ Template.home.helpers({
 		if(university!==""){
 			return true;
 		}
-		else {
-			return false;
-		}
 	}
 });

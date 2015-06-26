@@ -1,0 +1,25 @@
+<template name="rateProfessors">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <h3>Rate My Professors</h3>
+      <div class="search-input">
+        {{> esInput index="ownProfessors" placeholder="Busca profesores de tu universidad" reactive="false" }}
+      </div>
+      {{#esEach index="ownProfessors"}}
+      <div class="panel panel-default">
+        <div class="panel-body results">
+          <a href="/rate-professor/{{_id}}"><h4>{{name}}</h4></a>
+          <h5>{{schoolName}} | <small>{{department}}</small></h5>
+        </div>
+      </div>
+      {{/esEach}}      
+      {{> esLoadMoreButton index="ownProfessors"}}
+      {{#ifEsHasNoResults index="ownProfessors"}}
+      <div class="no-results"><h4>No hay resultados!</h4></div>
+      {{/ifEsHasNoResults}}
+      {{#ifEsIsSearching index="ownProfessors"}}
+      <div>Buscando...</div>
+      {{/ifEsIsSearching}}
+    </div>
+  </div>
+</template>

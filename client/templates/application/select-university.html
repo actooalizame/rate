@@ -1,7 +1,8 @@
 <template name="selectUniversity">
 	<div class="panel panel-default select-university">
     <div class="panel-body">
-    	<h4>Escoge tu universidad</h4>
+    	<h3>Elige tu universidad</h3>
+      {{#if currentUser}}
     	<select name="userSchool" class="form-control user-school">
         <option class="text-muted">..</option>
     		{{#each schools}}
@@ -9,7 +10,7 @@
   			{{/each}}
     	</select>
       
-      {{#if currentUser}}
+      
       <p>Solo escoges una vez, elige correctamente</p>
     	<button type="submit" class="btn btn-info add-user-school">Agregar</button>
       {{else}}
