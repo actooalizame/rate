@@ -14,3 +14,4 @@ accounts-ui
 linto:jquery-ui
 maxharris9:meteor-bootstrap-slider
 joshowens:shareit
+aldeed:collection2
