@@ -15,7 +15,7 @@ ShareIt.configure({
   applyColors: true,
   sites: {
     'facebook': {
-        'appId': ''
+        'appId': '677863165649310'
         //'version': 'v2.1'
     }
     }
