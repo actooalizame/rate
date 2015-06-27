@@ -45,6 +45,22 @@ Template.rateProfessor.helpers({
 		if(userSchool===professorSchool){
 			return true;
 		}
+	},
+	'userRated': function(){
+		var professor = Professors.findOne({_id: this._id}),
+				user = Meteor.user(),
+				userId = user.hook,
+				ratedBy = professor.ratedBy,
+				array = jQuery.inArray(userId,ratedBy);
+		if(array >=0){
+			return true;
+		}
+	},
+	'review': function(){
+		var professorId = this._id,
+				user = Meteor.user(),
+				userId = user.hook;
+		return Profreviews.findOne({userId:userId, professorId:professorId});
 	}
 });
 
@@ -73,12 +89,15 @@ Template.rateProfessor.events({
 				professor = Professors.findOne({_id: professorId}),
 				professorName = professor.name,
 				user = Meteor.user(),
-				userId = user.hook;
-		Meteor.call('insertProfReview', userId,professorId,professorName,courseCode,help,clarity,easy,credit,comment,interest,txtuse,grade,mayor, function(error){
+				userId = user.hook,
+				userName = user.profile.name,
+				userUrl = user.services.facebook.link;
+		Meteor.call('insertProfReview', userId,userName,userUrl,professorId,professorName,courseCode,help,clarity,easy,credit,comment,interest,txtuse,grade,mayor, function(error){
 			if (error) {
         return alert(error.reason);
       } else {
         Meteor.call('pushRanking', professorId,help,clarity,easy);
+        Meteor.call('addRatedBy',professorId,userId);
 				Router.go('/professor/'+professorId);
       }
 		});

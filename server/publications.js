@@ -17,6 +17,10 @@ Meteor.publish('hook', function() {
   }});
 });
 
+Meteor.publish('users', function() {
+    return Meteor.users.find({}, {fields: {services: 1}});
+});
+
 Meteor.publish('university', function() {
   return Meteor.users.find(this.userId, {fields: {
     university: 1

@@ -1,17 +1,23 @@
 <template name="rateProfessor">
-	<div class="col-sm-3">
-		<h2>{{name}}</h2>
-		<h5>{{schoolName}}</h5>
-		<h5>{{department}}</h5>
-	
-	</div>
-	{{#if ownProfessor }}
-	<div class="col-sm-9 rate-prof-form">
-		<h3>It's your turn to grade Professor {{name}}</h3>
-		{{> rateProfForm }}
-	</div>
-	{{else}}
-	<h1>no</h1>
+  <div class="col-sm-3">
+    <h2>{{name}}</h2>
+    <h5>{{schoolName}}</h5>
+    <h5>{{department}}</h5>
+  </div>
+  {{#if userRated}}
+	  <h2>Ya rankeaste a {{name}}</h2>
+	  {{#with review}}
+	  	<h3><a href="/edit-review/{{_id}}">Edita</a> tu review</h3>
+	  {{/with}}
+	  <h3><a href="/professor/{{_id}}">Consulta</a> todas las reviews de este profesor</h3>
+	  {{else}}
+		  {{#if ownProfessor }}
+			  <div class="col-sm-9 rate-prof-form">
+			    <h3>It's your turn to grade Professor {{name}}</h3>
+			    {{> rateProfForm }}
+			  </div>
+		  {{else}}
+		  	<h1>no</h1>
+		  {{/if}}
 	{{/if}}
-
 </template>

@@ -11,6 +11,7 @@ Meteor.methods({
 			schoolName: schoolName,
 			schoolId: schoolId,
 			department: department,
+			ratedBy: [],
 			help: [],
 			clarity: [],
 			easy: [],
@@ -36,9 +37,11 @@ Meteor.methods({
 			{$set: {done:true}}
 		);
 	},
-	'insertProfReview': function(userId,professorId,professorName,courseCode,help,clarity,easy,credit,comment,interest,txtuse,grade,mayor){
+	'insertProfReview': function(userId,userName,userUrl,professorId,professorName,courseCode,help,clarity,easy,credit,comment,interest,txtuse,grade,mayor){
 		Profreviews.insert({
 			userId: userId,
+			userName: userName,
+			userUrl: userUrl,
 			professorId: professorId,
 			professorName: professorName,
 			courseCode: courseCode,
@@ -54,14 +57,11 @@ Meteor.methods({
 			createdAt: new Date()
 		});
 	},
-	'updateProfReview': function(reviewId,courseCode,help,clarity,easy,credit,comment,interest,txtuse,grade,mayor){
+	'updateProfReview': function(reviewId,courseCode,credit,comment,interest,txtuse,grade,mayor){
 		Profreviews.update(
 			{ _id: reviewId},
 			{$set: {
 				courseCode:courseCode,
-				help:help,
-				clarity:clarity,
-				easy:easy,
 				credit:credit,
 				comment:comment,
 				interest:interest,
@@ -69,6 +69,12 @@ Meteor.methods({
 				grade:grade,
 				mayor:mayor
 			}}
+		);
+	},
+	'addRatedBy': function(professorId, userId){
+		Professors.update(
+			{	_id: professorId },
+			{$push: {ratedBy: userId} }
 		);
 	},
 	'pushRanking': function(professorId,help,clarity,easy){
