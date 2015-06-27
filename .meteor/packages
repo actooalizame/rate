@@ -11,7 +11,6 @@ twbs:bootstrap
 matteodem:easy-search
 accounts-facebook
 accounts-ui
-linto:jquery-ui
 maxharris9:meteor-bootstrap-slider
 joshowens:shareit
 aldeed:collection2

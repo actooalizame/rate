@@ -1,5 +1,4 @@
-Template.rateProfessor.rendered = function(){
-
+Template.editReview.rendered = function(){
 	var $helpful =  $("#helpful"),
 			$helpfulVal = $("#helpfulVal"),
 			$clarity = $("#clarity"),
@@ -36,28 +35,8 @@ Template.rateProfessor.rendered = function(){
 	$txtuse.slider();
 };
 
-Template.rateProfessor.helpers({
-	'ownProfessor': function(){
-		var user = Meteor.user(),
-				userSchool = user.university._id,
-				professor = Professors.findOne({_id:this._id}),
-				professorSchool = professor.schoolId;
-		if(userSchool===professorSchool){
-			return true;
-		}
-	}
-});
-
-
-Template.rateProfessor.events({
-
-	'change .yes': function(){
-		Session.set('credit', 'Yes');
-	},
-	'change .no': function(){
-		Session.set('credit', 'No');
-	},
-	'submit .rate-professor': function(event,template){
+Template.editReview.events({
+	'submit .edit-review': function(event,template){
 		event.preventDefault();
 		var help = template.find('.helpful').value,
 				clarity = template.find('.clarity').value,
@@ -69,20 +48,21 @@ Template.rateProfessor.events({
 				grade = event.target.grade.value,
 				mayor = event.target.mayor.value,
 				courseCode = event.target.courseCode.value,
-				professorId = this._id,
+				reviewId = this._id,
+				review = Profreviews.findOne({_id: reviewId}),
+				professorId = review.professorId,
 				professor = Professors.findOne({_id: professorId}),
 				professorName = professor.name,
 				user = Meteor.user(),
 				userId = user.hook;
-		Meteor.call('insertProfReview', userId,professorId,professorName,courseCode,help,clarity,easy,credit,comment,interest,txtuse,grade,mayor, function(error){
-			if (error) {
-        return alert(error.reason);
-      } else {
-        Meteor.call('pushRanking', professorId,help,clarity,easy);
-				Router.go('/professor/'+professorId);
-      }
-		});
-		
 
+		Meteor.call('updateProfReview', reviewId,courseCode,help,clarity,easy,credit,comment,interest,txtuse,grade,mayor,function(error){
+			if(error){
+				return alert(error.reason);
+			}
+			else {
+				Router.go('/professor/'+professorId);
+			}
+		});
 	}
 });

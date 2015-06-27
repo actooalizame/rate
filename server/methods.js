@@ -54,22 +54,31 @@ Meteor.methods({
 			createdAt: new Date()
 		});
 	},
-	'pushHelp': function(professorId,help){
-		Professors.update(
-			{	_id: professorId },
-			{$push: {help: help}}
+	'updateProfReview': function(reviewId,courseCode,help,clarity,easy,credit,comment,interest,txtuse,grade,mayor){
+		Profreviews.update(
+			{ _id: reviewId},
+			{$set: {
+				courseCode:courseCode,
+				help:help,
+				clarity:clarity,
+				easy:easy,
+				credit:credit,
+				comment:comment,
+				interest:interest,
+				txtuse:txtuse,
+				grade:grade,
+				mayor:mayor
+			}}
 		);
 	},
-	'pushClarity': function(professorId,clarity){
+	'pushRanking': function(professorId,help,clarity,easy){
 		Professors.update(
 			{	_id: professorId },
-			{$push: {clarity: clarity}}
-		);
-	},
-	'pushEasy': function(professorId,easy){
-		Professors.update(
-			{	_id: professorId },
-			{$push: {easy: easy}}
+			{$push: {
+				help: help,
+				clarity: clarity,
+				easy: easy
+			}}
 		);
 	}
 });
