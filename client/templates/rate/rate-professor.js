@@ -96,7 +96,6 @@ Template.rateProfessor.events({
 			if (error) {
         return alert(error.reason);
       } else {
-        Meteor.call('pushRanking', professorId,help,clarity,easy);
         Meteor.call('addRatedBy',professorId,userId);
 				Router.go('/professor/'+professorId);
       }

@@ -1,27 +1,30 @@
 Template.viewProfessor.helpers({
 	'averageHelp': function(){
 		var professorId = this._id,
-				professor = Professors.findOne({_id: professorId}),
-				averageHelp = professor.help,
-				averageSum = eval(averageHelp.join('+')),
-				length = averageHelp.length;
-		return (averageSum / length).toFixed(1);
+				reviews = Profreviews.find({professorId:professorId}),
+				help = reviews.map(function(a) {return a.help;}),
+				sum = eval(help.join('+')),
+				length = reviews.count(),
+				average  = (sum / length).toFixed(1);
+		return average;
 	},
 	'averageClarity': function(){
 		var professorId = this._id,
-				professor = Professors.findOne({_id: professorId}),
-				averageClarity = professor.clarity,
-				averageSum = eval(averageClarity.join('+')),
-				length = averageClarity.length;
-		return (averageSum / length).toFixed(1);
+				reviews = Profreviews.find({professorId:professorId}),
+				help = reviews.map(function(a) {return a.clarity;}),
+				sum = eval(help.join('+')),
+				length = reviews.count(),
+				average  = (sum / length).toFixed(1);
+		return average;
 	},
 	'averageEasy': function(){
 		var professorId = this._id,
-				professor = Professors.findOne({_id: professorId}),
-				averageEasy = professor.easy,
-				averageSum = eval(averageEasy.join('+')),
-				length = averageEasy.length;
-		return (averageSum / length).toFixed(1);
+				reviews = Profreviews.find({professorId:professorId}),
+				help = reviews.map(function(a) {return a.easy;}),
+				sum = eval(help.join('+')),
+				length = reviews.count(),
+				average  = (sum / length).toFixed(1);
+		return average;
 	},
 	'ratings': function(){
 		var professorId = this._id;

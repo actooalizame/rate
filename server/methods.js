@@ -12,9 +12,6 @@ Meteor.methods({
 			schoolId: schoolId,
 			department: department,
 			ratedBy: [],
-			help: [],
-			clarity: [],
-			easy: [],
 			createdAt: new Date()
 		});
 	},
@@ -57,10 +54,13 @@ Meteor.methods({
 			createdAt: new Date()
 		});
 	},
-	'updateProfReview': function(reviewId,courseCode,credit,comment,interest,txtuse,grade,mayor){
+	'updateProfReview': function(reviewId,help,clarity,easy,courseCode,credit,comment,interest,txtuse,grade,mayor){
 		Profreviews.update(
 			{ _id: reviewId},
 			{$set: {
+				help: help,
+				clarity: clarity,
+				easy: easy,
 				courseCode:courseCode,
 				credit:credit,
 				comment:comment,
@@ -75,16 +75,6 @@ Meteor.methods({
 		Professors.update(
 			{	_id: professorId },
 			{$push: {ratedBy: userId} }
-		);
-	},
-	'pushRanking': function(professorId,help,clarity,easy){
-		Professors.update(
-			{	_id: professorId },
-			{$push: {
-				help: help,
-				clarity: clarity,
-				easy: easy
-			}}
 		);
 	}
 });

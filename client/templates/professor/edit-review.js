@@ -38,9 +38,9 @@ Template.editReview.rendered = function(){
 Template.editReview.events({
 	'submit .edit-review': function(event,template){
 		event.preventDefault();
-		var /*help = template.find('.helpful').value,
+		var help = template.find('.helpful').value,
 				clarity = template.find('.clarity').value,
-				easy = template.find('.easy').value,*/
+				easy = template.find('.easy').value,
 				credit = Session.get('credit'),
 				comment = event.target.comment.value,
 				interest = template.find('.interest').value,
@@ -56,7 +56,7 @@ Template.editReview.events({
 				user = Meteor.user(),
 				userId = user.hook;
 
-		Meteor.call('updateProfReview', reviewId,courseCode,credit,comment,interest,txtuse,grade,mayor,function(error){
+		Meteor.call('updateProfReview', reviewId,help,clarity,easy,courseCode,credit,comment,interest,txtuse,grade,mayor,function(error){
 			if(error){
 				return alert(error.reason);
 			}
