@@ -7,9 +7,32 @@
   {{#if userRated}}
 	  <h2>Ya rankeaste a {{name}}</h2>
 	  {{#with review}}
-	  	<h3><a href="/edit-review/{{_id}}">Edita</a> tu review</h3>
+	  	<div class="col-sm-9">
+	  		<div class="panel panel-default">
+			    <div class="panel-body">
+						<div class="col-sm-3">
+							<h4>Helpfulness: {{help}}</h4>
+							<h4>Clarity: {{clarity}}</h4>
+							<h4>Easiness: {{easy}}</h4>
+							<a href="/edit-review/{{_id}}" class="btn btn-default btn-warning">Editar</a>
+						</div>
+						<div class="col-sm-4">
+							<h4>Curso: {{courseCode}}</h4>
+							<p>Mayor: {{mayor}}</p>
+							<p>Taken for credit: {{credit}}</p>
+							<p>Textbook Use: {{txtuse}}</p>
+							<p>Interest: {{interest}}</p>
+							<p>Grade: {{grade}}</p>
+						</div>
+						<div class="col-sm-5">
+							<h4>{{comment}}</h4>
+						</div>
+					</div>
+				</div>
+	  		<h3><a href="/professor/{{_id}}">Consulta</a> todas las reviews de este profesor</h3>
+	  	</div>
 	  {{/with}}
-	  <h3><a href="/professor/{{_id}}">Consulta</a> todas las reviews de este profesor</h3>
+	  
 	  {{else}}
 		  {{#if ownProfessor }}
 			  <div class="col-sm-9 rate-prof-form">

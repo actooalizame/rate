@@ -10,6 +10,11 @@ Meteor.publish('allDepartments', function(){
 	return Departments.find({});
 });
 
+Meteor.publish("ownReview", function(){
+  var user = Meteor.users.findOne(this.userId);
+  var creator = user.hook;
+  return Profreviews.find({userId: creator });
+});
 
 Meteor.publish('hook', function() {
   return Meteor.users.find(this.userId, {fields: {
