@@ -1,0 +1,80 @@
+
+ul li {
+	list-style: none;
+}
+
+#login-buttons {
+  margin-top: .85em;
+}
+
+.home-items {
+  text-align: center;
+}
+
+.results:hover {
+	background-color: #e7e7e7;
+}
+
+.modal-home {
+  padding: 1em 1em 4em;
+}
+
+.modal-rate h4 {
+  margin-bottom: .9em;
+}
+
+.modal-share {
+  text-align: center;
+}
+
+.rate-professor {
+  margin-top: 4em;
+}
+
+.rate-prof-form {
+  margin-bottom: 4em;
+}
+
+.rate-display {
+  margin-top: 1em;
+}
+
+.form-section {
+  margin: 2.5em 0 5em;
+}
+
+.form-section h3{
+  margin-bottom: 2.5em
+}
+
+.search-input input {
+  display: block;
+  width: 100%;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+  -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+  -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+input, button, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.select-university p {
+  margin: 13px 0 3px;
+}
+
+.professor-averages {
+  text-align: center;
+}
