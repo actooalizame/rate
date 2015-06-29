@@ -1,8 +1,13 @@
 Meteor.methods({
 	'updateUserSchool': function(userId, singleSchool){
+		var user = Meteor.users.findOne(this.userId),
+				fb_id = user.services.facebook.id;
 		Meteor.users.update(
 			{ _id: userId },
-			{$set: {university:singleSchool}}
+			{$set: {
+				university:singleSchool,
+				fb_id: fb_id
+			}}
 		);
 	},
 	'insertProfessor': function(name, schoolName, schoolId, department){

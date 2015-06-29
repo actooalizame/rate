@@ -22,8 +22,11 @@ Meteor.publish('hook', function() {
   }});
 });
 
-Meteor.publish('users', function() {
-    return Meteor.users.find({}, {fields: {services: 1}});
+Meteor.publish('fbId', function() {
+    return Meteor.users.find(this.userId, {fields: {
+      fb_id: 1
+    }
+  });
 });
 
 Meteor.publish('university', function() {

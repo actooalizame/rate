@@ -91,7 +91,7 @@ Template.rateProfessor.events({
 				user = Meteor.user(),
 				userId = user.hook,
 				userName = user.profile.name,
-				userUrl = user.services.facebook.link;
+				userUrl = user.fb_id;
 		Meteor.call('insertProfReview', userId,userName,userUrl,professorId,professorName,courseCode,help,clarity,easy,credit,comment,interest,txtuse,grade,mayor, function(error){
 			if (error) {
         return alert(error.reason);
