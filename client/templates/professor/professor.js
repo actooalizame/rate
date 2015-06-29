@@ -11,8 +11,8 @@ Template.viewProfessor.helpers({
 	'averageClarity': function(){
 		var professorId = this._id,
 				reviews = Profreviews.find({professorId:professorId}),
-				help = reviews.map(function(a) {return a.clarity;}),
-				sum = eval(help.join('+')),
+				clarity = reviews.map(function(a) {return a.clarity;}),
+				sum = eval(clarity.join('+')),
 				length = reviews.count(),
 				average  = (sum / length).toFixed(1);
 		return average;
@@ -20,8 +20,8 @@ Template.viewProfessor.helpers({
 	'averageEasy': function(){
 		var professorId = this._id,
 				reviews = Profreviews.find({professorId:professorId}),
-				help = reviews.map(function(a) {return a.easy;}),
-				sum = eval(help.join('+')),
+				easy = reviews.map(function(a) {return a.easy;}),
+				sum = eval(easy.join('+')),
 				length = reviews.count(),
 				average  = (sum / length).toFixed(1);
 		return average;
