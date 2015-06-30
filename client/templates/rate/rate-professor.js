@@ -34,6 +34,21 @@ Template.rateProfessor.rendered = function(){
 	$easy.slider();
 	$interest.slider();
 	$txtuse.slider();
+
+	var countChecked = function() {
+		var n = $( "input:checked" ).length;
+		console.log( n + (n === 0 ? " is" : " are") + " checked!" );
+		if(n === 4 ){
+			$('input:not(:checked)').parent('.checkbox-inline').addClass('hidden');
+		}
+		else if(n < 4){
+			$('input:not(:checked)').parent('.checkbox-inline').removeClass('hidden');
+		}
+	};
+	countChecked();
+	 
+	$( "input[type=checkbox]" ).on( "click", countChecked );
+
 };
 
 Template.rateProfessor.helpers({
@@ -92,7 +107,9 @@ Template.rateProfessor.events({
 				userId = user.hook,
 				userName = user.profile.name,
 				userUrl = user.fb_id;
-		Meteor.call('insertProfReview', userId,userName,userUrl,professorId,professorName,courseCode,help,clarity,easy,credit,comment,interest,txtuse,grade,mayor, function(error){
+		var selectedTags = template.findAll( "input[type=checkbox]:checked");
+		var tags = _.map(selectedTags, function(item) {return item.defaultValue;});
+		Meteor.call('insertProfReview', userId,userName,userUrl,professorId,professorName,courseCode,help,clarity,easy,tags,credit,comment,interest,txtuse,grade,mayor, function(error){
 			if (error) {
         return alert(error.reason);
       } else {

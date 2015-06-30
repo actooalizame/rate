@@ -26,7 +26,7 @@ Template.viewProfessor.helpers({
 				average  = (sum / length).toFixed(1);
 		return average;
 	},
-	'overall': function(){
+	'overallScore': function(){
 		var professorId = this._id,
 				reviews = Profreviews.find({professorId:professorId}),
 				help = reviews.map(function(a) {return a.help;}),
@@ -35,12 +35,12 @@ Template.viewProfessor.helpers({
 				helpSum = eval(help.join('+')),
 				claritySum = eval(clarity.join('+')),
 				easySum = eval(easy.join('+')),
-				array = [];
-	array.push(helpSum,claritySum,easySum);
-	var sum =  eval(array.join('+')),
-			length = (reviews.count())*3,
-			average = (sum/length).toFixed(1);
-	return average;
+				overall = [];
+		overall.push(helpSum,claritySum,easySum);
+		var sum =  eval(overall.join('+')),
+				length = (reviews.count())*3,
+				average = (sum/length).toFixed(1);
+		return average;
 	},
 	'ratings': function(){
 		var professorId = this._id;

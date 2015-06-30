@@ -47,6 +47,23 @@ ul li {
   margin-bottom: 2.5em
 }
 
+.checkbox.checkbox-inline {
+  margin: 7px 1px;
+}
+
+.checkbox label {
+  padding-left: 2px;
+  padding-right: 5px;
+}
+
+.tags {
+  min-height: 8em;
+}
+
+.professor-averages button {
+  margin-top: 1em;
+}
+
 .search-input input {
   display: block;
   width: 100%;

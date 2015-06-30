@@ -39,7 +39,7 @@ Meteor.methods({
 			{$set: {done:true}}
 		);
 	},
-	'insertProfReview': function(userId,userName,userUrl,professorId,professorName,courseCode,help,clarity,easy,credit,comment,interest,txtuse,grade,mayor){
+	'insertProfReview': function(userId,userName,userUrl,professorId,professorName,courseCode,help,clarity,easy,tags,credit,comment,interest,txtuse,grade,mayor){
 		Profreviews.insert({
 			userId: userId,
 			userName: userName,
@@ -50,6 +50,7 @@ Meteor.methods({
 			help: help,
 			clarity: clarity,
 			easy: easy,
+			tags: tags,
 			credit: credit,
 			comment: comment,
 			interest: interest,

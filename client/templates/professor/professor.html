@@ -1,27 +1,10 @@
 <template name="viewProfessor">
 	<h1>{{name}}</h1>
 	<h4>Profesor en el departamento de {{department}}</h4><h4>{{schoolName}}</h4>
-	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Compartir</button>
-	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-	  <div class="modal-dialog col-sm-2 modal-share" role="document">
-	    <div class="modal-content">
-	      <div class="modal-header">
-	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	        <h4 class="modal-title" id="myModalLabel">Comparte en redes sociales</h4>
-	      </div>
-	      <div class="modal-body">
-	        {{>socialShare}}
-	      </div>
-	      <div class="modal-footer">
-	        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-	      </div>
-	    </div>
-	  </div>
-	</div>
 	
 	<div class="row">
 		<div class="well col-sm-3 professor-averages">
-			<h2>Overall Score: {{overall}}</h2>
+			<h2>Overall Score: {{overallScore}}</h2>
 			<h3><strong>Average</strong></h3>
 			
 			<h3>Helpfulness: {{averageHelp}}</h3>
@@ -29,6 +12,23 @@
 			<h3>Clarity: {{averageClarity}}</h3>
 
 			<h3>Easiness: {{averageEasy}}</h3>
+			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Compartir</button>
+			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			  <div class="modal-dialog col-sm-2 modal-share" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			        <h4 class="modal-title" id="myModalLabel">Comparte en redes sociales</h4>
+			      </div>
+			      <div class="modal-body">
+			        {{>socialShare}}
+			      </div>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+			      </div>
+			    </div>
+			  </div>
+			</div>
 		</div>
 		<div class="col-sm-9">
 			{{#with ownRating}}
@@ -41,7 +41,7 @@
 						<h4>Easiness: {{easy}}</h4>
 						<a href="/edit-review/{{_id}}" class="btn btn-default btn-warning">Editar</a>
 					</div>
-					<div class="col-sm-4">
+					<div class="col-sm-3">
 						<h4>Curso: {{courseCode}}</h4>
 						<p>Mayor: {{mayor}}</p>
 						<p>Taken for credit: {{credit}}</p>
@@ -49,7 +49,8 @@
 						<p>Interest: {{interest}}</p>
 						<p>Grade: {{grade}}</p>
 					</div>
-					<div class="col-sm-5">
+					<div class="col-sm-6">
+						<p>{{tags}}</p>
 						<h4>{{comment}}</h4>
 					</div>
 				</div>
@@ -67,7 +68,7 @@
 				<h4>Easiness: {{easy}}</h4>
 				<h5><a href="https://www.facebook.com/app_scoped_user_id/{{userUrl}}" target="_blank">{{userName}}</a></h5>
 			</div>
-			<div class="col-sm-4">
+			<div class="col-sm-3">
 				<h4>Curso: {{courseCode}}</h4>
 				<p>Mayor: {{mayor}}</p>
 				<p>Taken for credit: {{credit}}</p>
@@ -75,7 +76,8 @@
 				<p>Interest: {{interest}}</p>
 				<p>Grade: {{grade}}</p>
 			</div>
-			<div class="col-sm-5">
+			<div class="col-sm-6">
+				<p>{{tags}}</p>
 				<h4>{{comment}}</h4>
 			</div>
 		</div>
