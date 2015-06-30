@@ -36,11 +36,10 @@ Template.editReview.rendered = function(){
 
 	var countChecked = function() {
 		var n = $( "input:checked" ).length;
-		console.log( n + (n === 0 ? " is" : " are") + " checked!" );
 		if(n === 3 ){
 			$('input:not(:checked)').parent('.checkbox-inline').addClass('hidden');
 		}
-		else if(n < 4){
+		else if(n < 3){
 			$('input:not(:checked)').parent('.checkbox-inline').removeClass('hidden');
 		}
 	};
@@ -75,6 +74,7 @@ Template.editReview.events({
 				review = Profreviews.findOne({_id: reviewId});
 				tags = review.tags;
 		Meteor.call('removeTags',reviewId);
+		location.reload(true);
 	},
 	'submit .edit-review': function(event,template){
 		event.preventDefault();
@@ -95,16 +95,29 @@ Template.editReview.events({
 				professorName = professor.name,
 				user = Meteor.user(),
 				userId = user.hook;
-		var selectedTags = template.findAll( "input[type=checkbox]:checked");
-		var tags = _.map(selectedTags, function(item) {return item.defaultValue;});
-
-		Meteor.call('updateProfReview', reviewId,help,clarity,easy,tags,courseCode,credit,comment,interest,txtuse,grade,mayor,function(error){
-			if(error){
-				return alert(error.reason);
-			}
-			else {
-				Router.go('/professor/'+professorId);
-			}
-		});
+		var reviewTags = review.tags;
+		if(reviewTags.length===0){
+			var selectedTags = template.findAll( "input[type=checkbox]:checked");
+			var tags = _.map(selectedTags, function(item) {return item.defaultValue;});
+			Meteor.call('updateProfReview', reviewId,help,clarity,easy,tags,courseCode,credit,comment,interest,txtuse,grade,mayor,function(error){
+				if(error){
+					return alert(error.reason);
+				}
+				else {
+					Router.go('/professor/'+professorId);
+				}
+			});
+		}
+		else if(reviewTags.length>0){
+			var tags = reviewTags;
+			Meteor.call('updateProfReview', reviewId,help,clarity,easy,tags,courseCode,credit,comment,interest,txtuse,grade,mayor,function(error){
+				if(error){
+					return alert(error.reason);
+				}
+				else {
+					Router.go('/professor/'+professorId);
+				}
+			});
+		}
 	}
 });
