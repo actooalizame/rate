@@ -26,6 +26,22 @@ Template.viewProfessor.helpers({
 				average  = (sum / length).toFixed(1);
 		return average;
 	},
+	'overall': function(){
+		var professorId = this._id,
+				reviews = Profreviews.find({professorId:professorId}),
+				help = reviews.map(function(a) {return a.help;}),
+				clarity = reviews.map(function(a) {return a.clarity;}),
+				easy = reviews.map(function(a) {return a.easy;}),
+				helpSum = eval(help.join('+')),
+				claritySum = eval(clarity.join('+')),
+				easySum = eval(easy.join('+')),
+				array = [];
+	array.push(helpSum,claritySum,easySum);
+	var sum =  eval(array.join('+')),
+			length = (reviews.count())*3,
+			average = (sum/length).toFixed(1);
+	return average;
+	},
 	'ratings': function(){
 		var professorId = this._id;
 		return Profreviews.find({professorId:professorId});
