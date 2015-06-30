@@ -1,6 +1,6 @@
 <template name="editReview">
 	
-
+	<h2>Edita tu review de {{professorName}}</h2>
 	<form class="edit-review">
 		<section class="form-section">
 		  <div class="form-group row">
@@ -44,25 +44,72 @@
 					<input class="easy" id="easy" type="text" data-slider-min="0" data-slider-max="5" data-slider-step="1" data-slider-value="{{easy}}" value="{{easy}}"/>
 		  	</div>
 		  </div>
+		  
 		  <div class="form-group row">
 		  	<div class="col-sm-4">
 		  		<label for="credit"><h4>Tomaste esta clase por credito?</h4></label>
 		  	</div>
 		  	<div class="col-sm-offset-4 col-sm-3">
-		  		<h4 class="pull-right">{{credit}}</h4>
-		        <div class="radio">
-						  <label>
-						    <input type="radio" name="credit" class="yes" value="yes" checked>
-						    SI
-						  </label>
+	        <div class="radio radio-inline">
+	        	<input type="radio" name="credit" id="radio1" class="yes" value="yes">
+					  <label for="radio1">SI</label>
+					</div>
+					<div class="radio radio-inline">
+						<input type="radio" name="credit" id="radio2" class="no" value="no">
+					  <label for="radio2">No</label>
+					</div>
+			  </div>
+		  </div>
+		  <div class="form-group row">
+		  	<div class="col-sm-4">
+		  		<label for="credit"><h4>Insert Tags</h4></label>
+		  	</div>
+		  	<div class="col-sm-offset-3 col-sm-5">
+		  		<div class="tags">
+			  		{{#if emptyTags}}
+			  		<div id="tags" class="tags">
+			    		<div class="checkbox checkbox-success checkbox-inline">
+						    <input type="checkbox" value="Though Grader" id="checkbox1">
+						    <label for="checkbox1">
+						        Though Grader
+						    </label>
+						  </div>
+						  <div class="checkbox checkbox-success checkbox-inline">
+						    <input type="checkbox" value="Inspirational" id="checkbox2">
+						    <label for="checkbox2">
+						        Inspirational
+						    </label>
+						  </div>
+						  <div class="checkbox checkbox-success checkbox-inline">
+						    <input type="checkbox" value="Hilarious" id="checkbox3">
+						    <label for="checkbox3">
+						        Hilarious
+						    </label>
+						  </div>
+						  <div class="checkbox checkbox-success checkbox-inline">
+						    <input type="checkbox" value="Get Ready To Read" id="checkbox4">
+						    <label for="checkbox4">
+						        Get Ready To Read
+						    </label>
+						  </div>
+						  <div class="checkbox checkbox-success checkbox-inline">
+						    <input type="checkbox" value="There For You" id="checkbox5">
+						    <label for="checkbox5">
+						        There For You
+						    </label>
+						  </div>
+						  <div class="checkbox checkbox-success checkbox-inline">
+						    <input type="checkbox" value="Gives Pop Quizzes" id="checkbox6">
+						    <label for="checkbox6">
+						        Gives Pop Quizzes
+						    </label>
+						  </div>
 						</div>
-						<div class="radio">
-						  <label>
-						    <input type="radio" name="credit" class="no" value="no">
-						    No
-						  </label>
-						</div>
-
+						{{else}}
+						<h4>{{tags}}</h4>
+			  		<a href="#" class="btn btn-warning btn-mini pull-right edit-tags">Actualizar</a>
+						{{/if}}
+					</div>
 			  </div>
 		  </div>
 		  <div class="form-group row">

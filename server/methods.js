@@ -60,13 +60,14 @@ Meteor.methods({
 			createdAt: new Date()
 		});
 	},
-	'updateProfReview': function(reviewId,help,clarity,easy,courseCode,credit,comment,interest,txtuse,grade,mayor){
+	'updateProfReview': function(reviewId,help,clarity,easy,tags,courseCode,credit,comment,interest,txtuse,grade,mayor){
 		Profreviews.update(
 			{ _id: reviewId},
 			{$set: {
 				help: help,
 				clarity: clarity,
 				easy: easy,
+				tags: tags,
 				courseCode:courseCode,
 				credit:credit,
 				comment:comment,
@@ -81,6 +82,12 @@ Meteor.methods({
 		Professors.update(
 			{	_id: professorId },
 			{$push: {ratedBy: userId} }
+		);
+	},
+	'removeTags': function(reviewId){
+		Profreviews.update(
+			{	_id: reviewId },
+			{$set: {tags: []} }
 		);
 	}
 });
