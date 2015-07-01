@@ -37,7 +37,6 @@ Template.rateProfessor.rendered = function(){
 
 	var countChecked = function() {
 		var n = $( "input:checked" ).length;
-		console.log( n + (n === 0 ? " is" : " are") + " checked!" );
 		if(n === 4 ){
 			$('input:not(:checked)').parent('.checkbox-inline').addClass('hidden');
 		}
