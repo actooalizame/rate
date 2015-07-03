@@ -1,7 +1,19 @@
-
 Template.allProfessors.helpers({
-	'professors': function(){
-		return Professors.find({});
+
+	'filter':function(){
+		var selectedSchool = Session.get('selectedSchool');
+		if(selectedSchool!==""){
+			return Professors.find({schoolName:selectedSchool},{sort:{name:1}});
+		}
+		else{
+			return Professors.find({},{sort:{name:1}});
+		}
+	},
+	'sessionNull': function(){
+		var selectedSchool = Session.get('selectedSchool');
+		if(selectedSchool===undefined){
+			return true;
+		}
 	},
 	'averageHelp': function(){
 		var professorId = this._id,
@@ -46,5 +58,13 @@ Template.allProfessors.helpers({
 				length = (reviews.count())*3,
 				average = (sum/length).toFixed(1);
 		return average;
+	}
+});
+
+Template.allProfessors.events({
+	'submit .filter-professors': function(event){
+		event.preventDefault();
+		var selected = event.target.university.value;
+		Session.set('selectedSchool', selected);
 	}
 });
