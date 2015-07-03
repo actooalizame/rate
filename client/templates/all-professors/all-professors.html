@@ -1,0 +1,15 @@
+<template name="allProfessors">
+	<div class="row">
+	{{#each professors}}
+	<div class="col-sm-3">
+		<h3><a href="/professor/{{_id}}">{{name}}</a></h3>
+		<h4>{{schoolName}}</h4>
+		<h4><small>{{department}}</small></h4>
+		<h4>Overall Score: {{overallScore}}</h4>
+		<h5>Help: {{averageHelp}}</h5>
+		<h5>Clarity: {{averageClarity}}</h5>
+		<h5>Easy: {{averageEasy}}</h5>
+	</div>
+	{{/each}}
+	</div>
+</template>

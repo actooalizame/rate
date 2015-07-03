@@ -44,6 +44,14 @@ ul li {
   margin-top: 1em;
 }
 
+.comment {
+  min-height: 13em;
+}
+
+.form-group.row {
+  margin-top: 20px;
+}
+
 .form-section {
   margin: 2.5em 0 5em;
 }
