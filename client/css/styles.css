@@ -11,6 +11,11 @@ ul li {
   text-align: center;
 }
 
+.pick-msg {
+  font-weight: bold;
+  margin: 1em;
+}
+
 .results:hover {
 	background-color: #e7e7e7;
 }
@@ -45,6 +50,12 @@ ul li {
 
 .form-section h3{
   margin-bottom: 2.5em
+}
+
+.slider-value {
+  color: rgb(221, 48, 48);
+  font-weight: bold;
+  margin-left: .15em;
 }
 
 .checkbox.checkbox-inline {
@@ -88,9 +99,6 @@ input, button, select, textarea {
   line-height: inherit;
 }
 
-.select-university p {
-  margin: 13px 0 3px;
-}
 
 .professor-averages {
   text-align: center;

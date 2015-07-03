@@ -13,8 +13,13 @@ Template.selectUniversity.events({
 				userhook = user.hook,
 				singleUser = Meteor.users.findOne({hook: userhook}),
 				userId = singleUser._id,
-				userSchool = template.find('.user-school').value,
-				singleSchool = Schools.findOne({name:userSchool});
-		Meteor.call('updateUserSchool', userId, singleSchool);
+				userSchool = template.find('.user-school').value;
+		if(userSchool==="not"){
+			alert("Debes elegir una universidad");
+		}
+		else{
+			var singleSchool = Schools.findOne({name:userSchool});
+			Meteor.call('updateUserSchool', userId, singleSchool);
+		}
 	}
 });

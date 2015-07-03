@@ -9,12 +9,17 @@ Meteor.publish('allProfessors', function(){
 Meteor.publish('allDepartments', function(){
 	return Departments.find({});
 });
-
+/*
 Meteor.publish("ownReview", function(){
   var user = Meteor.users.findOne(this.userId);
   var creator = user.hook;
-  return Profreviews.find({userId: creator });
-});
+  if(user!==null){
+    return Profreviews.find({userId: creator });
+  }
+  else {
+    return false;
+  }
+});*/
 
 Meteor.publish('hook', function() {
   return Meteor.users.find(this.userId, {fields: {

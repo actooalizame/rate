@@ -1,37 +1,186 @@
 Template.rateProfessor.rendered = function(){
 
+	$('[data-toggle="tooltip"]').tooltip();
+
+
 	var $helpful =  $("#helpful"),
 			$helpfulVal = $("#helpfulVal"),
+			$helpfulTxt = $('#helpfulTxt'),
 			$clarity = $("#clarity"),
+			$clarityVal = $('#clarityVal'),
+			$clarityTxt = $('#clarityTxt'),
 			$easy = $("#easy"),
+			$easyVal = $("#easyVal"),
+			$easyTxt = $('#easyTxt'),
 			$interest = $("#interest"),
 			$txtuse = $('#txtuse');
 
 	$helpful.slider();
+	$helpful.on("slideStart", function(slideEvt) {
+
+		if(slideEvt.value===0){
+			$helpfulTxt.text("Rate from 1 to 5");
+			$helpfulVal.text("0");
+		}
+		if(slideEvt.value===1){
+			$helpfulVal.text("1");
+			$helpfulTxt.text("No help here");
+		}
+		if(slideEvt.value===2){
+			$helpfulVal.text("2");
+			$helpfulTxt.text("You have to beg for help");
+		}
+		if(slideEvt.value===3){
+			$helpfulVal.text("3");
+			$helpfulTxt.text("If you ask for help, it's there");
+		}
+		if(slideEvt.value===4){
+			$helpfulVal.text("4");
+			$helpfulTxt.text("Most likely to help");
+		}
+		if(slideEvt.value===5){
+			$helpfulVal.text("5");
+			$helpfulTxt.text("Saved my semester");
+		}
+	});
 	$helpful.on("slide", function(slideEvt) {
 
 		if(slideEvt.value===0){
-			$helpfulVal.text("Rate from 1 to 5");
+			$helpfulVal.text("0");
+			$helpfulTxt.text("Rate from 1 to 5");
 		}
 		if(slideEvt.value===1){
-			$helpfulVal.text("1: No help here");
+			$helpfulVal.text("1");
+			$helpfulTxt.text("No help here");
 		}
 		if(slideEvt.value===2){
-			$helpfulVal.text("2: You have to beg for help");
+			$helpfulVal.text("2");
+			$helpfulTxt.text("You have to beg for help");
 		}
 		if(slideEvt.value===3){
-			$helpfulVal.text("3: If you ask for help, it's there");
+			$helpfulVal.text("3");
+			$helpfulTxt.text("If you ask for help, it's there");
 		}
 		if(slideEvt.value===4){
-			$helpfulVal.text("4: Most likely to help");
+			$helpfulVal.text("4");
+			$helpfulTxt.text("Most likely to help");
 		}
 		if(slideEvt.value===5){
-			$helpfulVal.text("5: Saved my semester");
+			$helpfulVal.text("5");
+			$helpfulTxt.text("Saved my semester");
 		}
 	});
 
 	$clarity.slider();
+	$clarity.on("slideStart", function(slideEvt) {
+
+		if(slideEvt.value===0){
+			$clarityVal.text("0");
+			$clarityTxt.text("Rate from 1 to 5");
+		}
+		if(slideEvt.value===1){
+			$clarityVal.text("1");
+			$clarityTxt.text("Say What?!");
+		}
+		if(slideEvt.value===2){
+			$clarityVal.text("2");
+			$clarityTxt.text("Confusing");
+		}
+		if(slideEvt.value===3){
+			$clarityVal.text("3");
+			$clarityTxt.text("Pretty Clear");
+		}
+		if(slideEvt.value===4){
+			$clarityVal.text("4");
+			$clarityTxt.text("Clear-cut");
+		}
+		if(slideEvt.value===5){
+			$clarityVal.text("5");
+			$clarityTxt.text("Crystal-Clear");
+		}
+	});
+	$clarity.on("slide", function(slideEvt) {
+
+		if(slideEvt.value===0){
+			$clarityVal.text("0");
+			$clarityTxt.text("Rate from 1 to 5");
+		}
+		if(slideEvt.value===1){
+			$clarityVal.text("1");
+			$clarityTxt.text("Say What?!");
+		}
+		if(slideEvt.value===2){
+			$clarityVal.text("2");
+			$clarityTxt.text("Confusing");
+		}
+		if(slideEvt.value===3){
+			$clarityVal.text("3");
+			$clarityTxt.text("Pretty Clear");
+		}
+		if(slideEvt.value===4){
+			$clarityVal.text("4");
+			$clarityTxt.text("Clear-cut");
+		}
+		if(slideEvt.value===5){
+			$clarityVal.text("5");
+			$clarityTxt.text("Crystal-Clear");
+		}
+	});
 	$easy.slider();
+	$easy.on("slideStart", function(slideEvt) {
+
+		if(slideEvt.value===0){
+			$easyVal.text("0");
+			$easyTxt.text("Rate from 1 to 5");
+		}
+		if(slideEvt.value===1){
+			$easyVal.text("1");
+			$easyTxt.text("Hardest thing I've ever done");
+		}
+		if(slideEvt.value===2){
+			$easyVal.text("2");
+			$easyTxt.text("Makes you work for it");
+		}
+		if(slideEvt.value===3){
+			$easyVal.text("3");
+			$easyTxt.text("The usual");
+		}
+		if(slideEvt.value===4){
+			$easyVal.text("4");
+			$easyTxt.text("Easy A");
+		}
+		if(slideEvt.value===5){
+			$easyVal.text("5");
+			$easyTxt.text("Show up & pass");
+		}
+	});
+	$easy.on("slide", function(slideEvt) {
+
+		if(slideEvt.value===0){
+			$easyVal.text("0");
+			$easyTxt.text("Rate from 1 to 5");
+		}
+		if(slideEvt.value===1){
+			$easyVal.text("1");
+			$easyTxt.text("Hardest thing I've ever done");
+		}
+		if(slideEvt.value===2){
+			$easyVal.text("2");
+			$easyTxt.text("Makes you work for it");
+		}
+		if(slideEvt.value===3){
+			$easyVal.text("3");
+			$easyTxt.text("The usual");
+		}
+		if(slideEvt.value===4){
+			$easyVal.text("4");
+			$easyTxt.text("Easy A");
+		}
+		if(slideEvt.value===5){
+			$easyVal.text("5");
+			$easyTxt.text("Show up & pass");
+		}
+	});
 	$interest.slider();
 	$txtuse.slider();
 

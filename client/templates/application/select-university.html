@@ -1,21 +1,18 @@
 <template name="selectUniversity">
+  
 	<div class="panel panel-default select-university">
     <div class="panel-body">
-    	<h3>Elige tu universidad</h3>
-      {{#if currentUser}}
+      <h3>Elige tu universidad</h3>
+      <p>Para evaluar debes escoger una institución</p>
     	<select name="userSchool" class="form-control user-school">
-        <option class="text-muted">..</option>
+        <option class="disabled" value="not">..</option>
     		{{#each schools}}
   			<option class="school-option">{{name}}</option>
   			{{/each}}
     	</select>
-      
-      
-      <p>Solo escoges una vez, elige correctamente</p>
+
+      <p class="pick-msg">Solo escoges una vez, elige correctamente</p>
     	<button type="submit" class="btn btn-info add-user-school">Agregar</button>
-      {{else}}
-      {{>loginButtons}}
-      {{/if}}
 		</div>
 	</div>
 </template>

@@ -1,5 +1,6 @@
 <template name="home">
   <div class="row home-items">
+    {{#if currentUser}}
     <div class="col-sm-4">
       {{> searchProfessors }}
     </div>
@@ -14,5 +15,14 @@
       {{/if}}
     </div>
 
+    {{else}}
+    <div class="col-sm-6">
+      {{> searchProfessors }}
+    </div>
+    <div class="col-sm-6">
+      {{> searchSchools }}
+    </div>
+
+    {{/if}}
   </div>
 </template>
