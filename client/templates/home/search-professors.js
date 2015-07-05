@@ -1,7 +1,25 @@
-
-
 Template.searchProfessors.events({
-	'change .filter-school': function(event,template){
-		Session.set('filterSchool',template.find('.filter-school').value);
+	'submit .filter-professors': function(event){
+		event.preventDefault();
+		var selected = event.target.university.value;
+		if(selected!==""){
+			Session.set('filterSchool', selected);
+		}
+		else {
+			alert("Elige una universidad!");
+		}
 	}
 });
+
+Template.searchProfessors.helpers({
+	'university': function(){
+		return Session.get('filterSchool');
+	},
+	'hasSession': function(){
+		var filter = Session.get('filterSchool');
+		if(filter!==undefined){
+			return true;
+		}
+	}
+});
+

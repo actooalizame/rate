@@ -16,6 +16,18 @@ ul li {
   margin: 1em;
 }
 
+.section-title {
+  margin-bottom: 1em;
+}
+
+.pf-search-res {
+  margin-top: 1.5em;
+}
+
+.filter-professors {
+  margin-bottom: 4em;
+}
+
 .results:hover {
 	background-color: #e7e7e7;
 }

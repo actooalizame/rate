@@ -1,23 +1,42 @@
 <template name="searchProfessors">
-  <div class="col-sm-6 col-sm-offset-3">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <h3>Encuentra Profesores</h3>
-        <select class="form-control filter-school" name="university">
-          <option class="disabled text-muted" value="">Selecciona una universidad</option>
-          <option>Universidad Católica</option>
-          <option>Universidad de Chile</option>
-          <option>Universidad de los Andes</option>
-        </select> 
-        <div class="search-input">
-          {{> esInput index="schoolProfessors" placeholder="Nombre o Apellido" id="searchProfessors"}}
+  <div class="col-sm-7 col-sm-offset-3">
+    <h3 class="section-title">Encuentra Profesores</h3>
+    <div class="row">
+      <form class="filter-professors">
+        <div class="col-sm-9">
+          <select class="form-control" name="university">
+            <p class="text-success"><option value="">Elige una Universidad</option></p>
+            <option>Universidad Católica</option>
+            <option>Universidad de Chile</option>
+            <option>Universidad de los Andes</option>
+          </select>   
         </div>
+        <div class="col-sm-3">      
+          <button type="submit" class="btn btn-success btn-mini">Filtrar</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="row">
+      {{#if hasSession}}
+      <div class="search-input col-sm-8">
+        {{> esInput index="schoolProfessors" placeholder="Nombre o Apellido" id="searchProfessors"}}
+      </div>
+      <div class="col-sm-4">
+        <h5 class="text-primary">En: {{university}}</h5>
+
+      </div>
+      {{else}}
+      <h1></h1>
+      {{/if}}
+    </div>
+    <div class="row">
+      <div class="col-sm-9 pf-search-res">
         {{#esEach index="schoolProfessors" id="searchProfessors"}}
         <div class="panel panel-default">
           <div class="panel-body results">
             <h4><a href="/professor/{{_id}}">{{name}}</a></h4>
-            <h5>{{schoolName}} | <small>{{department}}</small></h5>
-
+            <h5>{{department}}</h5>
           </div>
         </div>
         {{/esEach}}      
