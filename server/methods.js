@@ -16,8 +16,7 @@ Meteor.methods({
 			schoolName: schoolName,
 			schoolId: schoolId,
 			department: department,
-			ratedBy: [],
-			createdAt: new Date()
+			ratedBy: []
 		});
 	},
 	'insertSchool': function(name,state){

@@ -9,7 +9,7 @@ Template.socialShare.helpers({
 	shareData: function() {
     var resp = {
 			title: "Mira el rating del profesor " +this.name+ " en",
-			url: "http://telepathiclove.com/professor/"+this._id
+			//url: "http://telepathiclove.com/professor/"+this._id
     };
     return resp;
   }

@@ -1,26 +1,34 @@
 <template name="searchProfessors">
-  <div class="panel panel-default">
-    <div class="panel-body">
-      <h3>Encuentra Profesores</h3>
-      <div class="search-input">
-        {{> esInput index="professors" placeholder="Nombre o Apellido" id="searchProfessors"}}
-      </div>
-      {{#esEach index="professors" id="searchProfessors"}}
-      <div class="panel panel-default">
-        <div class="panel-body results">
-          <h4><a href="/professor/{{_id}}">{{name}}</a></h4>
-          <h5>{{schoolName}} | <small>{{department}}</small></h5>
-
+  <div class="col-sm-6 col-sm-offset-3">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <h3>Encuentra Profesores</h3>
+        <select class="form-control filter-school" name="university">
+          <option class="disabled text-muted" value="">Selecciona una universidad</option>
+          <option>Universidad Católica</option>
+          <option>Universidad de Chile</option>
+          <option>Universidad de los Andes</option>
+        </select> 
+        <div class="search-input">
+          {{> esInput index="schoolProfessors" placeholder="Nombre o Apellido" id="searchProfessors"}}
         </div>
+        {{#esEach index="schoolProfessors" id="searchProfessors"}}
+        <div class="panel panel-default">
+          <div class="panel-body results">
+            <h4><a href="/professor/{{_id}}">{{name}}</a></h4>
+            <h5>{{schoolName}} | <small>{{department}}</small></h5>
+
+          </div>
+        </div>
+        {{/esEach}}      
+        {{> esLoadMoreButton index="schoolProfessors"}}
+        {{#ifEsHasNoResults index="schoolProfessors" id="searchProfessors"}}
+        <div class="no-results"><h4>No hay resultados!</h4></div>
+        {{/ifEsHasNoResults}}
+        {{#ifEsIsSearching index="schoolProfessors" id="searchProfessors"}}
+        <div>Buscando...</div>
+        {{/ifEsIsSearching}}
       </div>
-      {{/esEach}}      
-      {{> esLoadMoreButton index="professors"}}
-      {{#ifEsHasNoResults index="professors" id="searchProfessors"}}
-      <div class="no-results"><h4>No hay resultados!</h4></div>
-      {{/ifEsHasNoResults}}
-      {{#ifEsIsSearching index="professors" id="searchProfessors"}}
-      <div>Buscando...</div>
-      {{/ifEsIsSearching}}
     </div>
   </div>
 </template>
