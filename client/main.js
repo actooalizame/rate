@@ -1,8 +1,13 @@
 Meteor.startup(function() {
   Tracker.autorun(function() {
-    Meteor.subscribe('fbId');
-    Meteor.subscribe('hook');
-    Meteor.subscribe('university');
+    if(Meteor.user()){
+      Meteor.subscribe('fbId');
+      Meteor.subscribe('hook');
+      Meteor.subscribe('university');
+    }
+    else{
+      return;
+    }
     });
   Session.setDefault('credit', 'Yes');
 });

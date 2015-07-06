@@ -8,9 +8,15 @@
       <a href="/search-schools" class="btn btn-lg btn-info">Encuentra Universidades</a>
     </div>
     {{#if currentUser}}
-    <div class="col-sm-4">
-      <a href="/rate" class="btn btn-lg btn-info">Rate</a>
-    </div>
+      {{#if hasUniversity}}
+      <div class="col-sm-4">
+        <a href="/rate" class="btn btn-lg btn-info">Rate</a>
+      </div>
+      {{else}}
+      <div class="col-sm-4">
+      {{>selectUniversity}}
+      </div>
+      {{/if}}
     {{else}}
     <h3>Log in To Vote</h3>  
     {{/if}}

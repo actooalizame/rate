@@ -7,7 +7,7 @@ Meteor.publish('allProfessors', function(){
 });
 
 Meteor.publish('filteredProfs', function(schoolName){
-  return Professors.find({schoolName:schoolName},{fields: {'schoolName': 1, 'schoolId': 1, 'name': 1, 'department':1}});
+  return Professors.find({schoolName:schoolName},{fields: {'schoolName': 1, 'name': 1, 'department':1}});
 });
 
 Meteor.publish('allDepartments', function(){
@@ -25,9 +25,13 @@ Meteor.publish("ownReview", function(){
   }
 });*/
 
+Meteor.publish("schoolNames", function(){
+  return Schools.find({},{fields: {'name': 1}});
+});
+
 Meteor.publish("ownProfs", function(){
-  var user = Meteor.users.findOne(this.userId);
-  var schoolId = user.university._id;
+  var user = Meteor.users.findOne(this.userId),
+      schoolId = user.university._id;
   return Professors.find({schoolId:schoolId},{fields: {'schoolName': 1, 'schoolId': 1, 'name': 1, 'department':1}});
 });
 
