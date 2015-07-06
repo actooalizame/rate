@@ -1,4 +1,4 @@
-Template.rate.helpers({
+/*Template.rate.helpers({
 	'hasUniversity': function(){
 		var user = Meteor.user();
 		var university = user.university;
@@ -8,3 +8,4 @@ Template.rate.helpers({
 	}
 });
 
+*/
