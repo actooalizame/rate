@@ -1,9 +1,9 @@
 Meteor.startup(function() {
   Tracker.autorun(function() {
     if(Meteor.user()){
-      Meteor.subscribe('fbId');
-      Meteor.subscribe('hook');
-      Meteor.subscribe('university');
+      Meteor.subscribe('userData');
+      /*Meteor.subscribe('hook');
+      Meteor.subscribe('university');*/
     }
     else{
       return;
@@ -26,6 +26,23 @@ ShareIt.configure({
     }
     }
 });
+
+toastr.options = {
+  "closeButton": false,
+  "debug": false,
+  "newestOnTop": false,
+  "progressBar": false,
+  "positionClass": "toast-top-right",
+  "preventDuplicates": false,
+  "onclick": null,
+  "showDuration": "300",
+  "hideDuration": "400",
+  "timeOut": "1400",
+  "showEasing": "swing",
+  "hideEasing": "linear",
+  "showMethod": "fadeIn",
+  "hideMethod": "fadeOut"
+};
 /*
 Meteor.Spinner.options = {
     lines: 13, // The number of lines to draw

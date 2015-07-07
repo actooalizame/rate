@@ -3,16 +3,20 @@ Meteor.publish('allSchools', function(){
 });
 
 Meteor.publish('allProfessors', function(){
-	return Professors.find({},{fields: {'schoolName': 1, 'schoolId': 1, 'name': 1, 'department':1}});
+	return Professors.find({},{fields: {'schoolName': 1, 'schoolId': 1, 'name': 1, 'department':1,'ratedBy':1}});
 });
 
-Meteor.publish('filteredProfs', function(schoolName){
-  return Professors.find({schoolName:schoolName},{fields: {'schoolName': 1, 'name': 1, 'department':1}});
-});
+
 
 Meteor.publish('allDepartments', function(){
 	return Departments.find({});
 });
+
+Meteor.publish("schoolNames", function(){
+  return Schools.find({},{fields: {'name': 1}});
+});
+
+
 /*
 Meteor.publish("ownReview", function(){
   var user = Meteor.users.findOne(this.userId);
@@ -25,9 +29,9 @@ Meteor.publish("ownReview", function(){
   }
 });*/
 
-Meteor.publish("schoolNames", function(){
-  return Schools.find({},{fields: {'name': 1}});
-});
+
+
+
 
 Meteor.publish("ownProfs", function(schoolId){
   //var user = this.userId,
@@ -35,24 +39,20 @@ Meteor.publish("ownProfs", function(schoolId){
   return Professors.find({schoolId:schoolId},{fields: {'schoolId': 1, 'name': 1, 'department':1}});
 });
 
-Meteor.publish('hook', function() {
-  return Meteor.users.find(this.userId, {fields: {
-    hook: 1
-  }});
+Meteor.publish('filteredProfs', function(schoolName){
+  return Professors.find({schoolName:schoolName},{fields: {'schoolName': 1, 'name': 1, 'department':1}});
 });
 
-Meteor.publish('fbId', function() {
-    return Meteor.users.find(this.userId, {fields: {
-      fb_id: 1
-    }
-  });
+Meteor.publish('userData',function(){
+  return Meteor.users.find(this.userId, {fields: {'hook': 1, 'fb_id': 1, 'university':1 }});
 });
+/*
+Meteor.startup(function(){
+  Professors._ensureIndex({schoolId:1});
+  Professors._ensureIndex({schoolName:1});
+});
+*/
 
-Meteor.publish('university', function() {
-  return Meteor.users.find(this.userId, {fields: {
-    university: 1
-  }});
-});
 
 Meteor.publish('Profreviews', function(){
 	return Profreviews.find({});
