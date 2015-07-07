@@ -30,7 +30,7 @@ Meteor.publish("schoolNames", function(){
 });
 
 Meteor.publish("ownProfs", function(schoolId){
-  //var user = Meteor.users.findOne(this.userId),
+  //var user = this.userId,
       //schoolId = user.university._id;
   return Professors.find({schoolId:schoolId},{fields: {'schoolId': 1, 'name': 1, 'department':1}});
 });

@@ -1,3 +1,5 @@
+
+
 Template.selectUniversity.helpers({
 	'schools': function(){
 		return Schools.find({});
