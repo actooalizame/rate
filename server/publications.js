@@ -22,6 +22,10 @@ Meteor.publish('professorReviews', function(professorId){
   return Profreviews.find({professorId:professorId});
 });
 
+Meteor.publish('singleProfessor', function(professorId){
+  return Professors.find({_id:professorId});
+});
+
 Meteor.publish('rateProfessor', function(profId){
   return Professors.find({_id:profId});
 });

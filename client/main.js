@@ -21,7 +21,7 @@ ShareIt.configure({
   applyColors: true,
   sites: {
     'facebook': {
-        //'appId': '677863165649310'
+        'appId': '677863165649310'
         //'version': 'v2.1'
     }
     }
@@ -37,7 +37,7 @@ toastr.options = {
   "onclick": null,
   "showDuration": "300",
   "hideDuration": "1000",
-  "timeOut": "5000",
+  "timeOut": "3000",
   "extendedTimeOut": "1000",
   "showEasing": "swing",
   "hideEasing": "linear",
