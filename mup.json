@@ -4,7 +4,7 @@
     {
       "host": "45.55.66.252",
       "username": "root",
-      "password": ""
+      "password": "enanoloco123999"
       // or pem file (ssh based authentication)
       //"pem": "~/.ssh/id_rsa"
     }
@@ -35,8 +35,8 @@
   // Configure environment
   "env": {
     "ROOT_URL": "http://telepathiclove.com",
-    "MONGO_URL": "mongodb://gatosaurio:@capital.3.mongolayer.com:10255,capital.2.mongolayer.com:10255/test-db?replicaSet=set-5590b125a3e590db1200020a",
-    "MONGO_OPLOG_URL": "mongodb://oplog:@capital.3.mongolayer.com:10255,capital.2.mongolayer.com:10255/local?authSource=test-db"
+    "MONGO_URL": "mongodb://gatosaurio:venisabias987@capital.3.mongolayer.com:10255,capital.2.mongolayer.com:10255/test-db?replicaSet=set-5590b125a3e590db1200020a",
+    "MONGO_OPLOG_URL": "mongodb://oplog:enanoloco123999@capital.3.mongolayer.com:10255,capital.2.mongolayer.com:10255/local?authSource=test-db"
     
   },
 
