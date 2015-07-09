@@ -215,12 +215,13 @@ Template.rateProfessor.helpers({
 				userId = user.hook,
 				ratedBy = professor.ratedBy,
 				array = jQuery.inArray(userId,ratedBy);
-		if(array ===0){
+		if(array>=0){
 			return true;
 		}
 		else if(array===-1){
 			return false;
 		}
+		return array;
 	},
 	'review': function(){
 		var professorId = this._id,
@@ -254,6 +255,7 @@ Template.rateProfessor.events({
 				professorId = this._id,
 				professor = Professors.findOne({_id: professorId}),
 				professorName = professor.name,
+				professorVoted = professor.voted,
 				user = Meteor.user(),
 				userId = user.hook,
 				userName = user.profile.name,
@@ -265,6 +267,7 @@ Template.rateProfessor.events({
         return alert(error.reason);
       } else {
         Meteor.call('addRatedBy',professorId,userId);
+        if(professorVoted===false){ Meteor.call('setVoted', professorId);}
 				Router.go('/professor/'+professorId);
 				toastr["success"]("Tu review ha sido publicado.", "Enhorabuena!");
       }

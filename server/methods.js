@@ -83,6 +83,12 @@ Meteor.methods({
 			{$push: {ratedBy: userId} }
 		);
 	},
+	'setVoted': function(professorId){
+		Professors.update(
+			{_id: professorId },
+			{$set: {voted: true} }
+		);
+	},
 	'removeTags': function(reviewId){
 		Profreviews.update(
 			{	_id: reviewId },
