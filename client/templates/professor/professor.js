@@ -42,6 +42,18 @@ Template.viewProfessor.helpers({
 				average = (sum/length).toFixed(1);
 		return average;
 	},
+	'ratingsExist': function(){
+		var professorId = this._id,
+				reviews = Profreviews.find({professorId:professorId}),
+				help = reviews.map(function(a) {return a.help;}),
+				clarity = reviews.map(function(a) {return a.clarity;}),
+				easy = reviews.map(function(a) {return a.easy;});
+		if(help.length!==0 && clarity.length!==0 && easy.length!==0 ){
+			return true;
+		}
+
+	},
+
 	'ratings': function(){
 		var professorId = this._id;
 		return Profreviews.find({professorId:professorId});

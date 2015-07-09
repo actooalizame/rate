@@ -1,9 +1,10 @@
 <template name="viewProfessor">
 	<h1>{{name}}</h1>
 	<h4>Profesor en el departamento de {{department}}</h4><h4>{{schoolName}}</h4>
-	
+	{{#if ratingsExist}}
 	<div class="row">
 		<div class="well col-sm-3 professor-averages">
+
 			<h2>Overall Score: {{overallScore}}</h2>
 			<h3><strong>Average</strong></h3>
 			
@@ -84,4 +85,8 @@
 	</div>
 	<hr>
 {{/each}}
+
+{{else}}
+	<h2>nohay</h2>
+{{/if}}
 </template>
