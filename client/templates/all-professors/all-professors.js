@@ -1,19 +1,27 @@
 Template.allProfessors.helpers({
-
-	'filter':function(){
-		var selectedSchool = Session.get('selectedSchool');
-		if(selectedSchool!==""){
-			return Professors.find({voted:true,schoolName:selectedSchool},{sort:{name:1}});
-		}
-		else{
-			return Professors.find({voted:true},{sort:{name:1}});
-		}
-	},
 	'sessionNull': function(){
 		var selectedSchool = Session.get('selectedSchool');
 		if(selectedSchool===undefined){
 			return true;
 		}
+	},
+	'filter':function(){
+		var selectedSchool = Session.get('selectedSchool');
+		if(selectedSchool===undefined){
+			return Professors.find({voted:true},{sort:{createdAt:-1}});
+		}
+		else{
+			return Professors.find({voted:true,schoolName:selectedSchool},{sort:{name:1}});
+		}
+	},
+	'selectedSchool': function(){
+		return Session.get('selectedSchool');
+	},
+	'countReviews': function(){
+		var professorId = this._id,
+				reviews = Profreviews.find({professorId:professorId}),
+				length = reviews.count();
+		return length;
 	},
 	'averageHelp': function(){
 		var professorId = this._id,
@@ -65,6 +73,11 @@ Template.allProfessors.events({
 	'submit .filter-professors': function(event){
 		event.preventDefault();
 		var selected = event.target.university.value;
-		Session.set('selectedSchool', selected);
+		if(selected===""){
+			Session.set('selectedSchool', undefined);
+		}
+		else{
+			Session.set('selectedSchool', selected);
+		}
 	}
 });
