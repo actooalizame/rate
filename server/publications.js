@@ -1,9 +1,13 @@
 Meteor.publish('Profreviews', function(){
-  return Profreviews.find({});
+  return Profreviews.find({},{fields: {'userId':0,'courseCode':0, 'credit':0, 'comment':0,'interest':0,'txtuse':0,'grade':0,'mayor':0,'userName':0,'userUrl':0}});
 });
 
 Meteor.publish('allProfessors', function(){
-  return Professors.find({},{fields: {'schoolName': 1, 'schoolId': 1, 'name': 1, 'department':1,'ratedBy':1}});
+  return Professors.find({voted:true},{fields: {'schoolName': 1, 'schoolId': 1, 'name': 1, 'department':1,'ratedBy':1}});
+});
+
+Meteor.publish('shortProfessors', function(){
+  return Professors.find({voted:true},{fields: {'schoolName': 1, 'schoolId': 1, 'name': 1, 'department':1,'voted':1}});
 });
 
 Meteor.publish('allSchools', function(){

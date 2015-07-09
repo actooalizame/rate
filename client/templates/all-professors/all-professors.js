@@ -3,10 +3,10 @@ Template.allProfessors.helpers({
 	'filter':function(){
 		var selectedSchool = Session.get('selectedSchool');
 		if(selectedSchool!==""){
-			return Professors.find({schoolName:selectedSchool},{sort:{name:1}});
+			return Professors.find({voted:true,schoolName:selectedSchool},{sort:{name:1}});
 		}
 		else{
-			return Professors.find({},{sort:{name:1}});
+			return Professors.find({voted:true},{sort:{name:1}});
 		}
 	},
 	'sessionNull': function(){
