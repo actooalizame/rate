@@ -8,7 +8,7 @@ Template.allProfessors.helpers({
 	'filter':function(){
 		var selectedSchool = Session.get('selectedSchool');
 		if(selectedSchool===undefined){
-			return Professors.find({voted:true},{sort:{name:1}});
+			return Professors.find({voted:true},{sort:{overall:-1}});
 		}
 		else {
 			return Professors.find({voted:true,schoolName:selectedSchool},{sort:{name:1}});
@@ -49,7 +49,7 @@ Template.allProfessors.helpers({
 				length = reviews.count(),
 				average  = (sum / length).toFixed(1);
 		return average;
-	},
+	}/*,
 	
 	'overallScore': function(){
 		var professorId = this._id,
@@ -66,7 +66,7 @@ Template.allProfessors.helpers({
 				length = (reviews.count())*3,
 				average = (sum/length).toFixed(1);
 		return average;
-	}
+	}*/
 });
 
 Template.allProfessors.events({

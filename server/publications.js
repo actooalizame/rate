@@ -7,7 +7,7 @@ Meteor.publish('allProfessors', function(){
 });
 
 Meteor.publish('shortProfessors', function(){
-  return Professors.find({voted:true},{fields: {'schoolName': 1, 'schoolId': 1, 'name': 1, 'slug':1,'department':1,'voted':1}});
+  return Professors.find({voted:true},{fields: {'schoolName': 1, 'schoolId': 1, 'name': 1, 'slug':1,'department':1,'voted':1,'overall':1}});
 });
 /*
 Meteor.publish('limitedProfessors', function(){

@@ -262,11 +262,47 @@ Template.rateProfessor.events({
 				userUrl = user.fb_id;
 		var selectedTags = template.findAll( "input[type=checkbox]:checked");
 		var tags = _.map(selectedTags, function(item) {return item.defaultValue;});
+		
 		Meteor.call('insertProfReview', userId,userName,userUrl,professorId,professorName,courseCode,help,clarity,easy,tags,credit,comment,interest,txtuse,grade,mayor, function(error){
 			if (error) {
         return alert(error.reason);
-      } else {
+      }
+      else {
         Meteor.call('addRatedBy',professorId,userId);
+        var reviews = Profreviews.find({professorId:professorId});
+				if(reviews.count()===0){
+					var overall = [];
+					overall.push(help,clarity,easy);
+					var sum =  eval(overall.join('+')),
+							length = 3,
+							average = (sum/length);
+					console.log(average);
+					Meteor.call('updateProfessorScore',professorId,average);
+				}
+				if(reviews.count()>=1){
+
+					var helpArray = reviews.map(function(a) {return a.help;});
+					var helpSum = eval(helpArray.join('+'));
+					
+					var clarityArray = reviews.map(function(a) {return a.clarity;});
+					var claritySum = eval(clarityArray.join('+'));
+					
+					var easyArray = reviews.map(function(a) {return a.easy;});
+					var easySum = eval(easyArray.join('+'));
+
+					var voted = [];
+					voted.push(helpSum,claritySum,easySum);
+					var votedSum = eval(voted.join('+'));
+
+					var total = [];
+					total.push(votedSum);
+
+					
+					var sumReviews =  eval(total.join('+')),
+							average = ((sumReviews/3)/(reviews.count())).toFixed(1);
+					console.log(average);
+					Meteor.call('updateProfessorScore',professorId,average);
+				}
         if(professorVoted===false){ Meteor.call('setVoted', professorId);}
 				Router.go('/professor/'+professorId);
 				toastr["success"]("Tu review ha sido publicado.", "Enhorabuena!");

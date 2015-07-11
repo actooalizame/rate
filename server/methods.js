@@ -94,5 +94,11 @@ Meteor.methods({
 			{	_id: reviewId },
 			{$set: {tags: []} }
 		);
+	},
+	'updateProfessorScore': function(professorId,average){
+		Professors.update(
+			{_id: professorId },
+			{$set: {overall: average} }
+		);
 	}
 });

@@ -1,3 +1,4 @@
+
 Template.viewProfessor.helpers({
 	'averageHelp': function(){
 		var professorId = this._id,
