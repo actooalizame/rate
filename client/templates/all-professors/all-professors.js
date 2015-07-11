@@ -8,9 +8,9 @@ Template.allProfessors.helpers({
 	'filter':function(){
 		var selectedSchool = Session.get('selectedSchool');
 		if(selectedSchool===undefined){
-			return Professors.find({voted:true},{sort:{createdAt:-1}});
+			return Professors.find({voted:true},{sort:{name:1}});
 		}
-		else{
+		else {
 			return Professors.find({voted:true,schoolName:selectedSchool},{sort:{name:1}});
 		}
 	},

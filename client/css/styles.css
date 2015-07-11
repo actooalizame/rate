@@ -69,9 +69,20 @@ ul li {
 .section-title {
   margin-bottom: 1em;
 }
+/*
+.search-review {
+  margin-bottom: 2em;
+}*/
 
 .pf-search-res {
   margin-top: 1.5em;
+}
+
+.review-search-res {
+  position: fixed;
+  right: 2%;
+  top: 11%;
+  z-index: 2;
 }
 
 .filter-professors {
