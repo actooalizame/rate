@@ -281,14 +281,14 @@ Template.rateProfessor.events({
 				}
 				if(reviews.count()>=1){
 
-					var helpArray = reviews.map(function(a) {return a.help;});
-					var helpSum = eval(helpArray.join('+'));
+					var helpArray = reviews.map(function(a) {return a.help;}),
+							helpSum = eval(helpArray.join('+'));
 					
-					var clarityArray = reviews.map(function(a) {return a.clarity;});
-					var claritySum = eval(clarityArray.join('+'));
+					var clarityArray = reviews.map(function(a) {return a.clarity;}),
+							claritySum = eval(clarityArray.join('+'));
 					
-					var easyArray = reviews.map(function(a) {return a.easy;});
-					var easySum = eval(easyArray.join('+'));
+					var easyArray = reviews.map(function(a) {return a.easy;}),
+							easySum = eval(easyArray.join('+'));
 
 					var voted = [];
 					voted.push(helpSum,claritySum,easySum);
@@ -305,7 +305,7 @@ Template.rateProfessor.events({
 				}
         if(professorVoted===false){ Meteor.call('setVoted', professorId);}
 				Router.go('/professor/'+professorId);
-				toastr["success"]("Tu review ha sido publicado.", "Enhorabuena!");
+				toastr["success"]("Tu review ha sido publicado.", "Jejeajaej!");
       }
 		});
 		

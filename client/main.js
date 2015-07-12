@@ -10,6 +10,7 @@ Meteor.startup(function() {
     }
     });
   Session.setDefault('credit', 'Yes');
+  Session.setDefault('onProfessors', false);
 });
 
 ShareIt.configure({

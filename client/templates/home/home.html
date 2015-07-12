@@ -1,25 +1,4 @@
 <template name="home">
-  <div class="row home-items">
-    
-    <div class="col-sm-4">
-      <a href="/search-professors" class="btn btn-lg btn-info">Encuentra Profesores</a>
-    </div>
-    <div class="col-sm-4">
-      <a href="/search-schools" class="btn btn-lg btn-info">Encuentra Universidades</a>
-    </div>
-    {{#if currentUser}}
-      {{#if hasUniversity}}
-      <div class="col-sm-4">
-        <a href="/rate" class="btn btn-lg btn-info">Rate</a>
-      </div>
-      {{else}}
-      <div class="col-sm-4">
-      {{>selectUniversity}}
-      </div>
-      {{/if}}
-    {{else}}
-    <h3>Log in To Vote</h3>  
-    {{/if}}
-    
-  </div>
+  {{> navBar }}
+  {{> fold}}
 </template>

@@ -1,3 +1,11 @@
+.block{
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
+
 .loading-message {
   color: #000;
   font-size: 25px;
