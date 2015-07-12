@@ -47,5 +47,8 @@ Template.home.helpers({
 Template.home.events({
 	'click .professors': function(){
 		Session.set('onProfessors', true);
-	}
+	},/*
+	'click .btn-rate':function(){
+		Session.set('onProfessors', false);
+	}*/
 });

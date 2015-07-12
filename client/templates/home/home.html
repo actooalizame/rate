@@ -1,4 +1,42 @@
 <template name="home">
   {{> navBar }}
-  {{> fold}}
+  <div class="container">
+    <div id="fold">
+      <div class="row home-items">
+        <div class="col-sm-4">
+          <a href="#" class="btn btn-lg btn-info profL">Encuentra Profesores</a>
+        </div>
+        <div class="col-sm-4">
+          <a href="#" class="btn btn-lg btn-info schoolL">Encuentra Universidades</a>
+        </div>
+        {{#if currentUser}}
+          {{#if hasUniversity}}
+          <div class="col-sm-4">
+            <a href="/rate" class="btn btn-lg btn-info btn-rate">Rate</a>
+          </div>
+          {{else}}
+          <div class="col-sm-4">
+          {{>selectUniversity}}
+          </div>
+          {{/if}}
+        {{else}}
+        <div class="col-sm-4">
+          <h3>Log in To Vote</h3>
+          {{>loginButtons}} 
+        </div>
+
+        {{/if}}
+        
+      </div>
+
+      <div class="row professors hidden">
+        {{>searchProfessors}}
+      </div>
+
+      <div class="row school hidden">
+        {{>searchSchools}}
+      </div>
+    </div>
+    <h1>contenido</h1>
+  </div>
 </template>
