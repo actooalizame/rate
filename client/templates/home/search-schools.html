@@ -1,26 +1,31 @@
 <template name="searchSchools">
-  <div class="col-sm-6 col-sm-offset-3">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <h3>Encuentra Universidades</h3>
-        <div class="search-input">
-        {{> esInput index="schools" placeholder="Nombre o Region" reactive="false" id="searchSchools"}}
-        </div>
-          {{#esEach index="schools" id="searchSchools"}}
-          <div class="panel panel-default">
-            <div class="panel-body results">
-              <h4>{{name}}</h4>
-              <h5>{{state}}</h5>
-            </div>
+  <div class="row">
+    <div class="col-sm-3">
+      {{>appNav}}
+    </div>
+    <div class="col-sm-4 col-sm-offset-2">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h3>Encuentra Universidades</h3>
+          <div class="search-input">
+          {{> esInput index="schools" placeholder="Nombre o Region" reactive="false" id="searchSchools"}}
           </div>
-          {{/esEach}}
-        {{> esLoadMoreButton index="schools"}}
-        {{#ifEsHasNoResults index="schools" id="searchSchools"}}
-        <div class="no-results"><h4>No hay resultados!</h4></div>
-        {{/ifEsHasNoResults}}
-        {{#ifEsIsSearching index="schools" id="searchSchools"}}
-        <div>Buscando...</div>
-        {{/ifEsIsSearching}}
+            {{#esEach index="schools" id="searchSchools"}}
+            <div class="panel panel-default">
+              <div class="panel-body results">
+                <h4>{{name}}</h4>
+                <h5>{{state}}</h5>
+              </div>
+            </div>
+            {{/esEach}}
+          {{> esLoadMoreButton index="schools"}}
+          {{#ifEsHasNoResults index="schools" id="searchSchools"}}
+          <div class="no-results"><h4>No hay resultados!</h4></div>
+          {{/ifEsHasNoResults}}
+          {{#ifEsIsSearching index="schools" id="searchSchools"}}
+          <div>Buscando...</div>
+          {{/ifEsIsSearching}}
+        </div>
       </div>
     </div>
   </div>

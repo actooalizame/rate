@@ -1,96 +1,117 @@
 <template name="allProfessors">
 	{{#if sessionNull }}
 	<div class="row">
-		<h3>Todos los reviews. Selecciona una universidad para refinar tu búsqueda</h3>
-		<form class="filter-professors">
-			<div class="col-sm-4">
-				<select class="form-control" name="university">
-		  		<option class="disabled" value="">Ver todos</option>
-		     	<option>Universidad Católica</option>
-		     	<option>Universidad de Chile</option>
-		     	<option>Universidad de los Andes</option>
-		    </select>   
-			</div>
-			<div class="col-sm-2">		  
-				<button type="submit" class="btn btn-success btn-mini">Filtrar</button>
-			</div>
-		</form>
-	</div>
-	
-	<div class="row">
-		{{#each filter}}
-		<div class="col-sm-3">
-			<h3><a href="/professor/{{_id}}">{{name}}</a></h3>
-			<h4>{{schoolName}}</h4>
-			<h4><small>{{department}}</small></h4>
-			<h4>Overall Score: {{overall}}</h4>
-			<h5>Help: {{averageHelp}}</h5>
-			<h5>Clarity: {{averageClarity}}</h5>
-			<h5>Easy: {{averageEasy}}</h5>
-			<h5><strong>Reviews: {{countReviews}}</strong></h5>
+		<div class="col-sm-2">
+			{{>appNav}}
 		</div>
-		{{/each}}
+		<div class="container">
+			<div class="col-sm-8">
+				<h3>Selecciona una universidad para refinar tu búsqueda</h3><br>
+				<form class="filter-professors">
+					<div class="col-sm-4">
+						<select class="form-control" name="university">
+				  		<option class="disabled" value="">Ver todos</option>
+				     	<option>Universidad Católica</option>
+				     	<option>Universidad de Chile</option>
+				     	<option>Universidad de los Andes</option>
+				    </select>   
+					</div>
+					<div class="col-sm-2">		  
+						<button type="submit" class="btn btn-success btn-mini">Filtrar</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<br>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-offset-2 col-lg-offset-1">
+				{{#each filter}}
+				<div class="col-sm-3">
+					<h3><a href="/professor/{{_id}}">{{name}}</a></h3>
+					<h4>{{schoolName}}</h4>
+					<h4><small>{{department}}</small></h4>
+					<h4>Overall Score: {{overall}}</h4>
+					<h5>Help: {{averageHelp}}</h5>
+					<h5>Clarity: {{averageClarity}}</h5>
+					<h5>Easy: {{averageEasy}}</h5>
+					<h5><strong>Reviews: {{countReviews}}</strong></h5>
+				</div>
+				{{/each}}
+			</div>
+		</div>
 	</div>
 
 	{{else}}
 	<div class="row">
-		<h3>Reviews de profesores en la universidad {{selectedSchool}}</h3>
-		<form class="filter-professors col-sm-4">
-			<div class="col-sm-8">
-				<select class="form-control" name="university">
-		  		<option class="disabled" value="">Ver todos</option>
-		     	<option>Universidad Católica</option>
-		     	<option>Universidad de Chile</option>
-		     	<option>Universidad de los Andes</option>
-		    </select>   
-			</div>
-			<div class="col-sm-4">		  
-				<button type="submit" class="btn btn-success btn-mini">Filtrar</button>
-			</div>
-		</form>
-		<div class="search-input col-sm-4">
-			{{> esInput index="professorsReviews" placeholder="Busca por Nombre o Apellido" id="professorsReviews"}}
+		<div class="col-sm-2">
+			{{>appNav}}
 		</div>
-		<div class="col-sm-4 review-search-res">
-      {{#esEach index="professorsReviews" id="professorsReviews"}}
-      <div class="panel panel-default">
-        <div class="panel-body results">
-          <h4><a href="/professor/{{_id}}">{{name}}</a></h4>
-          <h5>{{department}}</h5>
-        </div>
-      </div>
-      {{/esEach}}      
-      {{> esLoadMoreButton index="professorsReviews"}}
-      {{#ifEsHasNoResults index="professorsReviews" id="professorsReviews"}}
-      <div class="no-results">
-				<div class="panel panel-default">
-        	<div class="panel-body results">
-      			<h4>No hay resultados!</h4>
-					</div>
-				</div>
-      </div>
-      {{/ifEsHasNoResults}}
-      {{#ifEsIsSearching index="professorsReviews" id="professorsReviews"}}
-      <div>Buscando...</div>
-      {{/ifEsIsSearching}}
-    </div>
-	</div>
+		<div class="container">
 
-	<div class="row selected-reviews">
-		
-		{{#each filter}}
-		<div class="col-sm-3">
-			<h3><a href="/professor/{{_id}}">{{name}}</a></h3>
-			<h4>{{schoolName}}</h4>
-			<h4><small>{{department}}</small></h4>
-			<h4>Overall Score: {{overall}}</h4>
-			<h5>Help: {{averageHelp}}</h5>
-			<h5>Clarity: {{averageClarity}}</h5>
-			<h5>Easy: {{averageEasy}}</h5>
-			<h5><strong>Reviews: {{countReviews}}</strong></h5>
+			<div class="col-sm-offset-2 col-lg-offset-1">
+				<h3>Reviews de profesores en {{selectedSchool}}</h3><br>
+				<form class="filter-professors col-sm-4">
+					<div class="col-sm-8">
+						<select class="form-control" name="university">
+				  		<option class="disabled" value="">Ver todos</option>
+				     	<option>Universidad Católica</option>
+				     	<option>Universidad de Chile</option>
+				     	<option>Universidad de los Andes</option>
+				    </select>   
+					</div>
+					<div class="col-sm-4">		  
+						<button type="submit" class="btn btn-success btn-mini">Filtrar</button>
+					</div>
+				</form>
+			</div>
+
+			<div class="search-input col-sm-4">
+				{{> esInput index="professorsReviews" placeholder="Busca por Nombre o Apellido" id="professorsReviews"}}
+			</div>
+			<div class="col-sm-4 review-search-res">
+	      {{#esEach index="professorsReviews" id="professorsReviews"}}
+	      <div class="panel panel-default">
+	        <div class="panel-body results">
+	          <h4><a href="/professor/{{_id}}">{{name}}</a></h4>
+	          <h5>{{department}}</h5>
+	        </div>
+	      </div>
+	      {{/esEach}}      
+	      {{> esLoadMoreButton index="professorsReviews"}}
+	      {{#ifEsHasNoResults index="professorsReviews" id="professorsReviews"}}
+	      <div class="no-results">
+					<div class="panel panel-default">
+	        	<div class="panel-body results">
+	      			<h4>No hay resultados!</h4>
+						</div>
+					</div>
+	      </div>
+	      {{/ifEsHasNoResults}}
+	      {{#ifEsIsSearching index="professorsReviews" id="professorsReviews"}}
+	      <div>Buscando...</div>
+	      {{/ifEsIsSearching}}
+	    </div>
+	  </div>
+	</div>
+	<div class="container">
+		<div class="row selected-reviews">
+			<div class="col-sm-offset-2 col-lg-offset-1">
+				{{#each filter}}
+				<div class="col-sm-3">
+					<h3><a href="/professor/{{_id}}">{{name}}</a></h3>
+					<h4>{{schoolName}}</h4>
+					<h4><small>{{department}}</small></h4>
+					<h4>Overall Score: {{overall}}</h4>
+					<h5>Help: {{averageHelp}}</h5>
+					<h5>Clarity: {{averageClarity}}</h5>
+					<h5>Easy: {{averageEasy}}</h5>
+					<h5><strong>Reviews: {{countReviews}}</strong></h5>
+				</div>
+				{{/each}}
+			</div>
 		</div>
-		{{/each}}
-		
 	</div>
 		{{/if}}
 
