@@ -1,9 +1,11 @@
 <template name="rateProfessor">
-  <div class="col-sm-3">
-    <h2>{{name}}</h2>
+  <div class="col-sm-2">
+    {{>appNav}}
+  </div>
+  <div class="col-sm-10">
+  	<h2>{{name}}</h2>
     <h5>{{schoolName}}</h5>
     <h5>{{department}}</h5>
-  </div>
   
 	  {{#if userRated}}
 		  <h2>Ya rankeaste a {{name}}</h2>
@@ -18,5 +20,5 @@
 			  	<h1>no</h1>
 			  {{/if}}
 		{{/if}}
-
+	</div>
 </template>
