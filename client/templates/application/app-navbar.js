@@ -1,15 +1,24 @@
 Template.appNav.rendered = function(){
 	function setHeight() {
-		var windowHeight = $(window).innerHeight();
-		$('.sidebar-nav ul').css('min-height', windowHeight);
+		var windowHeight = $(window).innerHeight(),
+				windowWidth = $(window).innerWidth(),
+				sidebar = $('.sidebar-nav'),
+				nav = $('.sidebar-nav ul');
+
+		nav.css('min-height', windowHeight);
+
 		if(windowHeight<578){
-			$('.sidebar-nav').css('overflow-y', 'scroll');
+			sidebar.css('overflow-y', 'scroll');
 		}
 		if(windowHeight>579){
-			$('.sidebar-nav').css('overflow-y', 'hidden');
+			sidebar.css('overflow-y', 'hidden');
+		}
+		if(windowWidth<768){
+			nav.css('min-height', windowHeight/2);
+			sidebar.css('overflow-y', 'hidden');
 		}
 		//$('.sidebar-nav ul').height($(document).height());
-		}
+	}
 setHeight();
 
 $(window).resize(function() {

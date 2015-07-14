@@ -220,14 +220,12 @@ input, button, select, textarea {
       width: 100%;
     }
 
-  }
-
   .sidebar-nav .navbar .navbar-collapse {
     padding: 0;
     margin-top: -1px;
     margin-left: -1px;
   }
-.sidebar-nav .navbar ul {
+  .sidebar-nav .navbar ul {
     float: none;
     background-color: #212121;
   }
@@ -251,7 +249,9 @@ input, button, select, textarea {
   }
   .sidebar-nav .navbar li a:hover {
     color: #009688;
-  }/*
+  }
+
+}/*
   li.social-icons a {
     display: inline-block;
     padding-left: 2.7em;
@@ -262,9 +262,26 @@ input, button, select, textarea {
     position: relative;
     width: 100%;
     overflow: hidden; 
+  }
 
-}
+  .sidebar-nav .navbar li {
+    border-bottom: 1px solid #b6b6b6;
+  }
+  
+  .sidebar-nav .navbar li:last-child {
+    border-bottom: none;
+  }
 
+  .sidebar-nav .navbar li a {
+    text-align: center;
+  }
+
+  .logo-xs {
+    width: 33%;
+    position: absolute;
+    top: 11px;
+    left: 7px;
+  }
 }
 
 
