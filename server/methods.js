@@ -56,10 +56,9 @@ Meteor.methods({
 			txtuse: txtuse,
 			grade: grade,
 			mayor: mayor,
+			votes: 0,
 			upVoters: [],
-			upVotes: 0,
 			downVoters: [],
-			downVotes: 0,
 			createdAt: new Date()
 		});
 	},
@@ -108,7 +107,13 @@ Meteor.methods({
 	'upvoteReview': function(hook, reviewId){
 		Profreviews.update(
 			{ _id: reviewId },
-			{$inc: {votes: 1},$push: {upVoters: hook}}
+			{$inc: {votes: 1},$push: {upVoters: hook},$pull: {downVoters: hook}}
+		);
+	},
+	'downvoteReview': function(hook, reviewId){
+		Profreviews.update(
+			{ _id: reviewId },
+			{$inc: {votes: -1},$push: {downVoters: hook},$pull: {upVoters: hook}}
 		);
 	}
 });

@@ -97,6 +97,17 @@ Template.viewProfessor.helpers({
 		}
 	
 	},
+	'userDownvoted': function(){
+		var review = Profreviews.findOne({_id: this._id}),
+				user = Meteor.user(),
+				userId = user.hook,
+				downVoter = review.downVoters,
+				array = jQuery.inArray(userId,downVoter);
+		if(array>=0){
+			return "disabled";
+		}
+	
+	},
 
 });
 
@@ -108,5 +119,14 @@ Template.viewProfessor.events({
 				review = Profreviews.findOne({_id: this._id}),
 				reviewId = review._id;
 		Meteor.call('upvoteReview', hook, reviewId);
+		
+	},
+	'click .downvote': function(){
+		var user = Meteor.user(),
+				hook = user.hook,
+				review = Profreviews.findOne({_id: this._id}),
+				reviewId = review._id;
+		Meteor.call('downvoteReview',hook,reviewId);
+		
 	}
 });
