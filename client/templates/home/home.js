@@ -32,6 +32,57 @@ if(onProfessors===true){
   home.addClass('hidden');
 }
 
+function setHeight(){
+	var windowHeight = $(window).innerHeight(),
+			wrapper = $('#wrapper');
+	wrapper.css('min-height', windowHeight);
+}
+
+setHeight();
+
+function headlineChange(){
+	var headline = $('.headline-change'),
+		rate = $('a.btn-rate'),
+		windowWidth = (window).innerWidth;
+
+	if(windowWidth>767){
+		profLink.mouseover(function(){
+			headline.text("the professor");
+		});
+
+		profLink.mouseleave(function(){
+			headline.text("what");
+		});
+
+		schoolLink.mouseover(function(){
+			headline.text("the school");
+		});
+
+		schoolLink.mouseleave(function(){
+			headline.text("what");
+		});
+
+		rate.mouseover(function(){
+			headline.text("the outlet");
+		});
+
+		rate.mouseleave(function(){
+			headline.text("what");
+		});
+	}
+}
+
+
+headlineChange();
+
+$(window).resize(function() {
+    setHeight();
+    headlineChange();
+  });
+
+
+
+
 };
 
 Template.home.helpers({

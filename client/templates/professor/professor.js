@@ -68,6 +68,45 @@ Template.viewProfessor.helpers({
 	'ratingsCount': function(){
 		var professorId = this._id;
 		return Profreviews.find({professorId:professorId}).fetch().length;
-	}
+	},
+	'votesCount': function(){
+		var reviewId = this._id,
+				review = Profreviews.findOne({_id:reviewId});
+				upvotes = review.votes;
+		return upvotes;
+	},/*,
+	'disableOwnVote': function(){
+		var reviewId = this._id,
+				review = Profreviews.findOne({_id: reviewId}),
+				rewiewUser = review.userId,
+				user = Meteor.user(),
+				userId = user.hook;
+		if(rewiewUser===userId){
+			console.log(userId);
+		}
+		console.log(rewiewUser);
+	}*/
+	'userUpvoted': function(){
+		var review = Profreviews.findOne({_id: this._id}),
+				user = Meteor.user(),
+				userId = user.hook,
+				upVoter = review.upVoters,
+				array = jQuery.inArray(userId,upVoter);
+		if(array>=0){
+			return "disabled";
+		}
+	
+	},
 
+});
+
+Template.viewProfessor.events({
+	
+	'click .upvote': function(){
+		var user = Meteor.user(),
+				hook = user.hook,
+				review = Profreviews.findOne({_id: this._id}),
+				reviewId = review._id;
+		Meteor.call('upvoteReview', hook, reviewId);
+	}
 });

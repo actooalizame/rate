@@ -2,6 +2,31 @@ body {
   overflow-x: hidden;
 }
 
+nav.navbar-home {
+  position: relative;
+  padding: 1em 0;
+}
+
+.navbar-brand > img {
+  display: block;
+  position: absolute;
+  top: 16px;
+}
+
+#fold h1 {
+  color: #fff;
+}
+
+.headline {
+  font-size: 5em;
+  margin-bottom: 2em;
+  margin-top: 1.4em;
+}
+
+.headline-change {
+  color: #b4d235;
+}
+
 .fixed {
     top: 0;
     bottom:0;
@@ -11,12 +36,25 @@ body {
     overflow: hidden;
 }
 
+.white {
+  color: #fff;
+}
+
 .block{
   display: block;
 }
 
 .hidden {
   display: none;
+}
+
+#wrapper {
+  background: url(/images/campus3.jpg) no-repeat center center fixed;
+
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .loading-message {

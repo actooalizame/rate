@@ -56,6 +56,10 @@ Meteor.methods({
 			txtuse: txtuse,
 			grade: grade,
 			mayor: mayor,
+			upVoters: [],
+			upVotes: 0,
+			downVoters: [],
+			downVotes: 0,
 			createdAt: new Date()
 		});
 	},
@@ -99,6 +103,12 @@ Meteor.methods({
 		Professors.update(
 			{_id: professorId },
 			{$set: {overall: average} }
+		);
+	},
+	'upvoteReview': function(hook, reviewId){
+		Profreviews.update(
+			{ _id: reviewId },
+			{$inc: {votes: 1},$push: {upVoters: hook}}
 		);
 	}
 });
