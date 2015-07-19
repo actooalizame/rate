@@ -31,7 +31,7 @@ if(onProfessors===true){
             .addClass('block');
   home.addClass('hidden');
 }
-
+/*
 function setHeight(){
 	var windowHeight = $(window).innerHeight(),
 			wrapper = $('#wrapper');
@@ -39,10 +39,11 @@ function setHeight(){
 }
 
 setHeight();
-
+*/
 function headlineChange(){
 	var headline = $('.headline-change'),
 		rate = $('a.btn-rate'),
+		login = $('.login'),
 		windowWidth = (window).innerWidth;
 
 	if(windowWidth>767){
@@ -62,6 +63,14 @@ function headlineChange(){
 			headline.text("what");
 		});
 
+		login.mouseover(function(){
+			headline.text("the outlet");
+		});
+
+		login.mouseleave(function(){
+			headline.text("what");
+		});
+
 		rate.mouseover(function(){
 			headline.text("the outlet");
 		});
@@ -76,11 +85,21 @@ function headlineChange(){
 headlineChange();
 
 $(window).resize(function() {
-    setHeight();
+    //setHeight();
     headlineChange();
   });
 
-
+var $header = $('.navbar-home');
+  $(window).scroll(function () {
+     if(scrollY <= 0){
+         $header.addClass('transparent')
+         				.removeClass('nav-active');
+     }
+     if(scrollY > 20 ){
+        $header.addClass('nav-active')
+        				.removeClass('transparent');
+      }
+   });
 
 
 };
@@ -98,8 +117,5 @@ Template.home.helpers({
 Template.home.events({
 	'click .professors': function(){
 		Session.set('onProfessors', true);
-	},/*
-	'click .btn-rate':function(){
-		Session.set('onProfessors', false);
-	}*/
+	}
 });

@@ -260,10 +260,12 @@ Template.rateProfessor.events({
 				userId = user.hook,
 				userName = user.profile.name,
 				userUrl = user.fb_id;
+		var captchaData = grecaptcha.getResponse();
 		var selectedTags = template.findAll( "input[type=checkbox]:checked");
 		var tags = _.map(selectedTags, function(item) {return item.defaultValue;});
 		
-		Meteor.call('insertProfReview', userId,userName,userUrl,professorId,professorName,courseCode,help,clarity,easy,tags,credit,comment,interest,txtuse,grade,mayor, function(error){
+		Meteor.call('insertProfReview',captchaData, userId,userName,userUrl,professorId,professorName,courseCode,help,clarity,easy,tags,credit,comment,interest,txtuse,grade,mayor, function(error){
+			grecaptcha.reset();
 			if (error) {
         return alert(error.reason);
       }

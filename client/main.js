@@ -8,7 +8,10 @@ Meteor.startup(function() {
     else{
       return;
     }
+    reCAPTCHA.config({
+        publickey: '6LfwAAoTAAAAAGkQy4XR14morF31R4Y-L_qCCr-J'
     });
+  });
   Session.setDefault('credit', 'Yes');
   Session.setDefault('onProfessors', false);
 });

@@ -93,7 +93,7 @@ Template.viewProfessor.helpers({
 				upVoter = review.upVoters,
 				array = jQuery.inArray(userId,upVoter);
 		if(array>=0){
-			return "disabled";
+			return "invisible";
 		}
 	
 	},
@@ -104,7 +104,7 @@ Template.viewProfessor.helpers({
 				downVoter = review.downVoters,
 				array = jQuery.inArray(userId,downVoter);
 		if(array>=0){
-			return "disabled";
+			return "invisible";
 		}
 	
 	},

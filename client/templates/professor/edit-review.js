@@ -74,7 +74,7 @@ Template.editReview.events({
 				review = Profreviews.findOne({_id: reviewId});
 				tags = review.tags;
 		Meteor.call('removeTags',reviewId);
-		Router.go('rate');
+		//Router.go('rate');
 	},
 	'submit .edit-review': function(event,template){
 		event.preventDefault();

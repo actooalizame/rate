@@ -1,36 +1,50 @@
+html { overflow-y: scroll; }
 
 body {
-  overflow-x: hidden;
   font-family: 'Open Sans', sans-serif;
 
 }
-/*
+
 #wrapper {
   min-height: 730px;
 }
-*/
+
+
 .navbar-home {
-  position: relative;
   padding: 1em 0;
   line-height: 36px;
 }
 
+.navbar-home ul.navbar-right {
+  margin-right: 2em;
+}
+
+.navbar-home li {
+  margin-left: 2em;
+}
+
 .navbar-home a {
-  padding: 0 12px;
+  padding: 0 2px;
   border-radius: 18px;
   color: #fff;
   text-decoration: none;
   font-size: 15px;
- 
-}
-li.active {
-  border-radius: 18px;
-  background-color: rgba(0,0,0,0.5);
+  line-height: 17px!important;
 }
 
 .navbar-home li a:hover {
   background-color: rgba(0,0,0,0.5);
 }
+
+.navbar-home li.dropdown a:hover {
+  background-color: transparent;
+}
+
+li.active {
+  border-radius: 18px;
+  background-color: rgba(0,0,0,0.5);
+}
+
 
 .navbar-brand > img {
   display: block;
@@ -46,7 +60,7 @@ li.active {
 .headline {
   color: #fff;
   font-size: 4.3em;
-  margin-bottom: 3em;
+  margin-bottom: 3.075em;
   margin-top: 1.5em;
   font-weight: 300;
 }
@@ -58,6 +72,7 @@ li.active {
 .home-items {
   text-align: center;
   margin-bottom: 9em;
+  margin-top: 5em;
 }
 
 .well-home {
@@ -66,12 +81,20 @@ li.active {
   padding: 1em 2em;
   border-radius: 6px;
   text-align: center;
-  margin-top: 4em;
+  margin-top: 10.5em;
+}
+
+button.dismiss {
+  margin: 2em 2em 1em;
 }
 
 .section-title {
   margin-bottom: 2em;
   line-height: 36px;
+}
+
+#searchSchools {
+  margin-bottom: 1.5em;
 }
 
 .fixed {
@@ -83,8 +106,23 @@ li.active {
     overflow: hidden;
 }
 
+.nav-active {
+  background-color: rgba(34,34,34,0.9);
+  transition:background-color 0.5s ease;
+}
+
+.transparent {
+  background-color: transparent;
+  transition:background-color 0.5s ease;
+}
+
+
+
 .white {
   color: #fff;
+}
+.black {
+  color: #000;
 }
 
 .bold {
@@ -99,8 +137,12 @@ li.active {
   display: none;
 }
 
+.invisible {
+  visibility: hidden;
+}
+
 #wrapper {
-  background: url(/images/campus3.jpg) no-repeat;
+  background: url(/images/cover2.jpg) center center no-repeat;
 
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -182,6 +224,13 @@ ul li {
 
 .pf-search-res {
   margin-top: 1.5em;
+  position: absolute;
+  padding: 0;
+  z-index: 0;
+}
+
+.pf-search-res .panel-body {
+  padding: 6px;
 }
 
 .review-search-res {
@@ -195,8 +244,10 @@ ul li {
   margin-bottom: 4em;
 }
 
-.results:hover {
-	background-color: #e7e7e7;
+.sch-search-res {
+  position: absolute;
+  top: 2em;
+  left: 5em;
 }
 
 .modal-home {
@@ -332,9 +383,16 @@ input, button, select, textarea {
     color: #B6B6B6;
     line-height: 2;
   }
+
+
   .sidebar-nav .navbar li a:hover {
     color: #009688;
   }
+  
+  .sidebar-nav .navbar li:last-child {
+    margin-top: -1.2em;
+  }
+
 
 }/*
   li.social-icons a {
@@ -343,6 +401,11 @@ input, button, select, textarea {
   }
 */
 @media (max-width: 767px) {
+
+  .navbar-home {
+    background-color: #222;
+  }
+
   .fixed {
     position: relative;
     width: 100%;
@@ -366,6 +429,10 @@ input, button, select, textarea {
     position: absolute;
     top: 11px;
     left: 7px;
+  }
+
+  .profL, .schoolL, .btn-rate {
+    margin-bottom: 2em;
   }
 }
 

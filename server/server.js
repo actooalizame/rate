@@ -8,3 +8,9 @@ Accounts.onCreateUser(function(options, user) {
   return user;
 });
 
+Meteor.startup(function() {
+    reCAPTCHA.config({
+        privatekey: '6LfwAAoTAAAAAAEHOk1eF1IyFBnOLMmX-LFiWEbS'
+    });
+});
+

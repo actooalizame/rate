@@ -38,29 +38,35 @@ Meteor.methods({
 			{$set: {done:true}}
 		);
 	},
-	'insertProfReview': function(userId,userName,userUrl,professorId,professorName,courseCode,help,clarity,easy,tags,credit,comment,interest,txtuse,grade,mayor){
-		Profreviews.insert({
-			userId: userId,
-			userName: userName,
-			userUrl: userUrl,
-			professorId: professorId,
-			professorName: professorName,
-			courseCode: courseCode,
-			help: help,
-			clarity: clarity,
-			easy: easy,
-			tags: tags,
-			credit: credit,
-			comment: comment,
-			interest: interest,
-			txtuse: txtuse,
-			grade: grade,
-			mayor: mayor,
-			votes: 0,
-			upVoters: [],
-			downVoters: [],
-			createdAt: new Date()
-		});
+	'insertProfReview': function(captchaData,userId,userName,userUrl,professorId,professorName,courseCode,help,clarity,easy,tags,credit,comment,interest,txtuse,grade,mayor){
+		var verifyCaptchaResponse = reCAPTCHA.verifyCaptcha(this.connection.clientAddress, captchaData);
+		if (!verifyCaptchaResponse.success) {
+      throw new Meteor.Error(422, 'Verifica tu Humanidad!');
+    }
+    else{
+      Profreviews.insert({
+				userId: userId,
+				userName: userName,
+				userUrl: userUrl,
+				professorId: professorId,
+				professorName: professorName,
+				courseCode: courseCode,
+				help: help,
+				clarity: clarity,
+				easy: easy,
+				tags: tags,
+				credit: credit,
+				comment: comment,
+				interest: interest,
+				txtuse: txtuse,
+				grade: grade,
+				mayor: mayor,
+				votes: 0,
+				upVoters: [],
+				downVoters: [],
+				createdAt: new Date()
+			});
+    }
 	},
 	'updateProfReview': function(reviewId,help,clarity,easy,tags,courseCode,credit,comment,interest,txtuse,grade,mayor){
 		Profreviews.update(

@@ -7,10 +7,10 @@ Template.appNav.rendered = function(){
 
 		nav.css('min-height', windowHeight);
 
-		if(windowHeight<578){
+		if(windowHeight<652){
 			sidebar.css('overflow-y', 'scroll');
 		}
-		if(windowHeight>579){
+		if(windowHeight>652){
 			sidebar.css('overflow-y', 'hidden');
 		}
 		if(windowWidth<768){
@@ -25,6 +25,12 @@ $(window).resize(function() {
     setHeight();
   });
 };
+
+Template.appNav.helpers({
+	'activeClass': function(){
+		
+	}
+});
 
 Template.appNav.events({
 	'click .logo-link':function(){

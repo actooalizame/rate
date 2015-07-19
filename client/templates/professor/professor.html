@@ -86,11 +86,11 @@
 						<div class="col-sm-6">
 							<h4>{{tags}}</h4>
 							<p>{{comment}}</p>
-							<p>Points: {{votesCount}}</p>
+							<h4>Points: {{votesCount}}</h4>
 							{{#if currentUser}}
 							<div class="votes">
-								<a href="#" class="btn btn-mini btn-success upvote {{userUpvoted}}"><i class="fa fa-thumbs-o-up"></i></a>
-								<a href="#" class="btn btn-mini btn-danger downvote {{userDownvoted}}"><i class="fa fa-thumbs-o-down"></i> </a>
+								<button class="btn btn-mini btn-success upvote {{userUpvoted}}"><i class="fa fa-thumbs-o-up"></i></button>
+								<button href="#" class="btn btn-mini btn-danger downvote {{userDownvoted}}"><i class="fa fa-thumbs-o-down"></i> </button>
 							</div>
 							{{/if}}
 						</div>
