@@ -40,11 +40,15 @@ body {
   background-color: transparent;
 }
 
-li.active {
-  border-radius: 18px;
+
+.navbar-home .nav > li > a:focus {
   background-color: rgba(0,0,0,0.5);
 }
 
+.navbar-home .nav > li.active {
+  border-radius: 18px;
+  background-color: rgba(0,0,0,0.5);
+}
 
 .navbar-brand > img {
   display: block;
@@ -347,6 +351,11 @@ input, button, select, textarea {
 
 .professor-averages {
   text-align: center;
+}
+
+
+#product, #enterprise {
+  min-height: 800px;
 }
 
 @media (max-width: 1200px) {

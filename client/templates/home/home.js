@@ -31,6 +31,40 @@ if(onProfessors===true){
             .addClass('block');
   home.addClass('hidden');
 }
+
+ $(function() {
+    $('.navbar-home a').bind('click', function(event) {
+        var $anchor = $(this);
+        $('html, body').stop().animate({
+            scrollTop: $($anchor.attr('href')).offset().top - 69
+        }, 900);
+        event.preventDefault();
+    });
+});
+
+var sections = $('section'),
+		nav = $('.home-nav'),
+		defaultItem = $('.navbar-home .nav > li.active'),
+		nav_height = nav.outerHeight();
+     
+    $(window).on('scroll', function () {
+      var cur_pos = $(this).scrollTop();
+     
+      sections.each(function() {
+        var top = $(this).offset().top - nav_height,
+            bottom = top + $(this).outerHeight();
+     
+        if (cur_pos >= top && cur_pos <= bottom) {
+          nav.find('a').removeClass('active');
+          sections.removeClass('active');
+          defaultItem.removeClass('active');
+     
+          $(this).addClass('active');
+          nav.find('a[href="#'+$(this).attr('id')+'"]').addClass('active');
+        }
+      });
+    });
+
 /*
 function setHeight(){
 	var windowHeight = $(window).innerHeight(),
