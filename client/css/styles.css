@@ -2,7 +2,7 @@ html { overflow-y: scroll; }
 
 body {
   font-family: 'Open Sans', sans-serif;
-
+  overflow-x: hidden;
 }
 
 #wrapper {
@@ -222,11 +222,18 @@ ul li {
   margin-bottom: 2em;
 }*/
 
+.overall-prof-review {
+  min-height: 23em;
+}
+
 .pf-search-res {
   margin-top: 1.5em;
-  position: absolute;
   padding: 0;
   z-index: 0;
+}
+
+.well-home .pf-search-res {
+  position: absolute;
 }
 
 .pf-search-res .panel-body {
@@ -384,6 +391,11 @@ input, button, select, textarea {
     line-height: 2;
   }
 
+  .sidebar-nav li.active > a {
+    background-color: #989788!important;
+    color: #DED6D6!important;
+  }
+
 
   .sidebar-nav .navbar li a:hover {
     color: #009688;
@@ -400,6 +412,15 @@ input, button, select, textarea {
     padding-left: 2.7em;
   }
 */
+
+@media (min-width: 768px) and (max-width: 991px) {
+
+  .overall-prof-review {
+    min-height: 26em;
+  }
+
+}
+
 @media (max-width: 767px) {
 
   .navbar-home {

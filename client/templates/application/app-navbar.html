@@ -14,12 +14,12 @@
 	    <div class="navbar-collapse collapse sidebar-navbar-collapse">
 	      <ul class="nav navbar-nav ">
 	        <li class="logo-link hidden-xs"><a href="/"><img src="/images/logo.png" alt="logo" class="logo"></a></li>
-	        <li class="{{activeClass}}"><a href="/search-professors"><i class="fa fa-graduation-cap fa-2x"></i><br>Profesores</a></li>
-	        <li>
+	        <li class="{{isActiveRoute 'searchProfessors'}}"><a href="/search-professors"><i class="fa fa-graduation-cap fa-2x"></i><br>Profesores</a></li>
+	        <li class="{{isActiveRoute 'searchSchools'}}">
 	        	<a href="/search-schools"><i class="fa fa-university fa-2x"></i><br>Universidades</a>
 	        </li>
-	        <li><a href="/professors-reviews"><i class="fa fa-files-o fa-2x"></i><br>Reviews</a></li>
-	        <li><a href="/rate"><i class="fa fa-bar-chart fa-2x"></i><br>Rate</a></li>
+	        <li class="{{isActiveRoute 'allProfessors'}}"><a href="/professors-reviews"><i class="fa fa-files-o fa-2x"></i><br>Reviews</a></li>
+	        <li class="{{isActiveRoute 'rate'}}"><a href="/rate" class="selected-nav"><i class="fa fa-bar-chart fa-2x"></i><br>Rate</a></li>
 	        <li class="social-icons">
 	        	<a href="#"><i class="fa fa-facebook fa-2x"></i></a>
 	        </li>
