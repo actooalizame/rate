@@ -1,186 +1,289 @@
 <template name="editReview">
-	
-	<h2>Edita tu review de {{professorName}}</h2>
-	<form class="edit-review">
-		<section class="form-section">
-		  <div class="form-group row">
-		  	<div class="col-sm-4">
-		  		<label for="ccode"><h4>Course Code</h4></label>
-		  	</div>
-		  	<div class="col-sm-2 col-sm-offset-4">
-		    	<input type="text" class="form-control" name="courseCode" id="ccode" value="{{courseCode}}">
-		  	</div>
-		  </div>
-		  <div class="form-group row">
-		  	<div class="col-md-4 col-sm-3">
-		  		<label for="helpful"><h4>Helpfulness</h4></label>
-		  	</div>
-		  	<div class="col-md-4 col-sm-5 col-xs-6">
-		    	<h5 id="helpfulVal">Rate from 1 to 5</h5>
-		    </div>
-		    <div class="col-md-4 col-sm-3 col-xs-6">
-					<input class="helpful" id="helpful" type="text" data-slider-min="0" data-slider-max="5" data-slider-step="1" data-slider-value="{{help}}" value="{{help}}"/>
-		  	</div>
-		  </div>
-		  <div class="form-group row">
-		  	<div class="col-md-4 col-sm-3">
-		  		<label for="clarity"><h4>Clarity</h4></label>
-		  	</div>
-		  	<div class="col-md-4 col-sm-5 col-xs-6">
-		  		<h5><span id="clarityVal">Rate from 1 to 5</span></h5>
-		    </div>
-		    <div class="col-md-4 col-sm-3 col-xs-6">
-					<input class="clarity" id="clarity" type="text" data-slider-min="0" data-slider-max="5" data-slider-step="1" data-slider-value="{{clarity}}" value="{{clarity}}"/>
-		  	</div>
-		  </div>
-		  <div class="form-group row">
-		  	<div class="col-md-4 col-sm-3">
-		  		<label for="easy"><h4>Easiness</h4></label>
-		  	</div>
-		  	<div class="col-md-4 col-sm-5 col-xs-6">
-		  		<h5><span id="easyVal">Rate from 1 to 5</span></h5>
-		    </div>
-		    <div class="col-md-4 col-sm-3 col-xs-6">
-					<input class="easy" id="easy" type="text" data-slider-min="0" data-slider-max="5" data-slider-step="1" data-slider-value="{{easy}}" value="{{easy}}"/>
-		  	</div>
-		  </div>
-		  
-		  <div class="form-group row">
-		  	<div class="col-sm-4">
-		  		<label for="credit"><h4>Tomaste esta clase por credito?</h4></label>
-		  	</div>
-		  	<div class="col-sm-offset-4 col-sm-3">
-	        <div class="radio radio-inline">
-	        	<input type="radio" name="credit" id="radio1" class="yes" value="yes">
-					  <label for="radio1">SI</label>
-					</div>
-					<div class="radio radio-inline">
-						<input type="radio" name="credit" id="radio2" class="no" value="no">
-					  <label for="radio2">No</label>
-					</div>
+	<div class="col-sm-2">
+		{{>appNav}}
+	</div>
+	<div class="col-sm-10">
+		<h2>Edita tu review de {{professorName}}</h2>
+		<form class="edit-review">
+			<section class="form-section">
+			  <div class="form-group row">
+			  	<div class="col-sm-4">
+			  		<label for="ccode"><h4>Course Code</h4></label>
+			  	</div>
+			  	<div class="col-sm-2 col-sm-offset-4">
+			    	<input type="text" class="form-control" name="courseCode" id="ccode" value="{{courseCode}}">
+			  	</div>
 			  </div>
-		  </div>
-		  <div class="form-group row">
-		  	<div class="col-sm-4">
-		  		<label for="credit"><h4>Insert Tags</h4></label>
-		  	</div>
-		  	<div class="col-sm-offset-3 col-sm-5">
-		  		<div class="tags">
-			  		{{#if emptyTags}}
-			  		<div id="tags" class="tags">
-			    		<div class="checkbox checkbox-success checkbox-inline">
-						    <input type="checkbox" value="Though Grader" id="checkbox1">
-						    <label for="checkbox1">
-						        Though Grader
-						    </label>
-						  </div>
-						  <div class="checkbox checkbox-success checkbox-inline">
-						    <input type="checkbox" value="Inspirational" id="checkbox2">
-						    <label for="checkbox2">
-						        Inspirational
-						    </label>
-						  </div>
-						  <div class="checkbox checkbox-success checkbox-inline">
-						    <input type="checkbox" value="Hilarious" id="checkbox3">
-						    <label for="checkbox3">
-						        Hilarious
-						    </label>
-						  </div>
-						  <div class="checkbox checkbox-success checkbox-inline">
-						    <input type="checkbox" value="Get Ready To Read" id="checkbox4">
-						    <label for="checkbox4">
-						        Get Ready To Read
-						    </label>
-						  </div>
-						  <div class="checkbox checkbox-success checkbox-inline">
-						    <input type="checkbox" value="There For You" id="checkbox5">
-						    <label for="checkbox5">
-						        There For You
-						    </label>
-						  </div>
-						  <div class="checkbox checkbox-success checkbox-inline">
-						    <input type="checkbox" value="Gives Pop Quizzes" id="checkbox6">
-						    <label for="checkbox6">
-						        Gives Pop Quizzes
-						    </label>
-						  </div>
+			  <div class="form-group row">
+			  	<div class="col-md-4 col-sm-3">
+			  		<label for="helpful"><h4>Helpfulness</h4></label>
+			  	</div>
+			  	<div class="col-md-4 col-sm-5 col-xs-6">
+			    	<h5 id="helpfulVal">Rate from 1 to 5</h5>
+			    </div>
+			    <div class="col-md-4 col-sm-3 col-xs-6">
+						<input class="helpful" id="helpful" type="text" data-slider-min="0" data-slider-max="5" data-slider-step="1" data-slider-value="{{help}}" value="{{help}}"/>
+			  	</div>
+			  </div>
+			  <div class="form-group row">
+			  	<div class="col-md-4 col-sm-3">
+			  		<label for="clarity"><h4>Clarity</h4></label>
+			  	</div>
+			  	<div class="col-md-4 col-sm-5 col-xs-6">
+			  		<h5><span id="clarityVal">Rate from 1 to 5</span></h5>
+			    </div>
+			    <div class="col-md-4 col-sm-3 col-xs-6">
+						<input class="clarity" id="clarity" type="text" data-slider-min="0" data-slider-max="5" data-slider-step="1" data-slider-value="{{clarity}}" value="{{clarity}}"/>
+			  	</div>
+			  </div>
+			  <div class="form-group row">
+			  	<div class="col-md-4 col-sm-3">
+			  		<label for="easy"><h4>Easiness</h4></label>
+			  	</div>
+			  	<div class="col-md-4 col-sm-5 col-xs-6">
+			  		<h5><span id="easyVal">Rate from 1 to 5</span></h5>
+			    </div>
+			    <div class="col-md-4 col-sm-3 col-xs-6">
+						<input class="easy" id="easy" type="text" data-slider-min="0" data-slider-max="5" data-slider-step="1" data-slider-value="{{easy}}" value="{{easy}}"/>
+			  	</div>
+			  </div>
+			  
+			  <div class="form-group row">
+			  	<div class="col-sm-4">
+			  		<label for="credit"><h4>Tomaste esta clase por credito?</h4></label>
+			  	</div>
+			  	<div class="col-sm-offset-4 col-sm-3">
+		        <div class="radio radio-inline">
+		        	<input type="radio" name="credit" id="radio1" class="yes" value="yes">
+						  <label for="radio1">SI</label>
 						</div>
-						{{else}}
-						<h4>{{tags}}</h4>
-			  		<a href="#" class="btn btn-warning btn-mini pull-right edit-tags">Actualizar</a>
-						{{/if}}
-					</div>
+						<div class="radio radio-inline">
+							<input type="radio" name="credit" id="radio2" class="no" value="no">
+						  <label for="radio2">No</label>
+						</div>
+				  </div>
 			  </div>
-		  </div>
-		  <div class="form-group row">
-		  	<div class="col-sm-4">
-		  		<label for="comment"><h4>Chance to be more specific</h4></label>
-		  	</div>
-		  	<div class="col-sm-offset-3 col-sm-5">
-		        <textarea name="comment" class="form-control custom-control" value="{{comment}}"></textarea>   
-			  </div>
-		  </div>
-	  </section>
+			  <div class="form-group row">
+			  	<div class="col-sm-4">
+			  		<label for="credit"><h4>Insert Tags</h4></label>
+			  	</div>
+			  	<div class="col-sm-8">
+			  		<div class="tags">
+				  		{{#if emptyTags}}
+				  		
+							<div id="tags" class="tags {{hiddeTags}}">
+				    		<div class="checkbox checkbox-success checkbox-inline">
+							    <input type="checkbox" value="Clase difícil" id="checkbox1">
+							    <label for="checkbox1">
+							        Clase difícil
+							    </label>
+							  </div>
+							  <div class="checkbox checkbox-success checkbox-inline">
+							    <input type="checkbox" value="Buen Feedback" id="checkbox2">
+							    <label for="checkbox2">
+							        Buen Feedback
+							    </label>
+							  </div>
+							  <div class="checkbox checkbox-success checkbox-inline">
+							    <input type="checkbox" value="Muchas tareas" id="checkbox3">
+							    <label for="checkbox3">
+							        Muchas tareas
+							    </label>
+							  </div>
+							  <div class="checkbox checkbox-success checkbox-inline">
+							    <input type="checkbox" value="Prepárate para leer" id="checkbox4">
+							    <label for="checkbox4">
+							        Prepárate para leer
+							    </label>
+							  </div>
+							  <div class="checkbox checkbox-success checkbox-inline">
+							    <input type="checkbox" value="Controles sorpresa" id="checkbox5">
+							    <label for="checkbox5">
+							        Controles sorpresa
+							    </label>
+							  </div>
+							  <div class="checkbox checkbox-success checkbox-inline">
+							    <input type="checkbox" value="Participación obligatoria" id="checkbox6">
+							    <label for="checkbox6">
+							        Participación obligatoria
+							    </label>
+							  </div>
+							  <div class="checkbox checkbox-success checkbox-inline">
+							    <input type="checkbox" value="Estricto con la asistencia" id="checkbox7">
+							    <label for="checkbox7">
+							        Estricto con la asistencia
+							    </label>
+							  </div>
+							  <div class="checkbox checkbox-success checkbox-inline">
+							    <input type="checkbox" value="Respetado por los estudiantes" id="checkbox8">
+							    <label for="checkbox8">
+							        Respetado por los estudiantes
+							    </label>
+							  </div>
+							  <div class="checkbox checkbox-success checkbox-inline">
+							    <input type="checkbox" value="Inspirador" id="checkbox9">
+							    <label for="checkbox9">
+							        Inspirador
+							    </label>
+							  </div>
+							  <div class="checkbox checkbox-success checkbox-inline">
+							    <input type="checkbox" value="Maletero" id="checkbox10">
+							    <label for="checkbox10">
+							        Maletero
+							    </label>
+							  </div>
+							  <div class="checkbox checkbox-success checkbox-inline">
+							    <input type="checkbox" value="Clases intensas" id="checkbox11">
+							    <label for="checkbox11">
+							        Clases intensas
+							    </label>
+							  </div>
+							  <div class="checkbox checkbox-success checkbox-inline">
+							    <input type="checkbox" value="Paletiado" id="checkbox12">
+							    <label for="checkbox12">
+							        Paletiado
+							    </label>
+							  </div>
+							  <div class="checkbox checkbox-success checkbox-inline">
+							    <input type="checkbox" value="Pocas pruebas" id="checkbox13">
+							    <label for="checkbox13">
+							        Pocas pruebas
+							    </label>
+							  </div>
+							  <div class="checkbox checkbox-success checkbox-inline">
+							    <input type="checkbox" value="Buena onda" id="checkbox14">
+							    <label for="checkbox14">
+							        Buena onda
+							    </label>
+							  </div>
+							  <div class="checkbox checkbox-success checkbox-inline">
+							    <input type="checkbox" value="Buen evaluador" id="checkbox15">
+							    <label for="checkbox15">
+							        Buen evaluador
+							    </label>
+							  </div>
+							  <div class="checkbox checkbox-success checkbox-inline">
+							    <input type="checkbox" value="Profe Motivado" id="checkbox16">
+							    <label for="checkbox16">
+							        Profe Motivado
+							    </label>
+							  </div>
+							  <div class="checkbox checkbox-success checkbox-inline">
+							    <input type="checkbox" value="Jote" id="checkbox17">
+							    <label for="checkbox17">
+							        Jote
+							    </label>
+							  </div>
+							  <div class="checkbox checkbox-success checkbox-inline">
+							    <input type="checkbox" value="Clases increíbles" id="checkbox18">
+							    <label for="checkbox18">
+							        Clases increíbles
+							    </label>
+							  </div>
+							  <div class="checkbox checkbox-success checkbox-inline">
+							    <input type="checkbox" value="Pasta" id="checkbox19">
+							    <label for="checkbox19">
+							        Pasta
+							    </label>
+							  </div>
+							  <div class="checkbox checkbox-success checkbox-inline">
+							    <input type="checkbox" value="Pruebas son difíciles" id="checkbox20">
+							    <label for="checkbox20">
+							        Pruebas son difíciles
+							    </label>
+							  </div>
+							  <div class="checkbox checkbox-success checkbox-inline">
+							    <input type="checkbox" value="Manda hartos trabajos" id="checkbox21">
+							    <label for="checkbox21">
+							        Manda hartos trabajos
+							    </label>
+							  </div>
+							  <div class="checkbox checkbox-success checkbox-inline">
+							    <input type="checkbox" value="Tu mayor esfuerzo será tomar la clase" id="checkbox22">
+							    <label for="checkbox22">
+							        Tu mayor esfuerzo será tomar la clase
+							    </label>
+							  </div>
+							</div>
+							{{else}}
+					
+								<h4>{{tags}}</h4>
+					  		<a href="#" class="btn btn-warning btn-mini pull-right edit-tags">Actualizar</a>
 
-	  <hr>
-	  <section class="form-section">
-			<h3>How was the class?</h3>
-			<div class="form-group row">
-		  	<div class="col-md-4 col-sm-3">
-		  		<label for="interest"><h4>Your interest</h4></label>
-		  	</div>
-		  	<div class="col-md-4 col-sm-5 col-xs-6">
-		  		<h5><span id="interestVal">Rate from 1 to 5</span></h5>
-		    </div>
-		    <div class="col-md-4 col-sm-3 col-xs-6">
-					<input class="interest" id="interest" type="text" data-slider-min="0" data-slider-max="5" data-slider-step="1" data-slider-value="{{interest}}" value="{{interest}}"/>
-		  	</div>
-		  </div>
-		  <div class="form-group row">
-		  	<div class="col-md-4 col-sm-3">
-		  		<label for="txtuse"><h4>Textbook Use</h4></label>
-		  	</div>
-		  	<div class="col-md-4 col-sm-5 col-xs-6">
-		  		<h5><span id="txtuseVal">Rate from 1 to 5</span></h5>
-		    </div>
-		    <div class="col-md-4 col-sm-3 col-xs-6">
-					<input class="txtuse" id="txtuse" type="text" data-slider-min="0" data-slider-max="5" data-slider-step="1" data-slider-value="{{txtuse}}" value="{{txtuse}}"/>
-		  	</div>
-		  </div>
-		  <div class="form-group row">
-		  	<div class="col-sm-4">
-		  		<label for="credit"><h4>Grade Received</h4></label>
-		  	</div>
-		  	<div class="col-sm-offset-4 col-sm-4">
-		        <select class="form-control" name="grade">
-		        		<option class="text-muted">{{grade}}</option>
-		           	<option>A</option>
-		           	<option>B</option>
-		           	<option>C</option>
-		           	<option>D</option>
-		           	<option>E</option>
-		           </select>   
+							{{/if}}
+						</div>
+				  </div>
 			  </div>
-		  </div>
-			<div class="form-group row">
-		  	<div class="col-sm-4">
-		  		<label for="credit"><h4>What's your mayor?</h4></label>
-		  	</div>
-		  	<div class="col-sm-offset-4 col-sm-4">
-		        <select class="form-control" name="mayor">
-		        		<option class="disabled">{{mayor}}</option>
-		           	<option>Arts</option>
-		           	<option>Business</option>
-		           	<option>Science</option>
-		           	<option>Other</option>
-		           </select>   
+			  <div class="form-group row">
+			  	<div class="col-sm-4">
+			  		<label for="comment"><h4>Chance to be more specific</h4></label>
+			  	</div>
+			  	<div class="col-sm-offset-3 col-sm-5">
+			        <textarea name="comment" class="form-control custom-control" value="{{comment}}"></textarea>   
+				  </div>
 			  </div>
-		  </div>
-	  </section>
-		<div class="col-sm-offset-10 col-sm-2">		  
-			<button type="submit" class="btn btn-success btn-lg">Actualizar</button>
-		</div>
-	</form>
+		  </section>
+
+		  <hr>
+		  <section class="form-section">
+				<h3>How was the class?</h3>
+				<div class="form-group row">
+			  	<div class="col-md-4 col-sm-3">
+			  		<label for="interest"><h4>Your interest</h4></label>
+			  	</div>
+			  	<div class="col-md-4 col-sm-5 col-xs-6">
+			  		<h5><span id="interestVal">Rate from 1 to 5</span></h5>
+			    </div>
+			    <div class="col-md-4 col-sm-3 col-xs-6">
+						<input class="interest" id="interest" type="text" data-slider-min="0" data-slider-max="5" data-slider-step="1" data-slider-value="{{interest}}" value="{{interest}}"/>
+			  	</div>
+			  </div>
+			  <div class="form-group row">
+			  	<div class="col-md-4 col-sm-3">
+			  		<label for="txtuse"><h4>Textbook Use</h4></label>
+			  	</div>
+			  	<div class="col-md-4 col-sm-5 col-xs-6">
+			  		<h5><span id="txtuseVal">Rate from 1 to 5</span></h5>
+			    </div>
+			    <div class="col-md-4 col-sm-3 col-xs-6">
+						<input class="txtuse" id="txtuse" type="text" data-slider-min="0" data-slider-max="5" data-slider-step="1" data-slider-value="{{txtuse}}" value="{{txtuse}}"/>
+			  	</div>
+			  </div>
+			  <div class="form-group row">
+			  	<div class="col-sm-4">
+			  		<label for="credit"><h4>Grade Received</h4></label>
+			  	</div>
+			  	<div class="col-sm-offset-4 col-sm-4">
+			        <select class="form-control" name="grade">
+			        		<option class="text-muted">{{grade}}</option>
+			           	<option>A</option>
+			           	<option>B</option>
+			           	<option>C</option>
+			           	<option>D</option>
+			           	<option>E</option>
+			           </select>   
+				  </div>
+			  </div>
+				<div class="form-group row">
+			  	<div class="col-sm-4">
+			  		<label for="credit"><h4>What's your mayor?</h4></label>
+			  	</div>
+			  	<div class="col-sm-offset-4 col-sm-4">
+			        <select class="form-control" name="mayor">
+			        		<option class="disabled">{{mayor}}</option>
+			           	<option>Arts</option>
+			           	<option>Business</option>
+			           	<option>Science</option>
+			           	<option>Other</option>
+			           </select>   
+				  </div>
+			  </div>
+		  </section>
+			<div class="col-sm-offset-10 col-sm-2">		  
+				<button type="submit" class="btn btn-success btn-lg">Actualizar</button>
+			</div>
+		</form>
+	</div>
 
 
 </template>

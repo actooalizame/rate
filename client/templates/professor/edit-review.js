@@ -58,6 +58,12 @@ Template.editReview.helpers({
 		if(tags.length === 0){
 			return true;
 		}
+	},
+	'hiddeTags': function(){
+		var tags = Session.get('countTags');
+		if(tags===3){
+			return 'invisible';
+		}
 	}
 });
 
@@ -75,6 +81,9 @@ Template.editReview.events({
 				tags = review.tags;
 		Meteor.call('removeTags',reviewId);
 		//Router.go('rate');
+	},
+	'click input[type=checkbox]': function(){
+		Session.set("countTags", Session.get("countTags") + 1);
 	},
 	'submit .edit-review': function(event,template){
 		event.preventDefault();
@@ -104,6 +113,7 @@ Template.editReview.events({
 					return alert(error.reason);
 				}
 				else {
+					Session.set("countTags", 0);
 					Router.go('/professor/'+professorId);
 				}
 			});
@@ -115,6 +125,7 @@ Template.editReview.events({
 					return alert(error.reason);
 				}
 				else {
+					Session.set("countTags", 0);
 					Router.go('/professor/'+professorId);
 				}
 			});

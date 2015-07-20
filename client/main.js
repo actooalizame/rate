@@ -12,8 +12,11 @@ Meteor.startup(function() {
         publickey: '6LfwAAoTAAAAAGkQy4XR14morF31R4Y-L_qCCr-J'
     });
   });
-  Session.setDefault('credit', 'Yes');
+  Session.setDefault('recommend', 'No');
+  Session.setDefault('eligible', 'No');
+  Session.setDefault('sexy', 'No');
   Session.setDefault('onProfessors', false);
+  Session.setDefault('countTags', 0);
 });
 
 ShareIt.configure({

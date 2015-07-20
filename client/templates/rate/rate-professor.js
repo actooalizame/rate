@@ -185,11 +185,11 @@ Template.rateProfessor.rendered = function(){
 	$txtuse.slider();
 
 	var countChecked = function() {
-		var n = $( "input:checked" ).length;
-		if(n === 4 ){
+		var n = $( ".tags input:checked" ).length;
+		if(n === 3 ){
 			$('input:not(:checked)').parent('.checkbox-inline').addClass('hidden');
 		}
-		else if(n < 4){
+		else if(n < 3){
 			$('input:not(:checked)').parent('.checkbox-inline').removeClass('hidden');
 		}
 	};
@@ -234,18 +234,34 @@ Template.rateProfessor.helpers({
 
 Template.rateProfessor.events({
 
-	'change .yes': function(){
-		Session.set('credit', 'Yes');
+	'change .recommendYes': function(){
+		Session.set('recommend', 'Yes');
 	},
-	'change .no': function(){
-		Session.set('credit', 'No');
+	'change .recommendNo': function(){
+		Session.set('recommend', 'No');
+	},
+	'change .eligibleYes': function(){
+		Session.set('eligible', 'Yes');
+	},
+	'change .eligibleNo': function(){
+		Session.set('eligible', 'No');
+	},
+	'change .sexyYes': function(){
+		Session.set('sexy', 'Yes');
+	},
+	'change .sexyNo': function(){
+		Session.set('sexy', 'No');
 	},
 	'submit .rate-professor': function(event,template){
 		event.preventDefault();
-		var help = template.find('.helpful').value,
+		var semester = event.target.semester.value,
+				year = event.target.year.value,
+				help = template.find('.helpful').value,
 				clarity = template.find('.clarity').value,
 				easy = template.find('.easy').value,
-				credit = Session.get('credit'),
+				eligible = Session.get('eligible'),
+				recommend = Session.get('recommend'),
+				sexy = Session.get('sexy'),
 				comment = event.target.comment.value,
 				interest = template.find('.interest').value,
 				txtuse = template.find('.txtuse').value,
@@ -264,7 +280,7 @@ Template.rateProfessor.events({
 		var selectedTags = template.findAll( "input[type=checkbox]:checked");
 		var tags = _.map(selectedTags, function(item) {return item.defaultValue;});
 		
-		Meteor.call('insertProfReview',captchaData, userId,userName,userUrl,professorId,professorName,courseCode,help,clarity,easy,tags,credit,comment,interest,txtuse,grade,mayor, function(error){
+		Meteor.call('insertProfReview',captchaData, userId,userName,userUrl,professorId,professorName,courseCode,semester,year,help,clarity,easy,tags,recommend,eligible,sexy,comment,interest,txtuse,grade,mayor, function(error){
 			grecaptcha.reset();
 			if (error) {
         return alert(error.reason);
