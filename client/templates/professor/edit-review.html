@@ -6,31 +6,60 @@
 		<h2>Edita tu review de {{professorName}}</h2>
 		<form class="edit-review">
 			<section class="form-section">
-			  <div class="form-group row">
+				<div class="form-group row">
 			  	<div class="col-sm-4">
-			  		<label for="ccode"><h4>Course Code</h4></label>
+			  		<label for="ccode"><h4>Nombre exacto de la clase</h4></label>
 			  	</div>
-			  	<div class="col-sm-2 col-sm-offset-4">
+			  	<div class="col-sm-3 col-sm-offset-4">
 			    	<input type="text" class="form-control" name="courseCode" id="ccode" value="{{courseCode}}">
 			  	</div>
 			  </div>
 			  <div class="form-group row">
+			  	<div class="col-sm-4">
+			  		<label for="ccode"><h4>Semestre y año que tomaste la clase</h4></label>
+			  	</div>
+			  	<div class="col-sm-4">
+			    	<select class="form-control" name="semester">
+		      		<option class="disabled">{{semester}}</option>
+		         	<option>Primer semestre</option>
+		         	<option>Segundo semestre</option>
+	         	</select>  
+			  	</div>
+			  	<div class="col-sm-4">
+			  		<select class="form-control" name="year">
+		      		<option class="disabled">{{year}}</option>
+		         	<option>2015</option>
+		         	<option>2014</option>
+		         	<option>2013</option>
+		         	<option>2012</option>
+		         	<option>2011</option>
+		         	<option>2010</option>
+		         	<option>2009</option>
+		         	<option>2008</option>
+		         	<option>2007</option>
+		         	<option>2006</option>
+		         	<option>2005</option>
+	         	</select>
+			  	</div>
+			  </div>
+			  
+			  <div class="form-group row">
 			  	<div class="col-md-4 col-sm-3">
-			  		<label for="helpful"><h4>Helpfulness</h4></label>
+			  		<label for="helpful" data-toggle="tooltip" data-placement="top" title="Is this professor helpful when needed?"><h4>Ayuda al alumno: <span class="slider-value" id="helpfulVal">{{help}}</span></h4></label>
 			  	</div>
 			  	<div class="col-md-4 col-sm-5 col-xs-6">
-			    	<h5 id="helpfulVal">Rate from 1 to 5</h5>
+			    	<h5 id="helpfulTxt">Rate from 1 to 5</h5>
 			    </div>
 			    <div class="col-md-4 col-sm-3 col-xs-6">
-						<input class="helpful" id="helpful" type="text" data-slider-min="0" data-slider-max="5" data-slider-step="1" data-slider-value="{{help}}" value="{{help}}"/>
+						<input class="helpful" id="helpful" type="text" data-slider-min="0" data-slider-max="5" data-slider-step="1" data-slider-value="{{help}}" value="{{help}}"/> 
 			  	</div>
 			  </div>
 			  <div class="form-group row">
 			  	<div class="col-md-4 col-sm-3">
-			  		<label for="clarity"><h4>Clarity</h4></label>
+			  		<label for="clarity" data-toggle="tooltip" data-placement="top" title="Is this professor clear about the class requirements and subject matter?"><h4>Claridad  para enseñar: <span class="slider-value" id="clarityVal">{{clarity}}</span></h4></label>
 			  	</div>
 			  	<div class="col-md-4 col-sm-5 col-xs-6">
-			  		<h5><span id="clarityVal">Rate from 1 to 5</span></h5>
+			  		<h5><span id="clarityTxt">Rate from 1 to 5</span></h5>
 			    </div>
 			    <div class="col-md-4 col-sm-3 col-xs-6">
 						<input class="clarity" id="clarity" type="text" data-slider-min="0" data-slider-max="5" data-slider-step="1" data-slider-value="{{clarity}}" value="{{clarity}}"/>
@@ -38,10 +67,10 @@
 			  </div>
 			  <div class="form-group row">
 			  	<div class="col-md-4 col-sm-3">
-			  		<label for="easy"><h4>Easiness</h4></label>
+			  		<label for="easy" data-toggle="tooltip" data-placement="top" title="How hard did you have to work for this class?"><h4>Dificultad: <span class="slider-value" id="easyVal">{{easy}}</span></h4></label>
 			  	</div>
 			  	<div class="col-md-4 col-sm-5 col-xs-6">
-			  		<h5><span id="easyVal">Rate from 1 to 5</span></h5>
+			  		<h5><span id="easyTxt">Rate from 1 to 5</span></h5>
 			    </div>
 			    <div class="col-md-4 col-sm-3 col-xs-6">
 						<input class="easy" id="easy" type="text" data-slider-min="0" data-slider-max="5" data-slider-step="1" data-slider-value="{{easy}}" value="{{easy}}"/>
@@ -50,22 +79,52 @@
 			  
 			  <div class="form-group row">
 			  	<div class="col-sm-4">
-			  		<label for="credit"><h4>Tomaste esta clase por credito?</h4></label>
+			  		<label for="elegible"><h4>Tuviste la posibilidad de elegir al profesor?</h4></label>
 			  	</div>
 			  	<div class="col-sm-offset-4 col-sm-3">
 		        <div class="radio radio-inline">
-		        	<input type="radio" name="credit" id="radio1" class="yes" value="yes">
+		        	<input type="radio" name="eligible" id="radio1" class="eligibleYes" value="Si">
 						  <label for="radio1">SI</label>
 						</div>
 						<div class="radio radio-inline">
-							<input type="radio" name="credit" id="radio2" class="no" value="no">
+							<input type="radio" name="eligible" id="radio2" class="eligibleNo" value="No">
 						  <label for="radio2">No</label>
 						</div>
 				  </div>
 			  </div>
 			  <div class="form-group row">
 			  	<div class="col-sm-4">
-			  		<label for="credit"><h4>Insert Tags</h4></label>
+			  		<label for="recommend"><h4>Recomendarías el profesor a otro alumno?</h4></label>
+			  	</div>
+			  	<div class="col-sm-offset-4 col-sm-3">
+		        <div class="radio radio-inline">
+		        	<input type="radio" name="recommend" id="radio3" class="recommendYes" value="Si">
+						  <label for="radio3">SI</label>
+						</div>
+						<div class="radio radio-inline">
+							<input type="radio" name="recommend" id="radio4" class="recommendNo" value="No">
+						  <label for="radio4">No</label>
+						</div>
+				  </div>
+			  </div>
+			  <div class="form-group row">
+		  	<div class="col-sm-4">
+		  		<label for="sexy"><h4>Te pareció Sexy el profesor?</h4></label>
+		  	</div>
+		  	<div class="col-sm-offset-4 col-sm-3">
+	        <div class="radio radio-inline">
+	        	<input type="radio" name="sexy" id="radio5" class="sexyYes" value="Si">
+					  <label for="radio5">SI</label>
+					</div>
+					<div class="radio radio-inline">
+						<input type="radio" name="sexy" id="radio6" class="sexyNo" value="No">
+					  <label for="radio6">No</label>
+					</div>
+			  </div>
+		  </div>
+			  <div class="form-group row">
+			  	<div class="col-sm-4">
+			  		<label for="credit"><h4>Selecciona los 3 tags que mejor describen al profesor</h4></label>
 			  	</div>
 			  	<div class="col-sm-8">
 			  		<div class="tags">
@@ -277,6 +336,11 @@
 			           	<option>Other</option>
 			           </select>   
 				  </div>
+			  </div>
+			  <div class="form-group row">
+			  	<div class="col-sm-4 col-sm-offset-4">
+			  		{{> reCAPTCHA}}
+			  	</div>
 			  </div>
 		  </section>
 			<div class="col-sm-offset-10 col-sm-2">		  

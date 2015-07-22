@@ -235,19 +235,19 @@ Template.rateProfessor.helpers({
 Template.rateProfessor.events({
 
 	'change .recommendYes': function(){
-		Session.set('recommend', 'Yes');
+		Session.set('recommend', 'Si');
 	},
 	'change .recommendNo': function(){
 		Session.set('recommend', 'No');
 	},
 	'change .eligibleYes': function(){
-		Session.set('eligible', 'Yes');
+		Session.set('eligible', 'Si');
 	},
 	'change .eligibleNo': function(){
 		Session.set('eligible', 'No');
 	},
 	'change .sexyYes': function(){
-		Session.set('sexy', 'Yes');
+		Session.set('sexy', 'Si');
 	},
 	'change .sexyNo': function(){
 		Session.set('sexy', 'No');

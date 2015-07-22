@@ -273,6 +273,10 @@ ul li {
   text-align: center;
 }
 
+.select-university {
+  margin-top: -7em;
+}
+
 .rate-professor {
   margin-top: 4em;
 }

@@ -37,7 +37,10 @@ if(onProfessors===true){
         var $anchor = $(this);
         $('html, body').stop().animate({
             scrollTop: $($anchor.attr('href')).offset().top - 69
-        }, 900);
+        },{
+        	duration: 1100,
+        	easing: "easeInOutQuint"
+        });
         event.preventDefault();
     });
 });

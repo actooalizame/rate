@@ -72,23 +72,33 @@ Meteor.methods({
 			});
     }
 	},
-	'updateProfReview': function(reviewId,help,clarity,easy,tags,courseCode,credit,comment,interest,txtuse,grade,mayor){
-		Profreviews.update(
-			{ _id: reviewId},
-			{$set: {
-				help: help,
-				clarity: clarity,
-				easy: easy,
-				tags: tags,
-				courseCode:courseCode,
-				credit:credit,
-				comment:comment,
-				interest:interest,
-				txtuse:txtuse,
-				grade:grade,
-				mayor:mayor
-			}}
-		);
+	'updateProfReview': function(reviewId,captchaData,courseCode,semester,year,help,clarity,easy,tags,recommend,eligible,sexy,comment,interest,txtuse,grade,mayor){
+		var verifyCaptchaResponse = reCAPTCHA.verifyCaptcha(this.connection.clientAddress, captchaData);
+		if (!verifyCaptchaResponse.success) {
+      throw new Meteor.Error(422, 'Verifica tu Humanidad!');
+    }else{
+			Profreviews.update(
+				{ _id: reviewId},
+				{$set: {
+					courseCode:courseCode,
+					semester: semester,
+					year: year,
+					help: help,
+					clarity: clarity,
+					easy: easy,
+					tags: tags,
+					recommend: recommend,
+					eligible: eligible,
+					sexy: sexy,
+					comment:comment,
+					interest:interest,
+					txtuse:txtuse,
+					grade:grade,
+					mayor:mayor,
+					editedAt: new Date()
+				}}
+			);
+		}
 	},
 	'addRatedBy': function(professorId, userId){
 		Professors.update(
