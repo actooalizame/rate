@@ -39,10 +39,10 @@
 		  </div>
 		  <div class="form-group row">
 		  	<div class="col-md-4 col-sm-3">
-		  		<label for="helpful" data-toggle="tooltip" data-placement="top" title="Is this professor helpful when needed?"><h4>Ayuda al alumno: <span class="slider-value" id="helpfulVal">0</span></h4></label>
+		  		<label for="helpful" data-toggle="tooltip" data-placement="top" title="Sentiste que el profesor estaba disponible para ayudarte?"><h4>Ayuda al alumno: <span class="slider-value" id="helpfulVal">0</span></h4></label>
 		  	</div>
 		  	<div class="col-md-4 col-sm-5 col-xs-6">
-		    	<h5 id="helpfulTxt">Rate from 1 to 5</h5>
+		    	<h5><strong><span id="helpfulTxt">Evalúa de 1 a 5</span></strong></h5>
 		    </div>
 		    <div class="col-md-4 col-sm-3 col-xs-6">
 					<input class="helpful" id="helpful" type="text" data-slider-min="0" data-slider-max="5" data-slider-step="1" data-slider-value="0"/> 
@@ -50,10 +50,10 @@
 		  </div>
 		  <div class="form-group row">
 		  	<div class="col-md-4 col-sm-3">
-		  		<label for="clarity" data-toggle="tooltip" data-placement="top" title="Is this professor clear about the class requirements and subject matter?"><h4>Claridad  para enseñar: <span class="slider-value" id="clarityVal">0</span></h4></label>
+		  		<label for="clarity" data-toggle="tooltip" data-placement="top" title="El profesor fue claro con los requerimientos de clase y la materia enseñada"><h4>Claridad  para enseñar: <span class="slider-value" id="clarityVal">0</span></h4></label>
 		  	</div>
 		  	<div class="col-md-4 col-sm-5 col-xs-6">
-		  		<h5><span id="clarityTxt">Rate from 1 to 5</span></h5>
+		  		<h5><strong><span id="clarityTxt">Evalúa de 1 a 5</span></strong></h5>
 		    </div>
 		    <div class="col-md-4 col-sm-3 col-xs-6">
 					<input class="clarity" id="clarity" type="text" data-slider-min="0" data-slider-max="5" data-slider-step="1" data-slider-value="0"/>
@@ -61,10 +61,10 @@
 		  </div>
 		  <div class="form-group row">
 		  	<div class="col-md-4 col-sm-3">
-		  		<label for="easy" data-toggle="tooltip" data-placement="top" title="How hard did you have to work for this class?"><h4>Dificultad: <span class="slider-value" id="easyVal">0</span></h4></label>
+		  		<label for="easy" data-toggle="tooltip" data-placement="top" title="Que tan duro tuviste que trabajar para su clase"><h4>Dificultad: <span class="slider-value" id="easyVal">0</span></h4></label>
 		  	</div>
 		  	<div class="col-md-4 col-sm-5 col-xs-6">
-		  		<h5><span id="easyTxt">Rate from 1 to 5</span></h5>
+		  		<h5><strong><span id="easyTxt">Evalúa de 1 a 5</span></strong></h5>
 		    </div>
 		    <div class="col-md-4 col-sm-3 col-xs-6">
 					<input class="easy" id="easy" type="text" data-slider-min="0" data-slider-max="5" data-slider-step="1" data-slider-value="0"/>
@@ -102,7 +102,7 @@
 		  </div>
 		  <div class="form-group row">
 		  	<div class="col-sm-4">
-		  		<label for="sexy"><h4>Te pareció Sexy el profesor?</h4></label>
+		  		<label for="sexy"><h4>Te pareció Sexy el profesor?<small> (opcional)</small></h4></label>
 		  	</div>
 		  	<div class="col-sm-offset-4 col-sm-3">
 	        <div class="radio radio-inline">
@@ -110,14 +110,14 @@
 					  <label for="radio5">SI</label>
 					</div>
 					<div class="radio radio-inline">
-						<input type="radio" name="sexy" id="radio6" class="sexyNo" value="No" checked>
+						<input type="radio" name="sexy" id="radio6" class="sexyNo" value="No">
 					  <label for="radio6">No</label>
 					</div>
 			  </div>
 		  </div>
 		  <div class="form-group row">
 		  	<div class="col-sm-4">
-		  		<label for="credit"><h4>Selecciona los 3 tags que mejor describen al profesor</h4></label>
+		  		<label for="credit"><h4>Selecciona los 3 tags que mejor describen al profesor <small>(opcional)</small></h4></label>
 		  	</div>
 		  	<div class="col-sm-8">
 		  		<div id="tags" class="tags">
@@ -269,50 +269,63 @@
 	  <hr>
 	  <section class="form-section">
 			<h3>Como era la clase?</h3>
+
 			<div class="form-group row">
+		  	<div class="col-sm-4">
+		  		<label for="assistance"><h4>Asistencia</h4></label>
+		  	</div>
+		  	<div class="col-sm-offset-4 col-sm-3">
+	        <div class="radio radio-inline">
+	        	<input type="radio" name="assistance" id="radio7" class="assistanceYes" value="Obligatoria" checked>
+					  <label for="radio7">Obligatoria</label>
+					</div>
+					<div class="radio radio-inline">
+						<input type="radio" name="assistance" id="radio8" class="assistanceNo" value="No Obligatoria">
+					  <label for="radio8">No Obligatoria</label>
+					</div>
+			  </div>
+		  </div>
+			
+		  <div class="form-group row">
 		  	<div class="col-md-4 col-sm-3">
-		  		<label for="interest"><h4>Tu interés en la clase</h4></label>
+		  		<label for="interest" data-toggle="tooltip" data-placement="top" title="Cual era tu interés real en la clase en general"><h4>Tu interés en la clase: <span class="slider-value" id="interestVal">0</span></h4></label>
 		  	</div>
 		  	<div class="col-md-4 col-sm-5 col-xs-6">
-		  		<h5><span id="interestVal">Rate from 1 to 5</span></h5>
+		  		<h5><strong><span id="interestTxt">Evalúa de 1 a 5</span></strong></h5>
 		    </div>
 		    <div class="col-md-4 col-sm-3 col-xs-6">
 					<input class="interest" id="interest" type="text" data-slider-min="0" data-slider-max="5" data-slider-step="1" data-slider-value="0"/>
 		  	</div>
 		  </div>
+
 		  <div class="form-group row">
 		  	<div class="col-md-4 col-sm-3">
-		  		<label for="txtuse"><h4>Material de apoyo utilizado</h4></label>
+		  		<label for="txtuse" data-toggle="tooltip" data-placement="top" title="Que te pareció el material utilizado por el docente a la hora de dictar la clase o proporcionarlo como apoyo de estudio"><h4>Material de apoyo utilizado: <span class="slider-value" id="txtuseVal">0</span></h4></label>
 		  	</div>
 		  	<div class="col-md-4 col-sm-5 col-xs-6">
-		  		<h5><span id="txtuseVal">Rate from 1 to 5</span></h5>
+		  		<h5><strong><span id="txtuseTxt">Evalúa de 1 a 5</span></strong></h5>
 		    </div>
 		    <div class="col-md-4 col-sm-3 col-xs-6">
 					<input class="txtuse" id="txtuse" type="text" data-slider-min="0" data-slider-max="5" data-slider-step="1" data-slider-value="0"/>
 		  	</div>
 		  </div>
+
 		  <div class="form-group row">
 		  	<div class="col-sm-4">
-		  		<label for="grade"><h4>Nota o calificación final obtenida</h4></label>
+		  		<label for="grade"><h4>Nota o calificación final obtenida <small>(opcional)</small></h4></label>
 		  	</div>
-		  	<div class="col-sm-offset-4 col-sm-4">
-		        <select class="form-control" name="grade">
-		        		<option class="disabled" value="">Select</option>
-		           	<option>A</option>
-		           	<option>B</option>
-		           	<option>C</option>
-		           	<option>D</option>
-		           	<option>E</option>
-		           </select>   
-			  </div>
+		  	<div class="col-sm-3 col-sm-offset-4">
+		    	<input type="text" class="form-control" name="grade" id="grade" placeholder="Ej. 5.6">
+		  	</div>
 		  </div>
+
 			<div class="form-group row">
 		  	<div class="col-sm-4">
 		  		<label for="mayor"><h4>Cual es tu carrera</h4></label>
 		  	</div>
 		  	<div class="col-sm-offset-4 col-sm-4">
 		        <select class="form-control" name="mayor">
-		        		<option class="disabled" value="">Select</option>
+		        		<option class="disabled" value="">Elige tu Carrera</option>
 		           	<option>Arts</option>
 		           	<option>Business</option>
 		           	<option>Science</option>
@@ -326,8 +339,9 @@
 		  	</div>
 		  </div>
 	  </section>
-		<div class="col-sm-offset-10 col-sm-2">		  
+		<div class="col-sm-offset-8 col-sm-4">		  
 			<button type="submit" class="btn btn-success btn-lg">Agregar</button>
+			<a href="/rate" class="btn btn-danger btn-lg cancel">Cancelar</a>
 		</div>
 	</form>
 </template>

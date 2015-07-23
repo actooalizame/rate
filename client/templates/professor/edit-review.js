@@ -307,7 +307,6 @@ Template.editReview.events({
 					
 					var sumReviews =  eval(total.join('+')),
 							average = ((sumReviews/3)/(reviews.count())).toFixed(1);
-					console.log(average);
 					Meteor.call('updateProfessorScore',professorId,average);
 					Router.go('/professor/'+professorId);
 				}
@@ -347,7 +346,6 @@ Template.editReview.events({
 					
 					var sumReviews =  eval(total.join('+')),
 							average = ((sumReviews/3)/(reviews.count())).toFixed(1);
-					console.log(average);
 					Meteor.call('updateProfessorScore',professorId,average);
 					Router.go('/professor/'+professorId);
 				}

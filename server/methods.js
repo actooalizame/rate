@@ -38,7 +38,7 @@ Meteor.methods({
 			{$set: {done:true}}
 		);
 	},
-	'insertProfReview': function(captchaData,userId,userName,userUrl,professorId,professorName,courseCode,semester,year,help,clarity,easy,tags,recommend,eligible,sexy,comment,interest,txtuse,grade,mayor){
+	'insertProfReview': function(captchaData,userId,userName,userUrl,professorId,professorName,courseCode,semester,year,help,clarity,easy,tags,recommend,eligible,sexy,comment,assistance,interest,txtuse,grade,mayor){
 		var verifyCaptchaResponse = reCAPTCHA.verifyCaptcha(this.connection.clientAddress, captchaData);
 		if (!verifyCaptchaResponse.success) {
       throw new Meteor.Error(422, 'Verifica tu Humanidad!');
@@ -61,6 +61,7 @@ Meteor.methods({
 				eligible: eligible,
 				sexy: sexy,
 				comment: comment,
+				assistance: assistance,
 				interest: interest,
 				txtuse: txtuse,
 				grade: grade,

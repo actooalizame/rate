@@ -14,7 +14,7 @@ Meteor.startup(function() {
   });
   Session.setDefault('recommend', 'No');
   Session.setDefault('eligible', 'No');
-  Session.setDefault('sexy', 'No');
+  Session.setDefault('assistance', 'Obligatoria');
   Session.setDefault('onProfessors', false);
   Session.setDefault('countTags', 0);
 });
