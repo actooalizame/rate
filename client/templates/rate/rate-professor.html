@@ -1,25 +1,51 @@
 <template name="rateProfessor">
-  <div class="col-sm-2">
-    {{>appNav}}
-  </div>
-  <div class="col-sm-10">
-  	<h2>{{name}}</h2>
-    <h5>{{schoolName}}</h5>
-    <h5>{{department}}</h5>
-  
-	  {{#if userRated}}
-		  <h2>Ya rankeaste a {{name}}</h2>
-		  <h3>Puedes ver tu review <a href="/professor/{{_id}}">aqui</a></h3>
-		  {{else}}
-			  {{#if ownProfessor }}
-				  <div class="col-sm-12 rate-prof-form">
-				    <h3>Es tu turno de evaluar a tu Profesor: {{name}}</h3>
-				    
-				    {{> rateProfForm }}
-				  </div>
-			  {{else}}
-			  	<h1>no</h1>
-			  {{/if}}
-		{{/if}}
+	<div class="row">
+	  <div class="col-sm-2">
+	    {{>appNav}}
+	  </div>
+	  <div class="">
+		  <div class="col-sm-10">
+		  	<div class="professor-data">
+			  	<h1>{{name}}</h1>
+			    <h3>{{schoolName}}</h3>
+			    <h4>{{department}}</h4>
+		  	</div>
+			  {{#if userRated}}
+				  <h2>Ya rankeaste a {{name}}</h2>
+				  <h3>Puedes ver tu review <a href="/professor/{{_id}}">aqui</a></h3>
+				  {{else}}
+					  {{#if ownProfessor }}
+					  <div class="row">
+						  <div class="jumbotron col-sm-9 col-sm-offset-1 col-lg-offset-0">
+						  	
+						  	<div class="col-sm-6">
+						  		<h2>Por favor ayúdanos:</h2>
+						  		<ul class="rating-guides">
+						  			<li>Revisa tu evaluación antes de enviarla. No sería mala idea chequear la ortografía. Intenta especificar bien la clase. Por favor evaluar conscientemente.</li><br>
+						  			<li>Describe de manera opcional tu impresión sobre las habilidades profesionales del educador, su estilo de enseñanza, y su maestría para dictar la clase con claridad.</li>
+						  		</ul>
+						  	</div>
+						  	<div class="col-sm-6">
+						  		<h2>Por favor no lo hagas:</h2>
+						  		<ul class="rating-guides">
+						  			<li>No usar sobre nombres en los comentarios, no clasificarlo de manera despectiva, no generalices (ej., "siempre'','' nunca'', ''etc.''). Nunca mencionar que el profesor muestra favoritismo por algún estudiante.</li><br>
+						  			<li>No utilizar garabatos ni palabras ofensivas contra el profesor. No utilices este medio como método de descarga personal.</li>
+						  		</ul>
+						  	</div>
+						  	<h4 class="col-sm-12">Tu evaluación podría ser útil para otros estudiantes  y para la propia retroalimentación del profesor.</h4>
+						  </div>
+					  </div>
+					  <div class="col-sm-12 rate-prof-form">
+						  <h3>Es tu turno de evaluar a tu Profesor: {{name}} <br><small>Las evaluaciones son anónimas, por favor evaluar conscientemente</small></h3>
+						    
+					    {{> rateProfForm }}
+					  </div>
+					  
+					  {{else}}
+					  	<h1>no</h1>
+					  {{/if}}
+				{{/if}}
+			</div>
+		</div>
 	</div>
 </template>

@@ -6,9 +6,9 @@
           <div class="search-input col-sm-10 col-sm-offset-1">
           {{> esInput index="schools" placeholder="Busca por Nombre o Region" reactive="false" id="searchSchools"}}
           </div>
-          <div class="col-sm-8 col-sm-offset-2">
+          <div class="col-sm-8 col-sm-offset-2 sch-search-res">
             {{#esEach index="schools" id="searchSchools"}}
-            <div class="panel panel-default sch-search-res">
+            <div class="panel panel-default">
               <div class="panel-body">
                 <h4><a href="#">{{name}}</a></h4>
                 <h5 class="black">{{state}}</h5>

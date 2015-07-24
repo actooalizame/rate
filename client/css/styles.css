@@ -226,6 +226,18 @@ ul li {
   margin-bottom: 2em;
 }*/
 
+.professor-data {
+  margin-bottom: 1.5em;
+}
+
+.jumbotron {
+  border-radius: 4px;
+}
+
+.rating-guides li {
+  list-style-type: disc; 
+}
+
 .overall-prof-review {
   min-height: 23em;
 }
@@ -236,11 +248,22 @@ ul li {
   z-index: 0;
 }
 
+
 .well-home .pf-search-res {
   position: absolute;
 }
 
+.well-home .sch-search-res {
+  position: absolute;
+  top: 14em;
+  left: 0;
+}
+
 .pf-search-res .panel-body {
+  padding: 6px;
+}
+
+.sch-search-res .panel-body {
   padding: 6px;
 }
 
@@ -254,12 +277,12 @@ ul li {
 .filter-professors {
   margin-bottom: 4em;
 }
-
+/*
 .sch-search-res {
   position: absolute;
   top: 2em;
   left: 5em;
-}
+}*/
 
 .modal-home {
   padding: 1em 1em 4em;
@@ -324,6 +347,11 @@ ul li {
   min-height: 8em;
 }
 
+
+.professor-averages {
+  text-align: center;
+}
+
 .professor-averages button {
   margin-top: 1em;
 }
@@ -353,8 +381,17 @@ input, button, select, textarea {
 }
 
 
-.professor-averages {
-  text-align: center;
+
+.panel-title {
+  padding-top: 6px;
+}
+
+.votes {
+  padding-top: 3px;
+}
+
+.panel-footer a {
+  padding-left: 1em;
 }
 
 
@@ -366,7 +403,11 @@ input, button, select, textarea {
   .fixed {
     overflow-y:scroll;
     width: 17%;
-}
+  }
+
+  .professor-data {
+    margin-left: 1em;
+  }
 
 }
 
