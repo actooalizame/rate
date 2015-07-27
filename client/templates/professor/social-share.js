@@ -8,7 +8,7 @@ Template.socialShare.rendered = function(){
 
 
 Template.socialShare.helpers({
-	shareData: function() {
+	shareProfessorData: function() {
     var resp = {
 			title: "Mira el rating del profesor " +this.name+ " en",
 			url: "http://telepathiclove.com/professor/"+this._id

@@ -1,0 +1,151 @@
+<template name="viewSchool">
+	<div class="row">
+		<div class="col-sm-2">
+			{{>appNav}}
+		</div>
+		<div class="container">
+			<div class="col-lg-12 col-sm-11 col-lg-offset-1 col-sm-offset-2">
+				<h1>{{name}}</h1>
+				<h4>{{address}}</h4>
+				<h4>{{website}}</h4>
+				<!--{{#if ratingsExist}}
+				<div class="row">
+					<div class="well col-sm-6 professor-averages">
+
+						<h2>Ranking promedio:<br>{{overallScore}}</h2>
+						<h3><strong>Nota promedio de sus cursos</strong></h3>
+						
+						<h3>Ayuda al alumno: {{averageHelp}}</h3>
+
+						<h3>Claridad para enseñar: {{averageClarity}}</h3>
+
+						<h3>Dificultad: {{averageEasy}}</h3>
+						<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Compartir</button>
+						<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+						  <div class="modal-dialog col-sm-2 modal-share" role="document">
+						    <div class="modal-content">
+						      <div class="modal-header">
+						        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						        <h4 class="modal-title" id="myModalLabel">Comparte en redes sociales</h4>
+						      </div>
+						      <div class="modal-body">
+						        {{>socialShare}}
+						      </div>
+						      <div class="modal-footer">
+						        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+						      </div>
+						    </div>
+						  </div>
+						</div>
+					</div>
+					
+				</div>
+				<div class="row">
+					<div class="col-sm-11">
+						{{#with ownRating}}
+						<h3>Tu review de {{professorName}}</h3>
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<div class="panel-title clearfix">
+									<p class="pull-left">por: <a href="https://www.facebook.com/app_scoped_user_id/{{userUrl}}" target="_blank"><strong>{{userName}}</strong></a></p>
+									<p class="pull-right"> {{formatTime createdAt}}</p>
+								</div>
+							</div>
+					    <div class="panel-body">
+								<div class="col-sm-2">
+									<h4><strong>Ayuda:</strong> {{help}}</h4>
+									<h4><strong>Claridad:</strong> {{clarity}}</h4>
+									<h4><strong>Dificultad:</strong> {{easy}}</h4>
+									
+								</div>
+								<div class="col-sm-5">
+									<p><strong>Clase dictada:</strong> {{courseCode}}</p>
+									<p><strong>Carrera:</strong> {{mayor}}</p>
+									
+									<p><strong>Fecha que tomó la clase:</strong> {{semester}} de {{year}}</p>
+									<p><strong>Tuve la opción de elegirlo:</strong> {{eligible}}</p>
+									<p><strong>Recomendaría al profesor:</strong> {{recommend}}</p>
+									<p><strong>Mi interés en la clase:</strong> {{interest}}</p>
+									<p><strong>Material utilizado:</strong> {{txtuse}}</p>
+								</div>
+								<div class="col-sm-5">
+									<h4>{{tags}}</h4>
+									<p>{{comment}}</p>
+								</div>
+							</div>
+							<div class="panel-footer clearfix">
+								{{#if currentUser}}
+								<div class="votes pull-left">
+									<button class="btn btn-mini btn-success upvote {{userUpvoted}}"><i class="fa fa-thumbs-o-up"></i> Me gusta</button>
+									<button href="#" class="btn btn-mini btn-danger downvote {{userDownvoted}}"><i class="fa fa-thumbs-o-down"></i> No me gusta</button>
+									<small><a href="#">reportar</a></small>
+								</div>
+								{{/if}}
+								<div class="pull-right">
+									<h4>Puntos: {{votesCount}}</h4>
+								</div>
+							</div>
+						</div>
+						{{/with}}
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-sm-11">
+						<h4>Evaluaciones de Alumnos: {{ratingsCount}}</h4>
+						{{#each ratings}}
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<div class="panel-title clearfix">
+									<p class="pull-left">por: <a href="https://www.facebook.com/app_scoped_user_id/{{userUrl}}" target="_blank"><strong>{{userName}}</strong></a></p>
+									<p class="pull-right"> {{formatTime createdAt}}</p>
+								</div>
+							</div>
+					    <div class="panel-body">
+								<div class="col-sm-2">
+									<h4><strong>Ayuda:</strong> {{help}}</h4>
+									<h4><strong>Claridad:</strong> {{clarity}}</h4>
+									<h4><strong>Dificultad:</strong> {{easy}}</h4>
+									
+								</div>
+								<div class="col-sm-5">
+									<p><strong>Clase dictada:</strong> {{courseCode}}</p>
+									<p><strong>Carrera:</strong> {{mayor}}</p>
+									
+									<p><strong>Fecha que tomó la clase:</strong> {{semester}} de {{year}}</p>
+									<p><strong>Tuve la opción de elegirlo:</strong> {{eligible}}</p>
+									<p><strong>Recomendaría al profesor:</strong> {{recommend}}</p>
+									<p><strong>Mi interés en la clase:</strong> {{interest}}</p>
+									<p><strong>Material utilizado:</strong> {{txtuse}}</p>
+								</div>
+								<div class="col-sm-5">
+									<h4>{{tags}}</h4>
+									<p>{{comment}}</p>
+								</div>
+							</div>
+							<div class="panel-footer clearfix">
+								{{#if currentUser}}
+								<div class="votes pull-left">
+									<button class="btn btn-mini btn-success upvote {{userUpvoted}}"><i class="fa fa-thumbs-o-up"></i> Me gusta</button>
+									<button href="#" class="btn btn-mini btn-danger downvote {{userDownvoted}}"><i class="fa fa-thumbs-o-down"></i> No me gusta</button>
+									<small><a href="#">reportar</a></small>
+								</div>
+								{{/if}}
+								<div class="pull-right">
+									<h4>Puntos: {{votesCount}}</h4>
+								</div>
+							</div>
+						</div>
+						<hr>
+					{{/each}}
+					</div>
+				</div>
+				
+
+			{{else}}
+				<h2>nohay</h2>
+			{{/if}}-->
+			</div>
+		</div>
+	</div>
+</template>

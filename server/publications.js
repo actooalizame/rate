@@ -38,6 +38,11 @@ Meteor.publish('singleProfessor', function(professorId){
   return Professors.find({_id:professorId});
 });
 
+Meteor.publish('singleSchool', function(schoolId){
+  return Schools.find({_id:schoolId});
+});
+
+
 Meteor.publish('rateProfessor', function(profId){
   return Professors.find({_id:profId});
 });

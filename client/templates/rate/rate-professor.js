@@ -23,7 +23,7 @@ Template.rateProfessor.rendered = function(){
 	$helpful.on("slideStart", function(slideEvt) {
 
 		if(slideEvt.value===0){
-			$helpfulTxt.text("Rate from 1 to 5");
+			$helpfulTxt.text("Evalúa de 1 a 5");
 			$helpfulVal.text("0");
 		}
 		if(slideEvt.value===1){
@@ -51,7 +51,7 @@ Template.rateProfessor.rendered = function(){
 
 		if(slideEvt.value===0){
 			$helpfulVal.text("0");
-			$helpfulTxt.text("Rate from 1 to 5");
+			$helpfulTxt.text("Evalúa de 1 a 5");
 		}
 		if(slideEvt.value===1){
 			$helpfulVal.text("1");
