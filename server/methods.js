@@ -101,9 +101,47 @@ Meteor.methods({
 			);
 		}
 	},
-	'addRatedBy': function(professorId, userId){
+	'insertSchoolReview': function(reputation,location,opportunities,library,infrastructure,internet,food,social,sports,happiness,graduation,comment,captchaData, userId,userName,userUrl,schoolId,schoolName){
+		var verifyCaptchaResponse = reCAPTCHA.verifyCaptcha(this.connection.clientAddress, captchaData);
+		if (!verifyCaptchaResponse.success) {
+      throw new Meteor.Error(422, 'Verifica tu Humanidad!');
+    }
+    else{
+      Schoolreviews.insert({
+				userId: userId,
+				userName: userName,
+				userUrl: userUrl,
+				schoolId: schoolId,
+				schoolName: schoolName,
+				reputation: reputation,
+				location: location,
+				opportunities: opportunities,
+				library: library,
+				infrastructure: infrastructure,
+				internet: internet,
+				food: food,
+				social: social,
+				sports: sports,
+				happiness: happiness,
+				graduation: graduation,
+				comment: comment,
+				votes: 0,
+				upVoters: [],
+				downVoters: [],
+				createdAt: new Date()
+			});
+    }
+	},
+
+	'addProfRatedBy': function(professorId, userId){
 		Professors.update(
 			{	_id: professorId },
+			{$push: {ratedBy: userId} }
+		);
+	},
+	'addSchoolRatedBy': function(schoolId, userId){
+		Schools.update(
+			{	_id: schoolId },
 			{$push: {ratedBy: userId} }
 		);
 	},
@@ -122,6 +160,12 @@ Meteor.methods({
 	'updateProfessorScore': function(professorId,average){
 		Professors.update(
 			{_id: professorId },
+			{$set: {overall: average} }
+		);
+	},
+	'updateSchoolScore': function(schoolId,average){
+		Schools.update(
+			{_id: schoolId },
 			{$set: {overall: average} }
 		);
 	},

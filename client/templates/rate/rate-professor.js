@@ -414,7 +414,7 @@ Template.rateProfessor.events({
         return alert(error.reason);
       }
       else {
-        Meteor.call('addRatedBy',professorId,userId);
+        Meteor.call('addProfRatedBy',professorId,userId);
         var reviews = Profreviews.find({professorId:professorId});
 				if(reviews.count()===0){
 					var overall = [];

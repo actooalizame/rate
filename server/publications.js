@@ -30,12 +30,20 @@ Meteor.publish('professorReviews', function(professorId){
   return Profreviews.find({professorId:professorId});
 });
 
+Meteor.publish('schoolReviews', function(schoolId){
+  return Schoolreviews.find({schoolId:schoolId});
+});
+
 Meteor.publish('singleProfessor', function(professorId){
   return Professors.find({_id:professorId});
 });
 
 Meteor.publish('rateProfessor', function(profId){
   return Professors.find({_id:profId});
+});
+
+Meteor.publish('rateSchool', function(schoolId){
+  return Schools.find({_id:schoolId});
 });
 
 Meteor.publish("schoolNames", function(){
