@@ -3,12 +3,22 @@ html { overflow-y: scroll; }
 body {
   font-family: 'Open Sans', sans-serif;
   overflow-x: hidden;
+
 }
+
+
 
 #wrapper {
   min-height: 730px;
+  overflow-y:  scroll;
 }
 
+#wrapper::-webkit-scrollbar { 
+    display: none; 
+}
+
+#wrapper::-moz-scrollbar {display:none;}
+#wrapper::-google-ms-scrollbar {display:none;}
 
 .navbar-home {
   padding: 1em 0;
@@ -245,12 +255,19 @@ ul li {
 .pf-search-res {
   margin-top: 1.5em;
   padding: 0;
-  z-index: 0;
+  
 }
 
 
 .well-home .pf-search-res {
   position: absolute;
+  z-index: 1;
+}
+
+.professor-item { border-bottom: 1px solid #d1d1d1; }
+
+.professor-item h4 {
+  margin-bottom: -4px;
 }
 
 .well-home .sch-search-res {

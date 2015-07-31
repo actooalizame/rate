@@ -10,8 +10,9 @@ Template.socialShare.rendered = function(){
 Template.socialShare.helpers({
 	shareProfessorData: function() {
     var resp = {
-			title: "Mira el rating del profesor " +this.name+ " en",
-			url: "http://telepathiclove.com/professor/"+this._id
+			title: this.name+ " en EvaluaTusProfesores.cl",
+			url: "http://telepathiclove.com/professor/"+this._id,
+			summary: "Mira este y mas reviews. Rankea a tus profesores y conviertete en TopWriter!"
     };
     return resp;
   }

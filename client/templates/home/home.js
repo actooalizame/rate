@@ -127,17 +127,16 @@ $(window).resize(function() {
   });
 
 var $header = $('.navbar-home');
-  $(window).scroll(function () {
-     if(scrollY <= 0){
-         $header.addClass('transparent')
-         				.removeClass('nav-active');
-     }
-     if(scrollY > 20 ){
-        $header.addClass('nav-active')
-        				.removeClass('transparent');
-      }
-   });
-
+$(window).scroll(function () {
+	if(scrollY <= 0){
+		$header.addClass('transparent')
+						.removeClass('nav-active');
+  }
+  if(scrollY > 20 ){
+    $header.addClass('nav-active')
+           .removeClass('transparent');
+  }
+});
 
 };
 

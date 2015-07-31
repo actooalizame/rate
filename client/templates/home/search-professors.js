@@ -20,6 +20,12 @@ Template.searchProfessors.helpers({
 		if(filter!==undefined){
 			return true;
 		}
+	},
+	'hiddeClass': function(){
+		var filter = Session.get('filterSchool');
+		if(filter===undefined){
+			return 'hidden';
+		}
 	}
 });
 
