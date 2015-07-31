@@ -314,7 +314,7 @@ Template.rateProfessor.rendered = function(){
 };
 
 Template.rateProfessor.helpers({
-	'ownProfessor': function(){
+	/*'ownProfessor': function(){
 		var user = Meteor.user(),
 				userSchool = user.university._id,
 				professor = Professors.findOne({_id:this._id}),
@@ -322,7 +322,7 @@ Template.rateProfessor.helpers({
 		if(userSchool===professorSchool){
 			return true;
 		}
-	},
+	},*/
 	'userRated': function(){
 		var professor = Professors.findOne({_id: this._id}),
 				user = Meteor.user(),

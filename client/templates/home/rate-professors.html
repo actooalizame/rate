@@ -3,21 +3,22 @@
     <div class="panel-body">
       <h3>Rate My Professors</h3>
       <div class="search-input">
-        {{> esInput index="ownProfessors" placeholder="Busca profesores de tu universidad" reactive="false" }}
+        {{> esInput index="professors" placeholder="Busca profesores de tu universidad" reactive="false" }}
       </div>
-      {{#esEach index="ownProfessors"}}
+      {{#esEach index="professors"}}
       <div class="panel panel-default">
         <div class="panel-body results">
           <a href="/rate-professor/{{_id}}"><h4>{{name}}</h4></a>
+          <h5><strong>{{schoolName}}</strong></h5>
           <h5>{{department}}</h5>
         </div>
       </div>
       {{/esEach}}      
-      {{> esLoadMoreButton index="ownProfessors"}}
-      {{#ifEsHasNoResults index="ownProfessors"}}
+      {{> esLoadMoreButton class="btn btn-sm btn-success" index="professors"}}
+      {{#ifEsHasNoResults index="professors"}}
       <div class="no-results"><h4>No hay resultados!</h4></div>
       {{/ifEsHasNoResults}}
-      {{#ifEsIsSearching index="ownProfessors"}}
+      {{#ifEsIsSearching index="professors"}}
       <div>Buscando...</div>
       {{/ifEsIsSearching}}
     </div>
