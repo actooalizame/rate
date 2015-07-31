@@ -105,14 +105,20 @@
 		  		<label for="sexy"><h4>Te pareció Sexy el profesor?<small> (opcional)</small></h4></label>
 		  	</div>
 		  	<div class="col-sm-offset-4 col-sm-3">
-	        <div class="radio radio-inline">
+	        <!--<div class="radio radio-inline">
 	        	<input type="radio" name="sexy" id="radio5" class="sexyYes" value="Si">
 					  <label for="radio5">SI</label>
 					</div>
 					<div class="radio radio-inline">
 						<input type="radio" name="sexy" id="radio6" class="sexyNo" value="No">
 					  <label for="radio6">No</label>
-					</div>
+					</div>-->
+					<div class="checkbox checkbox-danger checkbox-inline checkbox-circle">
+				    <input type="checkbox" value="Si" id="checkboxSexy">
+				    <label for="checkboxSexy">
+				    	Si
+				    </label>
+				  </div>
 			  </div>
 		  </div>
 		  <div class="form-group row">
@@ -323,15 +329,16 @@
 		  	<div class="col-sm-4">
 		  		<label for="mayor"><h4>Cual es tu carrera <small>(opcional)</small></h4></label>
 		  	</div>
-		  	<div class="col-sm-offset-4 col-sm-4">
-		        <select class="form-control" name="mayor">
-		        		<option class="disabled" value="">Elige tu Carrera</option>
-		           	<option>Arts</option>
-		           	<option>Business</option>
-		           	<option>Science</option>
-		           	<option>Other</option>
-		           </select>   
-			  </div>
+		  	<div class="col-sm-offset-4 col-sm-3">
+	        <!--<select class="form-control" name="mayor">
+        		<option class="disabled" value="">Elige tu Carrera</option>
+           	<option>Arts</option>
+           	<option>Business</option>
+           	<option>Science</option>
+           	<option>Other</option>
+          </select>-->
+          <input type="text" class="form-control" name="mayor" id="mayor" placeholder="Ej. Derecho">
+		    </div>
 		  </div>
 		  <div class="form-group row">
 		  	<div class="col-sm-4 col-sm-offset-4">

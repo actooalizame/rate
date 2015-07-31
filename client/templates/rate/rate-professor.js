@@ -301,10 +301,10 @@ Template.rateProfessor.rendered = function(){
 	var countChecked = function() {
 		var n = $( ".tags input:checked" ).length;
 		if(n === 3 ){
-			$('input:not(:checked)').parent('.checkbox-inline').addClass('hidden');
+			$('input:not(:checked)').parent('.checkbox-success').addClass('hidden');
 		}
 		else if(n < 3){
-			$('input:not(:checked)').parent('.checkbox-inline').removeClass('hidden');
+			$('input:not(:checked)').parent('.checkbox-success').removeClass('hidden');
 		}
 	};
 	countChecked();
@@ -372,12 +372,20 @@ Template.rateProfessor.events({
 	'change .assistanceNo': function(){
 		Session.set('assistance', 'No Obligatoria');
 	},
+	'click #checkboxSexy': function(event,template){
+		var sexy = $('#checkboxSexy');
+		if(sexy.is(':checked')){
+			Session.set('sexy', 'Si');
+		}
+		else{
+			Session.set('sexy', 'Neutro');
+		}
+	},
 	'click .cancel': function(){
 		var professorId = this._id;
 		Session.set('recommend', 'No');
 		Session.set('eligible', 'No');
 		toastr["error"]("Tu review ha sido cancelado.", "Atencion!");
-		
 	},
 	'submit .rate-professor': function(event,template){
 		event.preventDefault();
@@ -405,7 +413,7 @@ Template.rateProfessor.events({
 				userName = user.profile.name,
 				userUrl = user.fb_id;
 		var captchaData = grecaptcha.getResponse();
-		var selectedTags = template.findAll( "input[type=checkbox]:checked");
+		var selectedTags = template.findAll( "input:not('#checkboxSexy')[type=checkbox]:checked");
 		var tags = _.map(selectedTags, function(item) {return item.defaultValue;});
 		
 		Meteor.call('insertProfReview',captchaData, userId,userName,userUrl,professorId,professorName,courseCode,semester,year,help,clarity,easy,tags,recommend,eligible,sexy,comment,assistance,interest,txtuse,grade,mayor, function(error){
@@ -415,6 +423,7 @@ Template.rateProfessor.events({
       }
       else {
         Meteor.call('addProfRatedBy',professorId,userId);
+        Session.set('sexy', 'Neutro');
         var reviews = Profreviews.find({professorId:professorId});
 				if(reviews.count()===0){
 					var overall = [];
