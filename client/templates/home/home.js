@@ -1,7 +1,7 @@
 Template.home.rendered = function(){
 	var homeLink = $(".navbar-brand"),
-			profLink = $(".profL"),
-			schoolLink = $(".schoolL"),
+			profLink = $("button.profL"),
+			schoolLink = $("button.schoolL"),
 			home = $(".home-items"),
 			professors = $(".professors"),
 			school =$(".school");
@@ -36,8 +36,8 @@ if(onProfessors===true){
     $('.navbar-home a').bind('click', function(event) {
       var $anchor = $(this);
       $('html, body').stop().animate(
-      	{ scrollTop: $($anchor.attr('href')).offset().top - 69},
-      	{ duration: 1100, easing: "easeInOutQuint" }
+      { scrollTop: $($anchor.attr('href')).offset().top - 69},
+      { duration: 1100, easing: "easeInOutQuint" }
       );
      event.preventDefault();
     });
