@@ -4,12 +4,14 @@
     <div class="container">
       <div id="fold">
         <div class="row home-items">
-          <h1 class="headline">Find <span class="headline-change">what</span> you are looking for</h1>
-          <div class="col-sm-4">
-            <a href="#" class="btn btn-lg btn-info profL">Encuentra Profesores</a>
+          <div class="container">
+            <h1 class="headline">Find <span class="headline-change">what</span> you are looking for</h1>
           </div>
           <div class="col-sm-4">
-            <a href="#" class="btn btn-lg btn-info schoolL">Encuentra Universidades</a>
+            <button class="btn btn-lg btn-info profL">Encuentra Profesores</button>
+          </div>
+          <div class="col-sm-4">
+            <button class="btn btn-lg btn-info schoolL">Encuentra Universidades</button>
           </div>
           {{#if currentUser}}
             {{#if hasUniversity}}

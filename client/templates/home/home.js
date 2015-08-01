@@ -1,7 +1,7 @@
 Template.home.rendered = function(){
 	var homeLink = $(".navbar-brand"),
-			profLink = $("a.profL"),
-			schoolLink = $("a.schoolL"),
+			profLink = $(".profL"),
+			schoolLink = $(".schoolL"),
 			home = $(".home-items"),
 			professors = $(".professors"),
 			school =$(".school");
@@ -34,14 +34,12 @@ if(onProfessors===true){
 
  $(function() {
     $('.navbar-home a').bind('click', function(event) {
-        var $anchor = $(this);
-        $('html, body').stop().animate({
-            scrollTop: $($anchor.attr('href')).offset().top - 69
-        },{
-        	duration: 1100,
-        	easing: "easeInOutQuint"
-        });
-        event.preventDefault();
+      var $anchor = $(this);
+      $('html, body').stop().animate(
+      	{ scrollTop: $($anchor.attr('href')).offset().top - 69},
+      	{ duration: 1100, easing: "easeInOutQuint" }
+      );
+     event.preventDefault();
     });
 });
 
@@ -68,7 +66,7 @@ var sections = $('section'),
       });
     });
 
-/*
+
 function setHeight(){
 	var windowHeight = $(window).innerHeight(),
 			wrapper = $('#wrapper');
@@ -76,7 +74,7 @@ function setHeight(){
 }
 
 setHeight();
-*/
+
 function headlineChange(){
 	var headline = $('.headline-change'),
 		rate = $('a.btn-rate'),
@@ -121,21 +119,34 @@ function headlineChange(){
 
 headlineChange();
 
-$(window).resize(function() {
-    //setHeight();
-    headlineChange();
-  });
 
-var $header = $('.navbar-home');
-$(window).scroll(function () {
-	if(scrollY <= 0){
-		$header.addClass('transparent')
-						.removeClass('nav-active');
-  }
-  if(scrollY > 20 ){
-    $header.addClass('nav-active')
-           .removeClass('transparent');
-  }
+function changeNav(){
+
+	var $header = $('.navbar-home'),
+			windowWidth = (window).innerWidth;
+
+	$(window).scroll(function () {
+		if(pageYOffset <= 0){
+			$header.addClass('transparent').removeClass('nav-active');
+		}
+		if(pageYOffset > 20){
+			$header.addClass('nav-active').removeClass('transparent');
+		}
+		if( windowWidth < 767) {
+			$header.addClass('navbar-inverse').removeClass('transparent');
+		}
+	});
+
+	if(windowWidth<768){
+		$header.addClass('navbar-inverse').removeClass('transparent').removeClass('nav-active');
+	}
+}
+changeNav();
+
+$(window).resize(function() {
+  setHeight();
+  headlineChange();
+  changeNav();
 });
 
 };

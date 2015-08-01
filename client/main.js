@@ -40,6 +40,8 @@ ShareIt.configure({
     }
 });
 
+
+
 toastr.options = {
   "closeButton": false,
   "debug": false,

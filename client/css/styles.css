@@ -9,8 +9,13 @@ body {
 
 
 #wrapper {
-  min-height: 730px;
+  /*min-height: 790px;*/
   overflow-y:  scroll;
+  background: url(/images/cover2.jpg) center center no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 #wrapper::-webkit-scrollbar { 
@@ -155,13 +160,9 @@ button.dismiss {
   visibility: hidden;
 }
 
-#wrapper {
-  background: url(/images/cover2.jpg) center center no-repeat;
-
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+#sharerDialog {
+  width: 612px!important;
+  height: 562px!important;
 }
 
 .loading-message {
@@ -494,8 +495,13 @@ input, button, select, textarea {
 
 @media (max-width: 767px) {
 
-  .navbar-home {
+  /*.navbar-home {
     background-color: #222;
+  }*/
+
+  .home-logo {
+    width: 34%!important;
+    margin-left: 6px;
   }
 
   .fixed {

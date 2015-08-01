@@ -4,6 +4,10 @@ Template.socialShare.rendered = function(){
 	$('.fb-share').text("Facebook");
 	$('.tw-share').text("Twitter");
 	$('.google-share').text("Google+");
+	/*var windowHeight = $(window).innerHeight(),
+			windowWidth = $(window).innerWidth(),
+			wrapper = $('.fb_content');
+	wrapper.css('width', windowWidth/2);*/
 };
 
 
