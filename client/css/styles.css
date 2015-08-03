@@ -125,6 +125,11 @@ button.dismiss {
     overflow: hidden;
 }
 
+.active {
+  border-radius: 18px!important;
+  background-color: rgba(0,0,0,0.5)!important;
+}
+
 .nav-active {
   background-color: rgba(34,34,34,0.9);
   transition:background-color 0.5s ease;
@@ -135,7 +140,9 @@ button.dismiss {
   transition:background-color 0.5s ease;
 }
 
-
+.current {
+  color: #89c144!important;
+}
 
 .white {
   color: #fff;
@@ -415,6 +422,13 @@ input, button, select, textarea {
 
 #product, #enterprise {
   min-height: 800px;
+}
+
+#product::before, #enterprise::before {
+  content: '';
+  display: block;
+  height: 70px;
+  margin-top: -70px;
 }
 
 @media (max-width: 1200px) {

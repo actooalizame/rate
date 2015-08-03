@@ -6,6 +6,9 @@ Template.home.rendered = function(){
 			professors = $(".professors"),
 			school =$(".school");
 
+
+/* HIDES-DISPLAYS ELEMENTS ON FOLD */
+
 $(profLink).on('click',function(){
   professors.removeClass('hidden')
             .addClass('block');
@@ -32,40 +35,50 @@ if(onProfessors===true){
   home.addClass('hidden');
 }
 
- $(function() {
-    $('.navbar-home a').bind('click', function(event) {
-      var $anchor = $(this);
-      $('html, body').stop().animate(
-      { scrollTop: $($anchor.attr('href')).offset().top - 69},
-      { duration: 1100, easing: "easeInOutQuint" }
-      );
-     event.preventDefault();
-    });
+
+/* NAVIGATION LINKS ON SCROLL & CLICK EVENT */
+
+var defaultItem = $('.navbar-home .nav > li.active'),
+		item = $('.navbar-home .nav > li a');
+
+$('a[href^="#"]').on('click', function (e) {
+	e.preventDefault();
+	$(document).off("scroll");
+
+	item.each(function () {
+		$(this).removeClass('active');
+	});
+	$(this).addClass('active');
+
+	var target = this.hash,
+			$target = $(target);
+	$('html, body').stop().animate({
+		'scrollTop': $target.offset().top
+	}, 1100, 'easeInOutQuint', function () {
+		window.location.hash = target;
+		$(document).on("scroll", onScroll);
+		defaultItem.removeClass("active");
+	});
 });
 
-var sections = $('section'),
-		nav = $('.home-nav'),
-		defaultItem = $('.navbar-home .nav > li.active'),
-		nav_height = nav.outerHeight();
-     
-    $(window).on('scroll', function () {
-      var cur_pos = $(this).scrollTop();
-     
-      sections.each(function() {
-        var top = $(this).offset().top - nav_height,
-            bottom = top + $(this).outerHeight();
-     
-        if (cur_pos >= top && cur_pos <= bottom) {
-          nav.find('a').removeClass('active');
-          sections.removeClass('active');
-          defaultItem.removeClass('active');
-     
-          $(this).addClass('active');
-          nav.find('a[href="#'+$(this).attr('id')+'"]').addClass('active');
-        }
-      });
-    });
+	function onScroll(event){
+	var scrollPosition = $(document).scrollTop();
+	item.each(function () {
+		var currentLink = $(this);
+		var refElement = $(currentLink.attr("href"));
+		if (refElement.position().top-69 <= scrollPosition && refElement.position().top-69 + refElement.height() > scrollPosition) {
+			item.removeClass("active");
+			currentLink.addClass("active");
+		} else {
+		currentLink.removeClass("active");
+		defaultItem.removeClass("active");
+		}
+	});
+}
 
+$(document).on("scroll", onScroll);
+
+/* SET FOLD HEIGHT */
 
 function setHeight(){
 	var windowHeight = $(window).innerHeight(),
@@ -74,6 +87,9 @@ function setHeight(){
 }
 
 setHeight();
+
+
+/* CHANGE HEADLINE ON HOVER */
 
 function headlineChange(){
 	var headline = $('.headline-change'),
@@ -116,9 +132,10 @@ function headlineChange(){
 	}
 }
 
-
 headlineChange();
 
+
+/* CHANGE NAV BACKGROUND ON SCROLL */
 
 function changeNav(){
 
