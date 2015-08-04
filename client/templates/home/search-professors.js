@@ -1,16 +1,3 @@
-Template.searchProfessors.events({
-	'submit .filter-professors': function(event){
-		event.preventDefault();
-		var selected = event.target.university.value;
-		if(selected!==""){
-			Session.set('filterSchool', selected);
-		}
-		else {
-			alert("Elige una universidad!");
-		}
-	}
-});
-
 Template.searchProfessors.helpers({
 	'university': function(){
 		return Session.get('filterSchool');
@@ -29,3 +16,19 @@ Template.searchProfessors.helpers({
 	}
 });
 
+Template.searchProfessors.events({
+	'submit .filter-professors': function(event){
+		event.preventDefault();
+		var selected = event.target.university.value;
+		if(selected!==""){
+			Session.set('filterSchool', selected);
+		}
+		else {
+			alert("Elige una universidad!");
+		}
+	},
+	'click .clear-session': function(){
+		Session.set('filterSchool', undefined);
+	}
+
+});

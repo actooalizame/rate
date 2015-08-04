@@ -4,10 +4,17 @@
       <form class="filter-professors">
         <div class="col-sm-9">
           <select class="form-control" name="university">
-            <p class="text-success"><option value="">Elige una Universidad</option></p>
+            {{#if hasSession}}
+            <option>En: {{university}}</option>
             <option>Pontificia Universidad Católica de Chile</option>
             <option>Universidad de Chile</option>
             <option>Universidad de Los Andes</option>
+            {{else}}
+            <option value="">Elige universidad</option>
+            <option>Pontificia Universidad Católica de Chile</option>
+            <option>Universidad de Chile</option>
+            <option>Universidad de Los Andes</option>
+            {{/if}}
           </select>   
         </div>
         <div class="col-sm-3">      
@@ -22,15 +29,17 @@
         {{> esInput index="schoolProfessors" placeholder="Busca por Nombre o Apellido" id="searchProfessors"}}
       </div>
       <div class="col-sm-4">
-        <h5 class="text-primary bold">En: {{university}}</h5>
-
+        <!--<h5 class="text-primary bold">En: {{university}}</h5>-->
+      <button class="btn btn-sm btn-info clear-session">Ver Todos</button>
       </div>
       {{else}}
-      <h1></h1>
+      <div class="search-input col-sm-8">
+        {{> esInput index="professors" placeholder="Busca por Nombre o Apellido" id="searchProfessors"}}
+      </div>
       {{/if}}
     </div>
     <div class="row">
-      <div class="col-sm-9 col-sm-offset-1 pf-search-res {{hiddeClass}} list-group">
+      <div class="col-sm-9 col-sm-offset-1 pf-search-res  list-group">
         {{#esEach index="schoolProfessors" id="searchProfessors"}}
         <div class="">
           <div class="list-group-item">
@@ -48,4 +57,26 @@
         {{/ifEsIsSearching}}
       </div>
     </div>
+
+    <div class="row">
+      <div class="col-sm-9 col-sm-offset-1 pf-search-res  list-group">
+        {{#esEach index="professors" id="searchProfessors"}}
+        <div class="">
+          <div class="list-group-item">
+            <h4><a href="/professor/{{_id}}">{{name}}</a></h4>
+            <h5 class="black"><strong>{{schoolName}}</strong></h5>
+            <h5 class="black">{{department}}</h5>
+          </div>
+        </div>
+        {{/esEach}}      
+        {{> esLoadMoreButton class="btn btn-sm btn-success" index="professors" id="searchProfessors"}}
+        {{#ifEsHasNoResults index="schoolProfessors" id="searchProfessors"}}
+        <div class="no-results"><h4>No hay resultados!</h4></div>
+        {{/ifEsHasNoResults}}
+        {{#ifEsIsSearching index="professors" id="searchProfessors"}}
+        <div>Buscando...</div>
+        {{/ifEsIsSearching}}
+      </div>
+    </div>
+
 </template>
