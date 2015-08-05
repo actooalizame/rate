@@ -34,6 +34,14 @@ Meteor.publish('schoolReviews', function(schoolId){
   return Schoolreviews.find({schoolId:schoolId});
 });
 
+Meteor.publish('topProfessors', function(){
+  return Professors.find({voted:true}, {sort:{overall:-1}}, {fields: {'name':1,'schoolName':1,'department':1,'voted':1,'overall':1}});
+});
+
+Meteor.publish('topProfessorsSchool', function(schoolName){
+  return Professors.find({schoolName:schoolName,voted:true}, {sort:{overall:-1},'limit':5}, {fields: {'name':1,'schoolName':1,'department':1,'voted':1,'overall':1}});
+});
+
 Meteor.publish('singleProfessor', function(professorId){
   return Professors.find({_id:professorId});
 });

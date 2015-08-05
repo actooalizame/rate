@@ -1,0 +1,32 @@
+<template name="topProfessors">
+	<!--<div class="all-profs">
+		{{#each topProfs}}
+		<ul class="list-group">
+			
+			<li class="list-group-item">
+				<h5><strong>{{name}}</strong></h5>
+				<h5><strong>{{schoolName}}</strong></h5>
+				<h5>{{department}}</h5>
+				<h5><strong>Puntaje:{{overall}}</strong></h5>
+			</li>
+			
+		</ul>
+		{{/each}}
+	</div>-->
+	{{#if hasSession}}
+	<div class="filtered-profs">
+		<h3>Top 5</h3><br>
+		{{#each topProfsSchool}}
+		<ul class="list-group">
+			<li class="list-group-item">
+				<h5><strong><a href="/professor/{{_id}}">{{name}}</a></strong></h5>
+				<h5>{{department}}</h5>
+				<h5><strong>Puntaje:{{overall}}</strong></h5>
+			</li>
+			
+		</ul>
+		{{/each}}
+	</div>
+
+	{{/if}}
+</template>
