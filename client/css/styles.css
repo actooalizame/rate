@@ -60,7 +60,7 @@ body {
   background-color: rgba(0,0,0,0.5);
 }
 
-.navbar-home .nav > li.active {
+.navbar-home .nav > li.active-link {
   border-radius: 18px;
   background-color: rgba(0,0,0,0.5);
 }
@@ -70,6 +70,18 @@ body {
   position: absolute;
   top: 24px;
   width: 18%;
+}
+
+.nav-tabs {
+  border-bottom: 6px solid #ddd;
+}
+
+.nav-tabs li a {
+  padding-right: 24px;
+}
+
+.nav-tabs li a:hover, .nav-tabs li a:focus{
+  text-decoration: none;
 }
 
 .login {
@@ -125,7 +137,7 @@ button.dismiss {
     overflow: hidden;
 }
 
-.active {
+.active-link {
   border-radius: 18px!important;
   background-color: rgba(0,0,0,0.5)!important;
 }

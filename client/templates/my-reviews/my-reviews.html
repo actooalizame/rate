@@ -4,25 +4,50 @@
     <div class="col-sm-2">
       {{>appNav}}
     </div>
+    
+  </div>
+
+  <div>
+
+    <!-- Nav tabs -->
     <div class="container">
-    <div class="">
       <div class="col-sm-offset-2 col-lg-offset-1">
-        <h2>Tus reviews de profesores <a href="/professors-reviews" class="btn btn-info btn-xs">Ver todos los reviews</a></h2>
-
-        {{#each profReviews}}
-        <div class="col-sm-3 overall-prof-review">
-
-          <h3><a href="/professor/{{professorId}}">{{professorName}}</a></h3>
-          <h4>{{professorSchool}}</h4>
-          <h4><small>{{professorDepartment}}</small></h4>
-          <h4>Promedio: {{overallScore}}</h4>
-          <h5>Ayuda: {{averageHelp}}</h5>
-          <h5>Claridad: {{averageClarity}}</h5>
-          <h5>Dificultad: {{averageEasy}}</h5>
-        </div>
-        {{/each}}
+        <ul class="nav nav-tabs" role="tablist">
+          <li role="presentation" class="active"><h2><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Profesores</a></h2></li>
+          <li role="presentation"><h2><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Universidades</a></h2></li>
+        </ul>
       </div>
     </div>
+    
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane active" id="home">
+        <div class="container">
+          <div class="">
+            <div class="col-sm-offset-2 col-lg-offset-1">
+              <h2>Tus reviews de profesores <a href="/professors-reviews" class="btn btn-info btn-xs">Ver todos los reviews</a></h2>
+
+              {{#each profReviews}}
+              <div class="col-sm-3 overall-prof-review">
+
+                <h3><a href="/professor/{{professorId}}">{{professorName}}</a></h3>
+                <h4>{{professorSchool}}</h4>
+                <h4><small>{{professorDepartment}}</small></h4>
+                <h4>Promedio: {{overallScore}}</h4>
+                <h5>Ayuda: {{averageHelp}}</h5>
+                <h5>Claridad: {{averageClarity}}</h5>
+                <h5>Dificultad: {{averageEasy}}</h5>
+              </div>
+              {{/each}}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div role="tabpanel" class="tab-pane" id="profile">...</div>
+      <div role="tabpanel" class="tab-pane" id="messages">...</div>
+      <div role="tabpanel" class="tab-pane" id="settings">...</div>
+    </div>
+
   </div>
-  </div>
- </template>
+</template>

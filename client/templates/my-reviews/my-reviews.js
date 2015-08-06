@@ -1,3 +1,11 @@
+Template.myReviews.rendered = function(){
+	$('.nav-tabs a').click(function (e) {
+		e.preventDefault();
+		$(this).tab('show');
+	});
+};
+
+
 Template.myReviews.helpers({
 	'profReviews': function(){
 		var user = Meteor.user(),

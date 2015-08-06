@@ -39,7 +39,7 @@ if(onProfessors===true){
 
 /* NAVIGATION LINKS ON SCROLL & CLICK EVENT */
 
-var defaultItem = $('.navbar-home .nav > li.active'),
+var defaultItem = $('.navbar-home .nav > li.active-link'),
 		item = $('.navbar-home .nav > li a');
 
 $('a[href^="#"]').on('click', function (e) {
@@ -47,9 +47,9 @@ $('a[href^="#"]').on('click', function (e) {
 	$(document).off("scroll");
 
 	item.each(function () {
-		$(this).removeClass('active');
+		$(this).removeClass('active-link');
 	});
-	$(this).addClass('active');
+	$(this).addClass('active-link');
 
 	var target = this.hash,
 			$target = $(target);
@@ -58,7 +58,7 @@ $('a[href^="#"]').on('click', function (e) {
 	}, 1100, 'easeInOutQuint', function () {
 		window.location.hash = target;
 		$(document).on("scroll", onScroll);
-		defaultItem.removeClass("active");
+		defaultItem.removeClass("active-link");
 	});
 });
 
@@ -68,11 +68,11 @@ $('a[href^="#"]').on('click', function (e) {
 		var currentLink = $(this);
 		var refElement = $(currentLink.attr("href"));
 		if (refElement.position().top-69 <= scrollPosition && refElement.position().top-69 + refElement.height() > scrollPosition) {
-			item.removeClass("active");
-			currentLink.addClass("active");
+			item.removeClass("active-link");
+			currentLink.addClass("active-link");
 		} else {
-		currentLink.removeClass("active");
-		defaultItem.removeClass("active");
+		currentLink.removeClass("active-link");
+		defaultItem.removeClass("active-link");
 		}
 	});
 }
