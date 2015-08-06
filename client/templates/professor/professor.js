@@ -1,4 +1,3 @@
-
 Template.viewProfessor.helpers({
 	'averageHelp': function(){
 		var professorId = this._id,
@@ -63,7 +62,7 @@ Template.viewProfessor.helpers({
 		var user = Meteor.user(),
 				hook = user.hook,
 				professorId = this._id;
-		return Profreviews.findOne({userId: hook,professorId:professorId});
+		return Profreviews.findOne({userId:hook, professorId:professorId});
 	},
 	'ratingsCount': function(){
 		var professorId = this._id;
@@ -106,13 +105,25 @@ Template.viewProfessor.helpers({
 		if(array>=0){
 			return "invisible";
 		}
-	
 	},
-
+	'userRated': function(){
+		var user = Meteor.user(),
+				userId = user.hook,
+				professorId = this._id,
+				professor = Professors.findOne({_id:professorId}),
+				rated = professor.ratedBy,
+				array = jQuery.inArray(userId,rated);
+				//return array;
+		if(array>=0){
+			return true;
+		}
+		if(array<0){
+			return false;
+		}
+	}
 });
 
 Template.viewProfessor.events({
-	
 	'click .upvote': function(){
 		var user = Meteor.user(),
 				hook = user.hook,

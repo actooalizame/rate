@@ -41,8 +41,14 @@
 				</div>
 				<div class="row">
 					<div class="col-sm-11">
+						{{#if userRated}}
 						{{#with ownRating}}
-						<h3>Tu review de {{professorName}}</h3>
+						<div class="dinamic-btn-action">
+							<h4>Ya haz evaluado a este profesor <a href="/edit-review/{{_id}}" class="btn btn-default btn-warning btn-sm">Editar review</a></h4>
+						</div>
+						{{/with}}
+						<!-- Button trigger modal -->
+						<!--<h3>Tu review de {{professorName}}</h3>
 						<div class="panel panel-default">
 							<div class="panel-heading">
 								<div class="panel-title clearfix">
@@ -85,8 +91,14 @@
 									<h4>Puntos: {{votesCount}}</h4>
 								</div>
 							</div>
+						</div>-->
+						
+					
+						{{else}}
+						<div class="dinamic-btn-action">
+							<h4>Aun no haz evaluado a este profesor <a href="/rate-professor/{{_id}}" class="btn btn-default btn-success btn-sm">Evaluar</a></h4>
 						</div>
-						{{/with}}
+						{{/if}}
 					</div>
 				</div>
 				

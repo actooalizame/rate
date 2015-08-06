@@ -327,6 +327,18 @@ ul li {
   padding: 1px;
   text-align: center;
 }
+
+.dinamic-btn-action {
+  background-color: #333;
+  padding: 0.5em 1em;
+  color: #fff;
+  text-align: center;
+}
+
+.dinamic-btn-action a {
+  margin-left: 1em;
+}
+
 /*
 .sch-search-res {
   position: absolute;

@@ -1,4 +1,5 @@
 Template.editReview.rendered = function(){
+	
 	$('[data-toggle="tooltip"]').tooltip();
 
 
