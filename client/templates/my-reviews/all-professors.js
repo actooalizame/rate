@@ -11,7 +11,7 @@ Template.allProfessors.helpers({
 			return Professors.find({voted:true},{sort:{overall:-1}});
 		}
 		else {
-			return Professors.find({voted:true,schoolName:selectedSchool},{sort:{name:1}});
+			return Professors.find({voted:true,schoolName:selectedSchool},{sort:{overall:-1}});
 		}
 	},
 	'selectedSchool': function(){
