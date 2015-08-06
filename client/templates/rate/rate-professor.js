@@ -389,34 +389,36 @@ Template.rateProfessor.events({
 	},
 	'submit .rate-professor': function(event,template){
 		event.preventDefault();
-		var semester = event.target.semester.value,
+		var user = Meteor.user(),
+				userId = user.hook,
+				userName = user.profile.name,
+				userUrl = user.fb_id,
+				professorId = this._id,
+				professor = Professors.findOne({_id: professorId}),
+				professorName = professor.name,
+				professorSchool = professor.schoolName,
+				professorDepartment = professor.department,
+				courseCode = event.target.courseCode.value,
+				semester = event.target.semester.value,
 				year = event.target.year.value,
 				help = template.find('.helpful').value,
 				clarity = template.find('.clarity').value,
 				easy = template.find('.easy').value,
-				eligible = Session.get('eligible'),
+				selectedTags = template.findAll( "input:not('#checkboxSexy')[type=checkbox]:checked"),
+				tags = _.map(selectedTags, function(item) {return item.defaultValue;}),
 				recommend = Session.get('recommend'),
+				eligible = Session.get('eligible'),
 				sexy = Session.get('sexy'),
 				comment = event.target.comment.value,
 				assistance = Session.get('assistance'),
 				interest = template.find('.interest').value,
 				txtuse = template.find('.txtuse').value,
 				grade = event.target.grade.value,
-				mayor = event.target.mayor.value,
-				courseCode = event.target.courseCode.value,
-				professorId = this._id,
-				professor = Professors.findOne({_id: professorId}),
-				professorName = professor.name,
-				professorVoted = professor.voted,
-				user = Meteor.user(),
-				userId = user.hook,
-				userName = user.profile.name,
-				userUrl = user.fb_id;
+				mayor = event.target.mayor.value;
+				professorVoted = professor.voted;
 		var captchaData = grecaptcha.getResponse();
-		var selectedTags = template.findAll( "input:not('#checkboxSexy')[type=checkbox]:checked");
-		var tags = _.map(selectedTags, function(item) {return item.defaultValue;});
 		
-		Meteor.call('insertProfReview',captchaData, userId,userName,userUrl,professorId,professorName,courseCode,semester,year,help,clarity,easy,tags,recommend,eligible,sexy,comment,assistance,interest,txtuse,grade,mayor, function(error){
+		Meteor.call('insertProfReview',captchaData,userId,userName,userUrl,professorId,professorName,professorSchool,professorDepartment,courseCode,semester,year,help,clarity,easy,tags,recommend,eligible,sexy,comment,assistance,interest,txtuse,grade,mayor, function(error){
 			grecaptcha.reset();
 			if (error) {
         return alert(error.reason);

@@ -1,4 +1,5 @@
 Template.home.rendered = function(){
+
 	var homeLink = $(".navbar-brand"),
 			profLink = $("button.profL"),
 			schoolLink = $("button.schoolL"),

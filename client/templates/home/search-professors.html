@@ -38,7 +38,7 @@
       </div>
       {{/if}}
     </div>
-    <div class="row">
+    <div class="row {{hiddeClass}}">
       <div class="col-sm-9 col-sm-offset-1 pf-search-res  list-group">
         {{#esEach index="schoolProfessors" id="searchProfessors"}}
         <div class="">
@@ -47,8 +47,8 @@
             <h5 class="black">{{department}}</h5>
           </div>
         </div>
-        {{/esEach}}      
-        {{> esLoadMoreButton class="btn btn-sm btn-success" index="schoolProfessors" id="searchProfessors"}}
+        {{/esEach}}
+        {{> esLoadMoreButton class="btn btn-sm btn-success" content="Ver más" index="schoolProfessors" id="searchProfessors"}}
         {{#ifEsHasNoResults index="schoolProfessors" id="searchProfessors"}}
         <div class="no-results"><h4>No hay resultados!</h4></div>
         {{/ifEsHasNoResults}}
@@ -69,7 +69,7 @@
           </div>
         </div>
         {{/esEach}}      
-        {{> esLoadMoreButton class="btn btn-sm btn-success" index="professors" id="searchProfessors"}}
+        {{> esLoadMoreButton class="btn btn-sm btn-success" content="Ver más" index="professors" id="searchProfessors"}}
         {{#ifEsHasNoResults index="schoolProfessors" id="searchProfessors"}}
         <div class="no-results"><h4>No hay resultados!</h4></div>
         {{/ifEsHasNoResults}}

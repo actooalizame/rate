@@ -288,6 +288,10 @@ ul li {
   padding: 6px;
 }
 
+.pf-search-res button {
+  margin-top: 7px;
+}
+
 .sch-search-res .panel-body {
   padding: 6px;
 }

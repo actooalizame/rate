@@ -22,8 +22,9 @@ Template.appNav.rendered = function(){
 setHeight();
 
 $(window).resize(function() {
-    setHeight();
-  });
+  setHeight();
+});
+
 };
 
 Template.appNav.helpers({

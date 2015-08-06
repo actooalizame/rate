@@ -11,6 +11,6 @@ Template.topProfessors.helpers({
 	},
 	'topProfsSchool': function(){
 		var filter = Session.get('filterSchool');
-		return Professors.find({'schoolName':filter, 'voted':true}, {sort:{'overall':-1}});
+		return Professors.find({'schoolName':filter, 'voted':true}, {sort:{'overall':-1},limit:5});
 	}
 });

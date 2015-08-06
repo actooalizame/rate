@@ -1,1 +1,1 @@
-//Kadira.connect('SqEKzEGowB5eKbk6q', 'ff775d6f-98ca-48b4-ac34-07ccde1450c5');
+Kadira.connect('SqEKzEGowB5eKbk6q', 'ff775d6f-98ca-48b4-ac34-07ccde1450c5');

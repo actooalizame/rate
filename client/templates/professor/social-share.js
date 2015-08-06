@@ -1,5 +1,3 @@
-
-
 Template.socialShare.rendered = function(){
 	$('.fb-share').text("Facebook");
 	$('.tw-share').text("Twitter");

@@ -1,5 +1,5 @@
 Meteor.publish('Profreviews', function(){
-  return Profreviews.find({},{fields: {'userId':0,'courseCode':0, 'credit':0, 'comment':0,'interest':0,'txtuse':0,'grade':0,'mayor':0,'userName':0,'userUrl':0}});
+  return Profreviews.find({}, {fields:{userId:1,professorId:1,professorName:1,professorSchool:1,professorDepartment:1,help:1,clarity:1,easy:1}});
 });
 
 Meteor.publish('allProfessors', function(){
@@ -33,13 +33,13 @@ Meteor.publish('professorReviews', function(professorId){
 Meteor.publish('schoolReviews', function(schoolId){
   return Schoolreviews.find({schoolId:schoolId});
 });
-
+/*
 Meteor.publish('topProfessors', function(){
   return Professors.find({voted:true}, {sort:{overall:-1}}, {fields: {'name':1,'schoolName':1,'department':1,'voted':1,'overall':1}});
 });
-
+*/
 Meteor.publish('topProfessorsSchool', function(schoolName){
-  return Professors.find({schoolName:schoolName,voted:true}, {sort:{overall:-1},'limit':5}, {fields: {'name':1,'schoolName':1,'department':1,'voted':1,'overall':1}});
+  return Professors.find({schoolName:schoolName,voted:true}, {fields: {'name':1,'schoolName':1,'department':1,'voted':1,'overall':1}}, {sort:{overall:-1},'limit':5});
 });
 
 Meteor.publish('singleProfessor', function(professorId){
@@ -50,6 +50,12 @@ Meteor.publish('singleSchool', function(schoolId){
   return Schools.find({_id:schoolId});
 });
 
+Meteor.publish('myProfReviews', function(){
+  var userId = this.userId,
+      user = Meteor.users.findOne({_id:userId}),
+      hook = user.hook;
+  return Profreviews.find({userId:hook}, {fields:{userId:1,professorId:1,professorName:1,professorSchool:1,professorDepartment:1,help:1,clarity:1,easy:1}}, {sort:{createdAt:-1}});
+});
 
 Meteor.publish('rateProfessor', function(profId){
   return Professors.find({_id:profId});
