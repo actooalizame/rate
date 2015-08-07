@@ -155,7 +155,7 @@ Template.rateProfessor.rendered = function(){
 		}
 		if(slideEvt.value===5){
 			$easyVal.text("5");
-			$easyTxt.text("Clase tomada, clase pasada)");
+			$easyTxt.text("Clase tomada, clase pasada");
 		}
 	});
 	$easy.on("slide", function(slideEvt) {

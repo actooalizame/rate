@@ -147,6 +147,10 @@ button.dismiss {
   transition:background-color 0.5s ease;
 }
 
+.fa-question-circle {
+  color: #18CAA9;
+}
+
 .transparent {
   background-color: transparent;
   transition:background-color 0.5s ease;
@@ -376,6 +380,10 @@ ul li {
 
 .comment {
   min-height: 13em;
+}
+
+.comment-row {
+  margin-top: 4em!important;
 }
 
 .form-group.row {
