@@ -458,7 +458,7 @@ Template.rateProfessor.events({
 							average = ((sumReviews/3)/(reviews.count())).toFixed(1);
 					Meteor.call('updateProfessorScore',professorId,average);
 				}
-        if(professorVoted===false){ Meteor.call('setVoted', professorId);}
+        if(professorVoted===false){ Meteor.call('setVotedProfessor', professorId);}
 				Router.go('/professor/'+professorId);
 				toastr["success"]("Tu review ha sido publicado.", "Jejeajaej!");
       }

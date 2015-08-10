@@ -10,12 +10,14 @@ Template.myReviews.helpers({
 	'profReviews': function(){
 		var user = Meteor.user(),
 				hook = user.hook;
-		return Profreviews.find({userId:hook});
+		return Profreviews.find({userId:hook},{sort:{createdAt:-1}});
 	},
-	'professors': function(){
-		return Professors.find({voted:true},{sort:{overall:-1}});
+	'schoolReviews': function(){
+		var user = Meteor.user(),
+				hook = user.hook;
+		return Schoolreviews.find({userId:hook},{sort:{createdAt:-1}});
 	},
-	'averageHelp': function(){
+	'averageProfHelp': function(){
 		var reviewId = this._id,
 				reviews = Profreviews.find({_id:reviewId}),
 				help = reviews.map(function(a) {return a.help;}),
@@ -24,7 +26,7 @@ Template.myReviews.helpers({
 				average  = (sum / length).toFixed(1);
 		return average;
 	},
-	'averageClarity': function(){
+	'averageProfClarity': function(){
 		var reviewId = this._id,
 				reviews = Profreviews.find({_id:reviewId}),
 				help = reviews.map(function(a) {return a.clarity;}),
@@ -33,7 +35,7 @@ Template.myReviews.helpers({
 				average  = (sum / length).toFixed(1);
 		return average;
 	},
-	'averageEasy': function(){
+	'averageProfEasy': function(){
 		var reviewId = this._id,
 				reviews = Profreviews.find({_id:reviewId}),
 				help = reviews.map(function(a) {return a.easy;}),
@@ -42,7 +44,7 @@ Template.myReviews.helpers({
 				average  = (sum / length).toFixed(1);
 		return average;
 	},
-	'overallScore': function(){
+	'overallProfScore': function(){
 		var reviewId = this._id,
 				reviews = Profreviews.find({_id:reviewId}),
 				help = reviews.map(function(a) {return a.help;}),

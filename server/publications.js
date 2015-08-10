@@ -9,6 +9,9 @@ Meteor.publish('allProfessors', function(){
 Meteor.publish('shortProfessors', function(){
   return Professors.find({voted:true},{fields: {'schoolName': 1, 'schoolId': 1, 'name': 1, 'slug':1,'department':1,'voted':1,'overall':1}});
 });
+Meteor.publish('shortSchools', function(){
+  return Schools.find({voted:true},{fields: {'name': 1, 'slug':1, 'voted':1,'overall':1}});
+});
 /*
 Meteor.publish('limitedProfessors', function(){
   return Professors.find({voted:true},{fields: {'schoolName': 1, 'schoolId': 1, 'name': 1, 'department':1,'voted':1},'limit':3});
@@ -54,7 +57,14 @@ Meteor.publish('myProfReviews', function(){
   var userId = this.userId,
       user = Meteor.users.findOne({_id:userId}),
       hook = user.hook;
-  return Profreviews.find({userId:hook}, {fields:{userId:1,professorId:1,professorName:1,professorSchool:1,professorDepartment:1,help:1,clarity:1,easy:1}}, {sort:{createdAt:-1}});
+  return Profreviews.find({userId:hook}, {fields:{userId:1,professorId:1,professorName:1,professorSchool:1,professorDepartment:1,help:1,clarity:1,easy:1,createdAt:1}}, {sort:{createdAt:-1}});
+});
+
+Meteor.publish('mySchoolReviews', function(){
+  var userId = this.userId,
+      user = Meteor.users.findOne({_id:userId}),
+      hook = user.hook;
+  return Schoolreviews.find({userId:hook}, {fields:{userUrl:0,graduation:0,comment:0,votes:0,upVoters:0,downVoters:0}}, {sort:{createdAt:-1}});
 });
 
 Meteor.publish('rateProfessor', function(profId){

@@ -147,9 +147,15 @@ Meteor.methods({
 			{$push: {ratedBy: userId} }
 		);
 	},
-	'setVoted': function(professorId){
+	'setVotedProfessor': function(professorId){
 		Professors.update(
 			{_id: professorId },
+			{$set: {voted: true} }
+		);
+	},
+	'setVotedSchool': function(schoolId){
+		Schools.update(
+			{_id: schoolId },
 			{$set: {voted: true} }
 		);
 	},

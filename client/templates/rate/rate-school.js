@@ -636,6 +636,7 @@ Template.rateSchool.events({
 				schoolId = this._id,
 				school = Schools.findOne({_id: schoolId}),
 				schoolName = school.name,
+				schoolVoted = school.voted;
 				user = Meteor.user(),
 				userId = user.hook,
 				userName = user.profile.name,
@@ -702,6 +703,7 @@ Template.rateSchool.events({
 							average = ((sumReviews/10)/(reviews.count())).toFixed(1);
 					Meteor.call('updateSchoolScore',schoolId,average);
 				}
+				if(schoolVoted===false){ Meteor.call('setVotedSchool', schoolId);}
 				Router.go('/school/'+schoolId);
 				toastr["success"]("Tu review ha sido publicado.", "Jejeajaej!");
       }
