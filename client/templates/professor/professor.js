@@ -8,6 +8,39 @@ Template.viewProfessor.helpers({
 				average  = (sum / length).toFixed(1);
 		return average;
 	},
+	'avgHelpSvg': function(){
+		var professorId = this._id,
+				reviews = Profreviews.find({professorId:professorId}),
+				help = reviews.map(function(a) {return a.help;}),
+				sum = eval(help.join('+')),
+				length = reviews.count(),
+				average  = (sum / length).toFixed(1)*45;
+		Session.set('avgHelpSvg',average);
+		return average;
+	},
+	'helpColor': function(){
+		var professorId = this._id,
+				reviews = Profreviews.find({professorId:professorId}),
+				help = reviews.map(function(a) {return a.help;}),
+				sum = eval(help.join('+')),
+				length = reviews.count(),
+				average  = (sum / length);
+		if(average<1.9){
+			return "#FF0000";
+		}
+		if(average<2.9){
+			return "#FF6600";
+		}
+		if(average<3.9){
+			return "#FFFF00";
+		}
+		if(average<4.9){
+			return "#88FF00";
+		}
+		if(average===5){
+			return "#00FF00";
+		}
+	},
 	'averageClarity': function(){
 		var professorId = this._id,
 				reviews = Profreviews.find({professorId:professorId}),
@@ -17,6 +50,38 @@ Template.viewProfessor.helpers({
 				average  = (sum / length).toFixed(1);
 		return average;
 	},
+	'avgClaritySvg': function(){
+		var professorId = this._id,
+				reviews = Profreviews.find({professorId:professorId}),
+				clarity = reviews.map(function(a) {return a.clarity;}),
+				sum = eval(clarity.join('+')),
+				length = reviews.count(),
+				average  = (sum / length).toFixed(1)*45;
+		return average;
+	},
+	'clarityColor': function(){
+		var professorId = this._id,
+				reviews = Profreviews.find({professorId:professorId}),
+				clarity = reviews.map(function(a) {return a.clarity;}),
+				sum = eval(clarity.join('+')),
+				length = reviews.count(),
+				average  = (sum / length);
+		if(average<1.9){
+			return "#FF0000";
+		}
+		if(average<2.9){
+			return "#FF6600";
+		}
+		if(average<3.9){
+			return "#FFFF00";
+		}
+		if(average<4.9){
+			return "#88FF00";
+		}
+		if(average===5){
+			return "#00FF00";
+		}
+	},
 	'averageEasy': function(){
 		var professorId = this._id,
 				reviews = Profreviews.find({professorId:professorId}),
@@ -25,6 +90,38 @@ Template.viewProfessor.helpers({
 				length = reviews.count(),
 				average  = (sum / length).toFixed(1);
 		return average;
+	},
+	'avgEasySvg': function(){
+		var professorId = this._id,
+				reviews = Profreviews.find({professorId:professorId}),
+				easy = reviews.map(function(a) {return a.easy;}),
+				sum = eval(easy.join('+')),
+				length = reviews.count(),
+				average  = (sum / length).toFixed(1)*45;
+		return average;
+	},
+	'easyColor': function(){
+		var professorId = this._id,
+				reviews = Profreviews.find({professorId:professorId}),
+				easy = reviews.map(function(a) {return a.easy;}),
+				sum = eval(easy.join('+')),
+				length = reviews.count(),
+				average  = (sum / length);
+		if(average<1.9){
+			return "#FF0000";
+		}
+		if(average<2.9){
+			return "#FF6600";
+		}
+		if(average<3.9){
+			return "#FFFF00";
+		}
+		if(average<4.9){
+			return "#88FF00";
+		}
+		if(average===5){
+			return "#00FF00";
+		}
 	},
 	'overallScore': function(){
 		var professorId = this._id,
@@ -56,7 +153,7 @@ Template.viewProfessor.helpers({
 
 	'ratings': function(){
 		var professorId = this._id;
-		return Profreviews.find({professorId:professorId});
+		return Profreviews.find({professorId:professorId}, {sort:{createdAt:-1}});
 	},
 	'ownRating': function(){
 		var user = Meteor.user(),
@@ -73,18 +170,16 @@ Template.viewProfessor.helpers({
 				review = Profreviews.findOne({_id:reviewId});
 				upvotes = review.votes;
 		return upvotes;
-	},/*,
+	},
 	'disableOwnVote': function(){
-		var reviewId = this._id,
-				review = Profreviews.findOne({_id: reviewId}),
-				rewiewUser = review.userId,
+		var review = Profreviews.findOne({_id: this._id}),
 				user = Meteor.user(),
-				userId = user.hook;
-		if(rewiewUser===userId){
-			console.log(userId);
+				userId = user.hook,
+				userReview = review.userId;
+		if(userReview===userId){
+			return 'invisible';
 		}
-		console.log(rewiewUser);
-	}*/
+	},
 	'userUpvoted': function(){
 		var review = Profreviews.findOne({_id: this._id}),
 				user = Meteor.user(),

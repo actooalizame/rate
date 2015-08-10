@@ -254,6 +254,9 @@ ul li {
   margin: 1em;
 }
 
+.single-professor {
+  margin-top: 1em;
+}
 
 /*
 .search-review {
@@ -362,6 +365,10 @@ ul li {
   text-align: center;
 }
 
+.professor-averages button {
+  margin-top: 20px;
+}
+
 .select-university {
   margin-top: -7em;
 }
@@ -422,8 +429,12 @@ ul li {
   text-align: center;
 }
 
-.professor-averages button {
-  margin-top: 1em;
+.prof-scores {
+  text-align: left;
+}
+
+.prof-scores h3 strong {
+  margin-top: 14px;
 }
 
 .search-input input {

@@ -18,8 +18,14 @@
 	        <li class="{{isActiveRoute 'searchSchools'}}">
 	        	<a href="/search-schools"><i class="fa fa-university fa-2x"></i><br>Universidades</a>
 	        </li>
+	        {{#if currentUser}}
 	        <li class="{{isActiveRoute 'myReviews'}}"><a href="/mis-reviews"><i class="fa fa-files-o fa-2x"></i><br>Mis Reviews</a></li>
+	        {{else}}
+	        <li class="{{isActiveRoute 'allProfessors'}}"><a href="/professors-reviews"><i class="fa fa-files-o fa-2x"></i><br>Reviews</a></li>
+	        {{/if}}
+	        {{#if currentUser}}
 	        <li class="{{isActiveRoute 'rate'}}"><a href="/rate" class="selected-nav"><i class="fa fa-bar-chart fa-2x"></i><br>Evaluar</a></li>
+	        {{/if}}
 	        <li class="social-icons">
 	        	<a href="#"><i class="fa fa-facebook fa-2x"></i></a>
 	        </li>
