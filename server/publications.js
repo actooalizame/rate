@@ -29,6 +29,10 @@ Meteor.publish('filteredProfs', function(schoolName){
   return Professors.find({schoolName:schoolName},{fields: {'schoolName': 1, 'name': 1, 'slug':1, 'department':1}});
 });
 
+Meteor.publish('multipleProfessors', function(profSchool,profName){
+  return Professors.find({schoolName:profSchool, name:profName,voted:false}, {fields: {'schoolName':1, 'name':1, 'department':1, 'overall':1,'voted':1}});
+});
+
 Meteor.publish('professorReviews', function(professorId){
   return Profreviews.find({professorId:professorId});
 });

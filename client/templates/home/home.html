@@ -1,81 +1,83 @@
 <template name="home">
-  <section id="wrapper">
-    {{> navBar }}
-    <div class="container">
-      <div id="fold">
-        <div class="row home-items">
-          <div class="container">
-            <h1 class="headline">Find <span class="headline-change">what</span> you are looking for</h1>
-          </div>
-          <div class="col-sm-4">
-            <button class="btn btn-lg btn-info profL">Encuentra Profesores</button>
-          </div>
-          <div class="col-sm-4">
-            <button class="btn btn-lg btn-info schoolL">Encuentra Universidades</button>
-          </div>
-          {{#if currentUser}}
-            {{#if hasUniversity}}
-            <div class="col-sm-4">
-              <a href="/rate" class="btn btn-lg btn-info btn-rate wow pulse">Rate</a>
+  <div id="home">
+    <section id="wrapper">
+      {{> navBar }}
+      <div class="container">
+        <div id="fold">
+          <div class="row home-items">
+            <div class="container">
+              <h1 class="headline">Find <span class="headline-change">what</span> you are looking for</h1>
             </div>
+            <div class="col-sm-4">
+              <button class="btn btn-lg btn-info profL">Encuentra Profesores</button>
+            </div>
+            <div class="col-sm-4">
+              <button class="btn btn-lg btn-info schoolL">Encuentra Universidades</button>
+            </div>
+            {{#if currentUser}}
+              {{#if hasUniversity}}
+              <div class="col-sm-4">
+                <a href="/rate" class="btn btn-lg btn-info btn-rate wow pulse">Rate</a>
+              </div>
+              {{else}}
+              <div class="col-sm-4">
+              {{>selectUniversity}}
+              </div>
+              {{/if}}
             {{else}}
-            <div class="col-sm-4">
-            {{>selectUniversity}}
+            <div class="col-sm-4 login">
+              <h3 class="white">Log in To Rate</h3>
+              {{>loginButtons}} 
             </div>
+
             {{/if}}
-          {{else}}
-          <div class="col-sm-4 login">
-            <h3 class="white">Log in To Rate</h3>
-            {{>loginButtons}} 
+            
           </div>
-
-          {{/if}}
-          
-        </div>
-        <div class="container">
-          <div class="row professors hidden">
-             <div class="col-sm-6 col-sm-offset-3 well-home">
-              {{>searchProfessors}}
+          <div class="container">
+            <div class="row professors hidden">
+               <div class="col-sm-6 col-sm-offset-3 well-home">
+                {{>searchProfessors}}
+              </div>
             </div>
           </div>
-        </div>
-        <div class="container">
-          <div class="row school hidden">
-            <div class="col-sm-6 col-sm-offset-3 well-home">
-              {{>searchSchools}}
+          <div class="container">
+            <div class="row school hidden">
+              <div class="col-sm-6 col-sm-offset-3 well-home">
+                {{>searchSchools}}
 
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-  <section class="content" id="product">
-    <div class="container">
-      <h1>contenido</h1>
-      <div class="col-sm-4">
-        <p>Ugh Williamsburg semiotics disrupt, sriracha DIY mustache vegan iPhone cronut 3 wolf moon. Kale chips lumbersexual organic, 3 wolf moon kogi Vice freegan letterpress chambray. Shoreditch listicle swag XOXO, health goth Wes Anderson literally raw denim fixie banh mi pork belly crucifix cronut whatever Austin. Freegan ennui raw denim Shoreditch cardigan. Fingerstache you probably haven't heard of them mumblecore, food truck Echo Park lomo asymmetrical pug swag irony cardigan salvia paleo shabby chic. Banksy gentrify selfies photo booth, small batch authentic wayfarers scenester. Echo Park cronut Bushwick twee seitan selfies.</p>
+    </section>
+    <section class="content" id="product">
+      <div class="container">
+        <h1>contenido</h1>
+        <div class="col-sm-4">
+          <p>Ugh Williamsburg semiotics disrupt, sriracha DIY mustache vegan iPhone cronut 3 wolf moon. Kale chips lumbersexual organic, 3 wolf moon kogi Vice freegan letterpress chambray. Shoreditch listicle swag XOXO, health goth Wes Anderson literally raw denim fixie banh mi pork belly crucifix cronut whatever Austin. Freegan ennui raw denim Shoreditch cardigan. Fingerstache you probably haven't heard of them mumblecore, food truck Echo Park lomo asymmetrical pug swag irony cardigan salvia paleo shabby chic. Banksy gentrify selfies photo booth, small batch authentic wayfarers scenester. Echo Park cronut Bushwick twee seitan selfies.</p>
+        </div>
+        <div class="col-sm-4">
+          <p>Ugh Williamsburg semiotics disrupt, sriracha DIY mustache vegan iPhone cronut 3 wolf moon. Kale chips lumbersexual organic, 3 wolf moon kogi Vice freegan letterpress chambray. Shoreditch listicle swag XOXO, health goth Wes Anderson literally raw denim fixie banh mi pork belly crucifix cronut whatever Austin. Freegan ennui raw denim Shoreditch cardigan. Fingerstache you probably haven't heard of them mumblecore, food truck Echo Park lomo asymmetrical pug swag irony cardigan salvia paleo shabby chic. Banksy gentrify selfies photo booth, small batch authentic wayfarers scenester. Echo Park cronut Bushwick twee seitan selfies.</p>
+        </div>
+        <div class="col-sm-4">
+          <p>Ugh Williamsburg semiotics disrupt, sriracha DIY mustache vegan iPhone cronut 3 wolf moon. Kale chips lumbersexual organic, 3 wolf moon kogi Vice freegan letterpress chambray. Shoreditch listicle swag XOXO, health goth Wes Anderson literally raw denim fixie banh mi pork belly crucifix cronut whatever Austin. Freegan ennui raw denim Shoreditch cardigan. Fingerstache you probably haven't heard of them mumblecore, food truck Echo Park lomo asymmetrical pug swag irony cardigan salvia paleo shabby chic. Banksy gentrify selfies photo booth, small batch authentic wayfarers scenester. Echo Park cronut Bushwick twee seitan selfies.</p>
+        </div>
       </div>
-      <div class="col-sm-4">
-        <p>Ugh Williamsburg semiotics disrupt, sriracha DIY mustache vegan iPhone cronut 3 wolf moon. Kale chips lumbersexual organic, 3 wolf moon kogi Vice freegan letterpress chambray. Shoreditch listicle swag XOXO, health goth Wes Anderson literally raw denim fixie banh mi pork belly crucifix cronut whatever Austin. Freegan ennui raw denim Shoreditch cardigan. Fingerstache you probably haven't heard of them mumblecore, food truck Echo Park lomo asymmetrical pug swag irony cardigan salvia paleo shabby chic. Banksy gentrify selfies photo booth, small batch authentic wayfarers scenester. Echo Park cronut Bushwick twee seitan selfies.</p>
+    </section>
+    <section class="content" id="enterprise">
+      <div class="container">
+        <h1>contenido</h1>
+        <div class="col-sm-4">
+          <p>Ugh Williamsburg semiotics disrupt, sriracha DIY mustache vegan iPhone cronut 3 wolf moon. Kale chips lumbersexual organic, 3 wolf moon kogi Vice freegan letterpress chambray. Shoreditch listicle swag XOXO, health goth Wes Anderson literally raw denim fixie banh mi pork belly crucifix cronut whatever Austin. Freegan ennui raw denim Shoreditch cardigan. Fingerstache you probably haven't heard of them mumblecore, food truck Echo Park lomo asymmetrical pug swag irony cardigan salvia paleo shabby chic. Banksy gentrify selfies photo booth, small batch authentic wayfarers scenester. Echo Park cronut Bushwick twee seitan selfies.</p>
+        </div>
+        <div class="col-sm-4">
+          <p>Ugh Williamsburg semiotics disrupt, sriracha DIY mustache vegan iPhone cronut 3 wolf moon. Kale chips lumbersexual organic, 3 wolf moon kogi Vice freegan letterpress chambray. Shoreditch listicle swag XOXO, health goth Wes Anderson literally raw denim fixie banh mi pork belly crucifix cronut whatever Austin. Freegan ennui raw denim Shoreditch cardigan. Fingerstache you probably haven't heard of them mumblecore, food truck Echo Park lomo asymmetrical pug swag irony cardigan salvia paleo shabby chic. Banksy gentrify selfies photo booth, small batch authentic wayfarers scenester. Echo Park cronut Bushwick twee seitan selfies.</p>
+        </div>
+        <div class="col-sm-4">
+          <p>Ugh Williamsburg semiotics disrupt, sriracha DIY mustache vegan iPhone cronut 3 wolf moon. Kale chips lumbersexual organic, 3 wolf moon kogi Vice freegan letterpress chambray. Shoreditch listicle swag XOXO, health goth Wes Anderson literally raw denim fixie banh mi pork belly crucifix cronut whatever Austin. Freegan ennui raw denim Shoreditch cardigan. Fingerstache you probably haven't heard of them mumblecore, food truck Echo Park lomo asymmetrical pug swag irony cardigan salvia paleo shabby chic. Banksy gentrify selfies photo booth, small batch authentic wayfarers scenester. Echo Park cronut Bushwick twee seitan selfies.</p>
+        </div>
       </div>
-      <div class="col-sm-4">
-        <p>Ugh Williamsburg semiotics disrupt, sriracha DIY mustache vegan iPhone cronut 3 wolf moon. Kale chips lumbersexual organic, 3 wolf moon kogi Vice freegan letterpress chambray. Shoreditch listicle swag XOXO, health goth Wes Anderson literally raw denim fixie banh mi pork belly crucifix cronut whatever Austin. Freegan ennui raw denim Shoreditch cardigan. Fingerstache you probably haven't heard of them mumblecore, food truck Echo Park lomo asymmetrical pug swag irony cardigan salvia paleo shabby chic. Banksy gentrify selfies photo booth, small batch authentic wayfarers scenester. Echo Park cronut Bushwick twee seitan selfies.</p>
-      </div>
-    </div>
-  </section>
-  <section class="content" id="enterprise">
-    <div class="container">
-      <h1>contenido</h1>
-      <div class="col-sm-4">
-        <p>Ugh Williamsburg semiotics disrupt, sriracha DIY mustache vegan iPhone cronut 3 wolf moon. Kale chips lumbersexual organic, 3 wolf moon kogi Vice freegan letterpress chambray. Shoreditch listicle swag XOXO, health goth Wes Anderson literally raw denim fixie banh mi pork belly crucifix cronut whatever Austin. Freegan ennui raw denim Shoreditch cardigan. Fingerstache you probably haven't heard of them mumblecore, food truck Echo Park lomo asymmetrical pug swag irony cardigan salvia paleo shabby chic. Banksy gentrify selfies photo booth, small batch authentic wayfarers scenester. Echo Park cronut Bushwick twee seitan selfies.</p>
-      </div>
-      <div class="col-sm-4">
-        <p>Ugh Williamsburg semiotics disrupt, sriracha DIY mustache vegan iPhone cronut 3 wolf moon. Kale chips lumbersexual organic, 3 wolf moon kogi Vice freegan letterpress chambray. Shoreditch listicle swag XOXO, health goth Wes Anderson literally raw denim fixie banh mi pork belly crucifix cronut whatever Austin. Freegan ennui raw denim Shoreditch cardigan. Fingerstache you probably haven't heard of them mumblecore, food truck Echo Park lomo asymmetrical pug swag irony cardigan salvia paleo shabby chic. Banksy gentrify selfies photo booth, small batch authentic wayfarers scenester. Echo Park cronut Bushwick twee seitan selfies.</p>
-      </div>
-      <div class="col-sm-4">
-        <p>Ugh Williamsburg semiotics disrupt, sriracha DIY mustache vegan iPhone cronut 3 wolf moon. Kale chips lumbersexual organic, 3 wolf moon kogi Vice freegan letterpress chambray. Shoreditch listicle swag XOXO, health goth Wes Anderson literally raw denim fixie banh mi pork belly crucifix cronut whatever Austin. Freegan ennui raw denim Shoreditch cardigan. Fingerstache you probably haven't heard of them mumblecore, food truck Echo Park lomo asymmetrical pug swag irony cardigan salvia paleo shabby chic. Banksy gentrify selfies photo booth, small batch authentic wayfarers scenester. Echo Park cronut Bushwick twee seitan selfies.</p>
-      </div>
-    </div>
-  </section>
+    </section>
+  </div>
 </template>

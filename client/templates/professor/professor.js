@@ -1,4 +1,40 @@
 Template.viewProfessor.helpers({
+	'isMultiple': function(){
+		var professorId = this._id,
+				professor = Professors.findOne({_id: professorId}),
+				profSchool = professor.schoolName,
+				multiple = professor.multiple;
+		if(multiple===true){
+			return true;
+		}
+	},
+	'showMultiple': function(){
+		var profSchool = Session.get('profSchool');
+		if(profSchool!==undefined){
+			return true;
+		}
+	},
+	'dynamicHide': function(){
+		var profSchool = Session.get('profSchool');
+		if(profSchool!==undefined){
+			return 'hidden';
+		}
+	},
+	'isZero': function(){
+		var professorId = this._id,
+				professor = Professors.findOne({_id: professorId}),
+				overall = professor.overall;
+		if(overall===0){
+			return true;
+		}
+	},
+	'multipleProfessor': function(){
+		var professorId = this._id,
+				professor = Professors.findOne({_id: professorId}),
+				profName = professor.name,
+				profSchool = professor.schoolName;
+		return Professors.find({schoolName:profSchool, name:profName});
+	},
 	'averageHelp': function(){
 		var professorId = this._id,
 				reviews = Profreviews.find({professorId:professorId}),
@@ -219,6 +255,18 @@ Template.viewProfessor.helpers({
 });
 
 Template.viewProfessor.events({
+	'click .view-multiple': function(){
+		var professorId = this._id,
+				professor = Professors.findOne({_id: professorId}),
+				profName = professor.name,
+				profSchool = professor.schoolName;
+		Session.set('profSchool',profSchool);
+		Session.set('profName',profName);
+	},
+	/*'click .clear-multiple': function(){
+		Session.set('profSchool',null);
+		Session.set('profName', null);
+	},*/
 	'click .upvote': function(){
 		var user = Meteor.user(),
 				hook = user.hook,

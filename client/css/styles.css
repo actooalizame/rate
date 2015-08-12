@@ -267,6 +267,10 @@ ul li {
   margin-bottom: 1.5em;
 }
 
+p.bg-info {
+  padding: 0.7em;
+}
+
 .jumbotron {
   border-radius: 4px;
 }

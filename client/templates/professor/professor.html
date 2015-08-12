@@ -61,6 +61,16 @@
 						<h1>{{name}}</h1>
 						<h4>Profesor en el departamento de {{department}}</h4>
 						<h4><strong>{{schoolName}}</strong></h4>
+						{{#if isMultiple}}
+						<p class="bg-info {{dynamicHide}}">Este profesor dicta clases en varias facultades <button class="btn btn-sm btn-success view-multiple">Ver</button></p>
+							{{#if showMultiple}}
+							<p>Facultades donde este profesor dicta clases y el promedio recibido</p>
+							{{#each multipleProfessor}}
+								<p><a href="/professor/{{_id}}">{{department}}:</a> <strong>{{overall}} {{#if isZero}}- <strong>Aun no hay reviews</strong>{{/if}}</strong></p>
+								
+							{{/each}}
+							{{/if}}
+						{{/if}}
 					</div>
 				</div>
 				{{#if currentUser}}

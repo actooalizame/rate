@@ -59,5 +59,14 @@ Template.myReviews.helpers({
 				length = (reviews.count())*3,
 				average = (sum/length).toFixed(1);
 		return average;
-	}
+	},
+	'averageSchoolReputation': function(){
+		var reviewId = this._id,
+				reviews = Schoolreviews.find({_id:reviewId}),
+				reputation = reviews.map(function(a) {return a.reputation;}),
+				sum = eval(reputation.join('+')),
+				length = reviews.count(),
+				average  = (sum / length).toFixed(1);
+		return average;
+	},
 });
