@@ -16,7 +16,6 @@ Meteor.startup(function() {
   Session.setDefault('sexy', 'neutro');
   Session.setDefault('onProfessors', false);
   Session.setDefault('countTags', 0);
-  Session.setDefault('profSchool', null);
 });
 
 UI.registerHelper('formatTime', function(context, options) {
