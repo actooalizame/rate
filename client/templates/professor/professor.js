@@ -263,6 +263,24 @@ Template.viewProfessor.events({
 		Session.set('profSchool',profSchool);
 		Session.set('profName',profName);
 	},
+	'click .btn-edit': function(){
+		var reviewId = this._id;
+		new Confirmation({
+			title: "Tu review perderá todos los puntos al ser editado",
+			message: "Estás seguro ?",
+			cancelText: "Cancelar",
+			okText: "Ok",
+			success: true
+		}, function (ok) {
+			if(ok===true){
+				Router.go('/edit-review/'+reviewId);
+				Meteor.call('clearVotes',reviewId);
+			}
+			else{
+				return;
+			}
+		});
+	},
 	/*'click .clear-multiple': function(){
 		Session.set('profSchool',null);
 		Session.set('profName', null);

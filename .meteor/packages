@@ -22,3 +22,5 @@ altapp:recaptcha
 zimme:active-route
 mrt:jquery-easing
 momentjs:moment
+email
+matdutour:popup-confirm

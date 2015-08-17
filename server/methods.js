@@ -1,4 +1,18 @@
 Meteor.methods({
+	'sendEmail': function (to, from, subject, text) {
+    check([to, from, subject, text], [String]);
+
+    // Let other method calls from the same client start running,
+    // without waiting for the email sending to complete.
+    this.unblock();
+
+    Email.send({
+      to: to,
+      from: from,
+      subject: subject,
+      text: text
+    });
+  },
 	'updateUserSchool': function(userId, singleSchool){
 		var user = Meteor.users.findOne(this.userId),
 				fb_id = user.services.facebook.id;
@@ -187,6 +201,16 @@ Meteor.methods({
 		Profreviews.update(
 			{ _id: reviewId },
 			{$inc: {votes: -1},$push: {downVoters: hook},$pull: {upVoters: hook}}
+		);
+	},
+	'clearVotes': function(reviewId){
+		Profreviews.update(
+			{ _id: reviewId },
+			{$set: {
+				votes:0,
+				upVoters: [],
+				downVoters: []
+			}}
 		);
 	}
 });

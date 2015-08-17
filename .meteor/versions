@@ -45,6 +45,7 @@ less@1.0.14
 livedata@1.0.13
 localstorage@1.0.3
 logging@1.0.7
+matdutour:popup-confirm@0.1.25
 matteodem:easy-search@1.5.6
 maxharris9:meteor-bootstrap-slider@0.9.0
 meteor@1.1.6
