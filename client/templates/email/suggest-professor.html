@@ -20,10 +20,34 @@
 	<div class="row">
 		<div class="col-sm-5 col-sm-offset-3">
 			<form class="suggest-professor">
-				<div class="form-group">
-		    	<label for="exampleInputEmail1">Email address</label>
-		    	<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+				<div class="form-group row">
+					<div class="col-sm-6">
+			    	<label for="names">Nombre completo</label>
+			    	<input type="text" class="form-control" id="names" name="names" placeholder="Nombres">
+		    	</div>
+		    	<div class="col-sm-6">
+			    	<label for="lastnames">Apellidos</label>
+			    	<input type="text" class="form-control" id="lastnames" name="lastnames" placeholder="Apellidos">
+		    	</div>
 		  	</div>
+		  	<div class="form-group row">
+		    	<div class="col-sm-6">
+			    	<label for="school">Universidad</label>
+			    	<input type="text" class="form-control" id="school" name="school" placeholder="Universidad">
+		    	</div>
+		    	<div class="col-sm-6">
+			    	<label for="department">Facultad</label>
+			    	<input type="text" class="form-control" id="department" name="department" placeholder="Facultad">
+		    	</div>
+		  	</div>
+		  	<div class="col-sm-8 col-sm-offset-2">
+		  		<label for="comment">Comentarios</label>
+		    	<textarea name="comment" id="comment" class="form-control custom-control"></textarea>
+		  	</div>
+		  	<div class="col-sm-6 push-left btn-group">
+					<button type="submit" class="btn btn-success">Enviar Profesor</button>
+					<a href="/" class="btn btn-danger cancel">Cancelar</a>
+			</div>
 			</form>
 		</div>
 	</div>

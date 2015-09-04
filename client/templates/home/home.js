@@ -1,186 +1,192 @@
-Template.home.rendered = function(){
+Template.home.onRendered(function() {
 
-	var homeLink = $(".navbar-brand"),
-			profLink = $("button.profL"),
-			schoolLink = $("button.schoolL"),
-			home = $(".home-items"),
-			professors = $(".professors"),
-			school =$(".school");
-
-
-/* HIDES-DISPLAYS ELEMENTS ON FOLD */
-
-$(profLink).on('click',function(){
-  professors.removeClass('hidden')
-            .addClass('block');
-  home.addClass('hidden');
-});
-
-$(schoolLink).on('click',function(){
-  school.removeClass('hidden')
-            .addClass('block');
-  home.addClass('hidden');
-});
-
-$(homeLink).on('click',function(){
-  home.removeClass('hidden')
-            .addClass('block');
-  school.addClass('hidden');
-  professors.addClass('hidden');
-});
-
-var onProfessors = Session.get('onProfessors');
-if(onProfessors===true){
-	professors.removeClass('hidden')
-            .addClass('block');
-  home.addClass('hidden');
-}
+  var homeLink = $(".navbar-brand"),
+    profLink = $("button.profL"),
+    schoolLink = $("button.schoolL"),
+    home = $(".home-items"),
+    professors = $(".professors"),
+    school = $(".school");
 
 
-/* NAVIGATION LINKS ON SCROLL & CLICK EVENT */
+  /* HIDES-DISPLAYS ELEMENTS ON FOLD */
 
-var defaultItem = $('.navbar-home .nav > li.active-link'),
-		item = $('.navbar-home .nav > li a');
+  $(profLink).on('click', function() {
+    professors.removeClass('hidden')
+      .addClass('block');
+    home.addClass('hidden');
+  });
 
-$('a[href^="#"]').on('click', function (e) {
-	e.preventDefault();
-	$(document).off("scroll");
+  $(schoolLink).on('click', function() {
+    school.removeClass('hidden')
+      .addClass('block');
+    home.addClass('hidden');
+  });
 
-	item.each(function () {
-		$(this).removeClass('active-link');
-	});
-	$(this).addClass('active-link');
+  $(homeLink).on('click', function() {
+    home.removeClass('hidden')
+      .addClass('block');
+    school.addClass('hidden');
+    professors.addClass('hidden');
+  });
 
-	var target = this.hash,
-			$target = $(target);
-	$('html, body').stop().animate({
-		'scrollTop': $target.offset().top
-	}, 1100, 'easeInOutQuint', function () {
-		window.location.hash = target;
-		$(document).on("scroll", onScroll);
-		defaultItem.removeClass("active-link");
-	});
-});
-
-	function onScroll(event){
-	var scrollPosition = $(document).scrollTop();
-	item.each(function () {
-		var currentLink = $(this);
-		var refElement = $(currentLink.attr("href"));
-		if (refElement.position().top-69 <= scrollPosition && refElement.position().top-69 + refElement.height() > scrollPosition) {
-			item.removeClass("active-link");
-			currentLink.addClass("active-link");
-		} else {
-		currentLink.removeClass("active-link");
-		defaultItem.removeClass("active-link");
-		}
-	});
-}
-
-$(document).on("scroll", onScroll);
-
-/* SET FOLD HEIGHT */
-
-function setHeight(){
-	var windowHeight = $(window).innerHeight(),
-			wrapper = $('#wrapper');
-	wrapper.css('min-height', windowHeight);
-}
-
-setHeight();
+  var onProfessors = Session.get('onProfessors');
+  if (onProfessors === true) {
+    professors.removeClass('hidden')
+      .addClass('block');
+    home.addClass('hidden');
+  }
 
 
-/* CHANGE HEADLINE ON HOVER */
+  /* NAVIGATION LINKS ON SCROLL & CLICK EVENT */
 
-function headlineChange(){
-	var headline = $('.headline-change'),
-		rate = $('a.btn-rate'),
-		login = $('.login'),
-		windowWidth = (window).innerWidth;
+  var defaultItem = $('.navbar-home .nav > li.active-link'),
+    item = $('.navbar-home .nav > li a');
 
-	if(windowWidth>767){
-		profLink.mouseover(function(){
-			headline.text("the professor");
-		});
+  $('a[href^="#"]').on('click', function(e) {
+    e.preventDefault();
+    $(document).off("scroll");
 
-		profLink.mouseleave(function(){
-			headline.text("what");
-		});
+    item.each(function() {
+      $(this).removeClass('active-link');
+    });
+    $(this).addClass('active-link');
 
-		schoolLink.mouseover(function(){
-			headline.text("the school");
-		});
-
-		schoolLink.mouseleave(function(){
-			headline.text("what");
-		});
-
-		login.mouseover(function(){
-			headline.text("the outlet");
-		});
-
-		login.mouseleave(function(){
-			headline.text("what");
-		});
-
-		rate.mouseover(function(){
-			headline.text("the outlet");
-		});
-
-		rate.mouseleave(function(){
-			headline.text("what");
-		});
-	}
-}
-
-headlineChange();
+    var target = this.hash,
+      $target = $(target);
+    $('html, body').stop().animate({
+      'scrollTop': $target.offset().top
+    }, 1100, 'easeInOutQuint', function() {
+      window.location.hash = target;
+      $(document).on("scroll", onScroll);
+      defaultItem.removeClass("active-link");
+    });
+  });
 
 
-/* CHANGE NAV BACKGROUND ON SCROLL */
 
-function changeNav(){
+  function onScroll(event) {
+    var scrollPosition = $(document).scrollTop();
+    item.each(function() {
+      var currentLink = $(this);
+      var refElement = $(currentLink.attr("href"));
 
-	var $header = $('.navbar-home'),
-			windowWidth = (window).innerWidth;
+      var onApp = Session.get('onApp');
+      if (onApp === false) {
+        if (refElement.position().top - 69 <= scrollPosition && refElement.position().top - 69 + refElement.height() > scrollPosition) {
+          item.removeClass("active-link");
+          currentLink.addClass("active-link");
+        } else {
+          currentLink.removeClass("active-link");
+          defaultItem.removeClass("active-link");
+        }
+      }
+    });
+  }
 
-	$(window).scroll(function () {
-		if(pageYOffset <= 0){
-			$header.addClass('transparent').removeClass('nav-active');
-		}
-		if(pageYOffset > 20){
-			$header.addClass('nav-active').removeClass('transparent');
-		}
-		if( windowWidth < 767) {
-			$header.addClass('navbar-inverse').removeClass('transparent');
-		}
-	});
+  $(document).on("scroll", onScroll);
 
-	if(windowWidth<768){
-		$header.addClass('navbar-inverse').removeClass('transparent').removeClass('nav-active');
-	}
-}
-changeNav();
+  /* SET FOLD HEIGHT */
 
-$(window).resize(function() {
+  function setHeight() {
+    var windowHeight = $(window).innerHeight(),
+      wrapper = $('#wrapper');
+    wrapper.css('min-height', windowHeight);
+  }
+
   setHeight();
-  headlineChange();
-  changeNav();
-});
 
-};
+
+  /* CHANGE HEADLINE ON HOVER */
+
+  function headlineChange() {
+    var headline = $('.headline-change'),
+      rate = $('a.btn-rate'),
+      login = $('.login'),
+      windowWidth = (window).innerWidth;
+
+    if (windowWidth > 767) {
+      profLink.mouseover(function() {
+        headline.text("the professor");
+      });
+
+      profLink.mouseleave(function() {
+        headline.text("what");
+      });
+
+      schoolLink.mouseover(function() {
+        headline.text("the school");
+      });
+
+      schoolLink.mouseleave(function() {
+        headline.text("what");
+      });
+
+      login.mouseover(function() {
+        headline.text("the outlet");
+      });
+
+      login.mouseleave(function() {
+        headline.text("what");
+      });
+
+      rate.mouseover(function() {
+        headline.text("the outlet");
+      });
+
+      rate.mouseleave(function() {
+        headline.text("what");
+      });
+    }
+  }
+
+  headlineChange();
+
+
+  /* CHANGE NAV BACKGROUND ON SCROLL */
+
+  function changeNav() {
+
+    var $header = $('.navbar-home'),
+      windowWidth = (window).innerWidth;
+
+    $(window).scroll(function() {
+      if (pageYOffset <= 0) {
+        $header.addClass('transparent').removeClass('nav-active');
+      }
+      if (pageYOffset > 20) {
+        $header.addClass('nav-active').removeClass('transparent');
+      }
+      if (windowWidth < 767) {
+        $header.addClass('navbar-inverse').removeClass('transparent');
+      }
+    });
+
+    if (windowWidth < 768) {
+      $header.addClass('navbar-inverse').removeClass('transparent').removeClass('nav-active');
+    }
+  }
+  changeNav();
+
+  $(window).resize(function() {
+    setHeight();
+    headlineChange();
+    changeNav();
+  });
+
+});
 
 Template.home.helpers({
-	'hasUniversity': function(){
-		var user = Meteor.user();
-		var university = user.university;
-		if(university!==""){
-			return true;
-		}
-	}
+  'hasUniversity': function() {
+    var user = Meteor.user();
+    var university = user.university;
+    if (university !== "") {
+      return true;
+    }
+  }
 });
 
 Template.home.events({
-	'click .professors': function(){
-		Session.set('onProfessors', true);
-	}
+  'click .professors': function() {
+    Session.set('onProfessors', true);
+  }
 });

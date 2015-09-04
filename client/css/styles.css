@@ -6,7 +6,9 @@ body {
 
 }
 
-
+.btn-group {
+  margin: 1em 0;
+}
 
 #wrapper {
   /*min-height: 790px;*/

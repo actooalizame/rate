@@ -6,7 +6,7 @@
         <div id="fold">
           <div class="row home-items">
             <div class="container">
-              <h1 class="headline">Find <span class="headline-change">what</span> you are looking for</h1>
+              <h1 class="headline">Find <span class="headline-change">what</span> you are looking for {{tlp}}</h1>
             </div>
             <div class="col-sm-4">
               <button class="btn btn-lg btn-info profL">Encuentra Profesores</button>
@@ -17,7 +17,7 @@
             {{#if currentUser}}
               {{#if hasUniversity}}
               <div class="col-sm-4">
-                <a href="/rate" class="btn btn-lg btn-info btn-rate wow pulse">Rate</a>
+                <a href="/rate" class="btn btn-lg btn-info btn-rate">Rate</a>
               </div>
               {{else}}
               <div class="col-sm-4">
