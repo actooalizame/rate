@@ -60,6 +60,7 @@ Meteor.publish('singleSchool', function(schoolId){
 Meteor.publish('myProfReviews', function(){
   var userId = this.userId,
       user = Meteor.users.findOne({_id:userId}),
+      //user = Accounts.findUserById(userId),
       hook = user.hook;
   return Profreviews.find({userId:hook}, {fields:{userId:1,professorId:1,professorName:1,professorSchool:1,professorDepartment:1,help:1,clarity:1,easy:1,createdAt:1}}, {sort:{createdAt:-1}});
 });

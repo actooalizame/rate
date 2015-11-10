@@ -14,5 +14,5 @@ Meteor.startup(function() {
     });
 });
 
-process.env.MAIL_URL="smtp://hermeskikkin%40gmail.com:@smtp.gmail.com:25/";
+process.env.MAIL_URL="smtp://hermeskikkin%40gmail.com:gatibebebueno@smtp.gmail.com:25/";
 
